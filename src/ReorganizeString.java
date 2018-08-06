@@ -15,7 +15,7 @@ public class ReorganizeString {
 		Map<Character, Integer> map = new HashMap<>();
 		for (char ch : S.toCharArray()) {
 			Integer count = map.get(ch);
-			count = (count == null) ? 1 : count + 1;
+			count = (count == null) ? 1 : (count + 1);
 			if (count > (S.length() - 1) / 2 + 1) {
 				return "";
 			}
@@ -52,5 +52,5 @@ public class ReorganizeString {
 	}
 
 	// Time complexity is O(n*log(n)), but O(n) if the alphabet has fixed size.
-	// Space complexity is O(n), but O(1) if the alphabet has fixed size.
+	// Space complexity is O(n).
 }
