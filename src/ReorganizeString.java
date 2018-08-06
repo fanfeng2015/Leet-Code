@@ -24,9 +24,7 @@ public class ReorganizeString {
 
 		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
 				(a, b) -> (b.getValue() - a.getValue()));
-		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-			maxHeap.offer(entry);
-		}
+		maxHeap.addAll(map.entrySet());
 
 		Map.Entry<Character, Integer> entry = maxHeap.poll();
 		StringBuilder[] sbs = new StringBuilder[entry.getValue()];
