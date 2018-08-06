@@ -21,7 +21,7 @@ public class ReorganizeString {
 			}
 			map.put(ch, count);
 		}
-
+		
 		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
 				(a, b) -> (b.getValue() - a.getValue()));
 
