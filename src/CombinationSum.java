@@ -5,6 +5,7 @@ import java.util.List;
 
 // Given a set of candidate numbers (C) (without duplicates) and a target number (T), 
 // find all unique combinations in C where the candidate numbers sums to T.
+
 // The same repeated number may be chosen from C unlimited number of times.
 
 public class CombinationSum {
@@ -25,7 +26,7 @@ public class CombinationSum {
 		}
 		for (int i = start; i < candidates.length; i++) {
 			cur.add(candidates[i]);
-			DFS(candidates, target - candidates[i], cur, result, i);
+			DFS(candidates, target - candidates[i], cur, result, i); // i + 1 if no repetition
 			cur.remove(cur.size() - 1);
 		}
 	}
