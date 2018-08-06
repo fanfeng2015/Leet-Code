@@ -21,4 +21,7 @@ public class CoinChange2 {
 
 	// Time complexity is O(n*amount).
 	// Space complexity is O(amount).
+
+	// Compare LeetCode #518 (Coin Change 2) with LeetCode #377 (Combination Sum
+	// IV).
 }
