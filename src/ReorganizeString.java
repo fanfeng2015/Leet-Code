@@ -26,27 +26,25 @@ public class ReorganizeString {
 				(a, b) -> (b.getValue() - a.getValue()));
 		maxHeap.addAll(map.entrySet());
 
-		Map.Entry<Character, Integer> entry = maxHeap.poll();
-		StringBuilder[] sbs = new StringBuilder[entry.getValue()];
-		for (int i = 0; i < entry.getValue(); i++) {
-			sbs[i] = new StringBuilder();
-			sbs[i].append(entry.getKey());
-		}
-
-		int index = 0;
-		while (!maxHeap.isEmpty()) {
-			entry = maxHeap.poll();
-			for (int i = 0; i < entry.getValue(); i++) {
-				sbs[index].append(entry.getKey());
-				index = (index + 1) % sbs.length;
+		StringBuilder sb = new StringBuilder();
+		while (maxHeap.size() >= 2) {
+			Map.Entry<Character, Integer> first = maxHeap.poll();
+			Map.Entry<Character, Integer> second = maxHeap.poll();
+			sb.append(first.getKey());
+			sb.append(second.getKey());
+			first.setValue(first.getValue() - 1);
+			second.setValue(second.getValue() - 1);
+			if (first.getValue() > 0) {
+				maxHeap.offer(first);
+			}
+			if (second.getValue() > 0) {
+				maxHeap.offer(second);
 			}
 		}
-
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < sbs.length; i++) {
-			result.append(sbs[i]);
+		if (maxHeap.size() > 0) {
+			sb.append(maxHeap.poll().getKey());
 		}
-		return result.toString();
+		return sb.toString();
 	}
 
 	// Time complexity is O(n*log(n)), but O(n) if the alphabet has fixed size.
