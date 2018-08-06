@@ -19,4 +19,7 @@ public class CombinationSum4 {
 
 	// Time complexity is O(n*target).
 	// Space complexity is O(target).
+
+	// Compare LeetCode #377 (Combination Sum IV) with LeetCode #518 (Coin Change
+	// 2).
 }
