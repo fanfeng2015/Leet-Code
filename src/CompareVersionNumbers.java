@@ -19,6 +19,6 @@ public class CompareVersionNumbers {
 		return 0;
 	}
 
-	// Time complexity is O(m+n).
-	// Space complexity is O(m+n).
+	// Time complexity is O(m + n).
+	// Space complexity is O(m + n).
 }
