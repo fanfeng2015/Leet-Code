@@ -11,8 +11,8 @@ import java.util.List;
 public class CombinationSum {
 
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		List<Integer> cur = new ArrayList<>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		DFS(candidates, target, cur, result, 0);
 		return result;
 	}
@@ -36,8 +36,8 @@ public class CombinationSum {
 
 	// LaiCode: Combinations of Coins
 	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		List<Integer> cur = new ArrayList<>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		DFS2(candidates, target, cur, result, 0);
 		return result;
 	}
