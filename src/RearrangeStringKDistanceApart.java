@@ -1,6 +1,8 @@
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 // LeetCode #358 (Rearrange String k Distance Apart).
 
@@ -12,7 +14,14 @@ import java.util.PriorityQueue;
 
 public class RearrangeStringKDistanceApart {
 
-    public String rearrangeString(String s, int k) {
+	public String rearrangeString(String s, int k) {
+		if (s == null || s.length() == 0) {
+			return "";
+		}
+		if (k == 0) {
+			return s;
+		}
+
 		Map<Character, Integer> map = new HashMap<>();
 		for (char ch : s.toCharArray()) {
 			Integer count = map.get(ch);
@@ -22,34 +31,26 @@ public class RearrangeStringKDistanceApart {
 
 		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
 				(a, b) -> (b.getValue() - a.getValue()));
-		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
-			maxHeap.offer(entry);
-		}
+		maxHeap.addAll(map.entrySet());
 
-		Map.Entry<Character, Integer> entry = maxHeap.poll();
-		StringBuilder[] sbs = new StringBuilder[entry.getValue()];
-		for (int i = 0; i < entry.getValue() - 1; i++) {
-			sbs[i] = new StringBuilder();
-			sbs[i].append(entry.getKey());
-		}
-
-		int index = 0;
+		Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
+		StringBuilder sb = new StringBuilder();
 		while (!maxHeap.isEmpty()) {
-			entry = maxHeap.poll();
-			for (int i = 0; i < entry.getValue(); i++) {
-				sbs[index].append(entry.getKey());
-				index = (index + 1) % sbs.length;
+			Map.Entry<Character, Integer> entry = maxHeap.poll();
+			sb.append(entry.getKey());
+			entry.setValue(entry.getValue() - 1);
+			queue.offer(entry);
+			if (queue.size() == k) {
+				entry = queue.poll();
+				if (entry.getValue() > 0) {
+					maxHeap.offer(entry);
+				}
 			}
 		}
 
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < sbs.length; i++) {
-			if (sbs[i].length() < k) {
-				return "";
-			}
-			result.append(sbs[i]);
-		}
-		return result.toString();
-    }
+		return (sb.length() == s.length()) ? sb.toString() : "";
+	}
 	
+	// Time complexity is O(n*log(n)), but O(n) if the alphabet has fixed size.
+	// Space complexity is O(n).
 }
