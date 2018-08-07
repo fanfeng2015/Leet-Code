@@ -45,6 +45,8 @@ public class BullsAndCows {
 	// Solution 2: one pass
 	// Assumption: secret and guess have the same length
 	public String getHint2(String secret, String guess) {
+		// positive count indicates that there are extra chars in secret
+		// negative count indicates that there are extra chars in guess
 		int[] countMap = new int[10];
 		int bulls = 0, cows = 0;
 		for (int i = 0; i < secret.length(); i++) {
