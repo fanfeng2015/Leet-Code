@@ -43,7 +43,7 @@ public class RangeSumQueryMutable {
 			if (j % 2 == 0) {
 				sum += segmentTree[j--];
 			}
-			i /= 1;
+			i /= 2;
 			j /= 2;
 		}
 		return sum;
