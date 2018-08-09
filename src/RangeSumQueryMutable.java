@@ -61,5 +61,4 @@ public class RangeSumQueryMutable {
 	// Time complexity is O(n) to construct the segment tree, O(log(n)) to update
 	// and to query.
 	// Space complexity is O(n).
-
 }
