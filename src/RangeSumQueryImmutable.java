@@ -19,7 +19,7 @@ public class RangeSumQueryImmutable {
 	}
 
 	public int sumRange(int i, int j) {
-		return nums[j] - (i == 0 ? 0 : nums[i - 1]);
+		return nums[j] - (i == 1 ? 0 : nums[i - 1]);
 	}
 
 	// Time complexity is O(1).
