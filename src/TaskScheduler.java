@@ -1,4 +1,9 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 // LeetCode #621 (Task Scheduler).
 
@@ -28,6 +33,48 @@ public class TaskScheduler {
 		return Math.max(tasks.length, (count[25] - 1) * (n + 1) + (25 - index));
 	}
 
-	// Time complexity is O(n).
+	// Time complexity is O(t).
 	// Space complexity is O(1).
+
+	// Similar to LeetCode #767 (Reorganize String) and #358 (Rearrange String k
+	// Distance Apart).
+	public int leastInterval2(char[] tasks, int n) {
+		Map<Character, Integer> map = new HashMap<>();
+		for (char task : tasks) {
+			Integer count = map.get(task);
+			count = (count == null) ? 1 : (count + 1);
+			map.put(task, count);
+		}
+
+		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
+				(a, b) -> (b.getValue() - a.getValue()));
+		maxHeap.addAll(map.entrySet());
+
+		int result = 0;
+		Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
+		while (!maxHeap.isEmpty()) {
+			int cur = n; // current round
+			while (cur >= 0 && !maxHeap.isEmpty()) {
+				cur--;
+				result++;
+				Map.Entry<Character, Integer> entry = maxHeap.poll();
+				entry.setValue(entry.getValue() - 1);
+				queue.offer(entry);
+			}
+			while (!queue.isEmpty()) {
+				Map.Entry<Character, Integer> entry = queue.poll();
+				if (entry.getValue() > 0) {
+					maxHeap.offer(entry);
+				}
+			}
+			// need (cur + 1) idle times as long as this is not the last round
+			if (!maxHeap.isEmpty()) {
+				result = result + cur + 1;
+			}
+		}
+		return result;
+	}
+
+	// Time complexity is O(t).
+	// Space complexity is (1).
 }
