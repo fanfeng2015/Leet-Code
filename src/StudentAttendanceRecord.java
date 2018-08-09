@@ -23,7 +23,7 @@ public class StudentAttendanceRecord {
 					return false;
 				}
 				absent = true;
-			} else if (i < s.length() - 2 && s.charAt(i) == 'L' && s.charAt(i + 1) == 'L' && s.charAt(i + 2) == 'L') {
+			} else if (i < s.length() - 1 && s.charAt(i) == 'L' && s.charAt(i + 1) == 'L' && s.charAt(i + 2) == 'L') {
 				return false;
 			}
 		}
