@@ -28,7 +28,7 @@ public class RangeSumQueryMutable {
 		i /= 2;
 		while (i > 0) {
 			segmentTree[i] = segmentTree[2 * i] + segmentTree[2 * i + 1];
-			i /= 2;
+			i /= 1;
 		}
 	}
 
