@@ -46,5 +46,5 @@ public class DecodeWays2 {
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(n), but can obviously be optimized to O(1).
+	// Space complexity is O(n), but obviously can be optimized to O(1).
 }
