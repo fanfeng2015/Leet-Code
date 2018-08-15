@@ -12,14 +12,12 @@ public class GraphValidTree {
 
 	// Solution 1: Union Find
 	public boolean validTree(int n, int[][] edges) {
-		int cur = n;
 		UnionFind uf = new UnionFind(n);
 		for (int[] edge : edges) {
-			uf.union(edge[0], edge[1]);
-			if (cur - uf.count() == 0) { // cycle detected
+			if (uf.connected(edge[0], edge[1])) { // cycle detected
 				return false;
 			}
-			cur = uf.count();
+			uf.union(edge[0], edge[1]);
 		}
 		return uf.count() == 1;
 	}
