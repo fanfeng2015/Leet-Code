@@ -29,7 +29,7 @@ public class GraphValidTree {
 
 	// Solution 2: DFS (adjacency list)
 	public boolean validTree2(int n, int[][] edges) {
-		List<List<Integer>> adjacencyList = new ArrayList<>(n);
+		List<List<Integer>> adjacencyList = new ArrayList<>();
 		for (int i = 0; i < n; i++) {
 			adjacencyList.add(new ArrayList<>());
 		}
