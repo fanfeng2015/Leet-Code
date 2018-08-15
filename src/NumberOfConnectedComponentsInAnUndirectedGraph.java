@@ -20,6 +20,9 @@ public class NumberOfConnectedComponentsInAnUndirectedGraph {
 		return uf.count();
 	}
 
+	// Time complexity is O(n*log(n)).
+	// Space complexity is O(n).
+
 	// Solution 2: DFS (adjacency list)
 	public int countComponents2(int n, int[][] edges) {
 		List<List<Integer>> adjacencyList = new ArrayList<>();
@@ -49,6 +52,9 @@ public class NumberOfConnectedComponentsInAnUndirectedGraph {
 			}
 		}
 	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 
 	private static class UnionFind {
 
