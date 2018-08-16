@@ -48,7 +48,7 @@ public class SentenceSimilarity2 {
 	// https://algs4.cs.princeton.edu/15uf/WeightedQuickUnionPathCompressionUF.java.html
 	// for the original implementation.
 
-	private static class UnionFind {
+	private class UnionFind {
 
 		private int[] parent; // parent of i
 		private int[] size; // size of the tree rooted at i
