@@ -10,7 +10,7 @@ import java.util.List;
 public class CountOfSmallerNumbersAfterSelf {
 
 	// Solution 1: Merge sort
-	private static class Node {
+	private class Node {
 		int index, val, count = 0;
 
 		Node(int index, int val) {
