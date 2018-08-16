@@ -40,7 +40,7 @@ public class BinarySearchTreeIterator {
 		return result;
 	}
 
-	private static class TreeNode {
+	private class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
