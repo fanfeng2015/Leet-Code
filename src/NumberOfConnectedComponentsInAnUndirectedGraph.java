@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class NumberOfConnectedComponentsInAnUndirectedGraph {
 
-	// Solution 1: Union Find
+	// Solution 1: Union find
 	public int countComponents(int n, int[][] edges) {
 		UnionFind uf = new UnionFind(n);
 		for (int[] edge : edges) {
