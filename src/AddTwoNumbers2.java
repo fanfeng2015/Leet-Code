@@ -53,7 +53,7 @@ public class AddTwoNumbers2 {
 	// Time complexity is O(m + n).
 	// Space complexity is O(1), because reverse() is iterative.
 
-	// Solution 2 (follow up): Use stack
+	// Solution 2 (follow up): Stack
 	public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
 		LinkedList<Integer> stack1 = new LinkedList<>(), stack2 = new LinkedList<>();
 		ListNode head1 = l1, head2 = l2;
