@@ -15,7 +15,7 @@ import java.util.Set;
 
 public class AlienDictionary {
 
-	private static int NUM_LETTERS = 26;
+	private static final int NUM_LETTERS = 26;
 
 	public String alienOrder(String[] words) {
 		int[] incomingDegrees = new int[NUM_LETTERS];
