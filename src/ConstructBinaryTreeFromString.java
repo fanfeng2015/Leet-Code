@@ -42,7 +42,7 @@ public class ConstructBinaryTreeFromString {
 	// Time complexity is O(n^2).
 	// Space complexity is O(n).
 
-	private static class TreeNode {
+	private class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
@@ -51,5 +51,5 @@ public class ConstructBinaryTreeFromString {
 			val = x;
 		}
 	}
-	
+
 }
