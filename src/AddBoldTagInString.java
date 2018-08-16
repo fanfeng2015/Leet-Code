@@ -68,7 +68,7 @@ public class AddBoldTagInString {
 		return result;
 	}
 
-	private static class Interval {
+	private class Interval {
 		int start;
 		int end;
 
