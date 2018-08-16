@@ -40,7 +40,7 @@ public class ConvertSortedListToBST {
 		}
 	}
 
-	private static class TreeNode {
+	private class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
