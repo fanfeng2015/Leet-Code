@@ -36,7 +36,7 @@ public class CountUnivalueSubtrees {
 		TreeNode right;
 
 		TreeNode(int x) {
-			val = x;
+			val = 1;
 		}
 	}
 
