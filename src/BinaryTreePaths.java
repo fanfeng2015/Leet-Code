@@ -37,7 +37,7 @@ public class BinaryTreePaths {
 	// Time complexity is O(n), because append() of StringBuilder takes O(1) time.
 	// Space complexity is O(n), when the binary tree is highly unbalanced.
 
-	private static class TreeNode {
+	private class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
