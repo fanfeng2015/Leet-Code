@@ -56,7 +56,7 @@ public class GraphValidTree {
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 
-	private static class UnionFind {
+	private class UnionFind {
 
 		private int[] parent; // parent of i
 		private int[] size; // size of the tree rooted at i
