@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class GraphValidTree {
 
-	// Solution 1: Union Find
+	// Solution 1: Union find
 	public boolean validTree(int n, int[][] edges) {
 		UnionFind uf = new UnionFind(n);
 		for (int[] edge : edges) {
