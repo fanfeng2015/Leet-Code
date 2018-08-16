@@ -23,7 +23,7 @@ public class ConvertSortedArrayToBST {
 	// Time complexity is O(n).
 	// Space complexity is O(log(n)).
 
-	private static class TreeNode {
+	private class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
