@@ -14,7 +14,7 @@
 
 public class BullsAndCows {
 
-	// Solution 1: two passes
+	// Solution 1: Two passes
 	// Assumption: secret and guess don't need to have the same length
 	public String getHint(String secret, String guess) {
 		int[] countMap = new int[10];
@@ -42,7 +42,7 @@ public class BullsAndCows {
 	// Time complexity is O(m + n).
 	// Space complexity is O(1).
 
-	// Solution 2: one pass
+	// Solution 2: One pass
 	// Assumption: secret and guess have the same length
 	public String getHint2(String secret, String guess) {
 		// positive count indicates that there are extra chars in secret
