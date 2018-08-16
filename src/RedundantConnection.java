@@ -33,7 +33,7 @@ public class RedundantConnection {
 		return new int[] { -1, -1 };
 	}
 
-	private static class UnionFind {
+	private class UnionFind {
 
 		private int[] parent; // parent of i
 		private int[] size; // size of the tree rooted at i
