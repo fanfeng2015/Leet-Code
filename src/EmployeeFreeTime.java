@@ -40,7 +40,7 @@ public class EmployeeFreeTime {
 	// Time complexity is O(n*log(n)), where n is the total number of intervals.
 	// Space complexity is O(n).
 
-	private static class Interval {
+	private class Interval {
 		int start;
 		int end;
 
