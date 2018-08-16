@@ -18,7 +18,7 @@ import java.util.PriorityQueue;
 
 public class MinimizeMaxDistanceToGasStation {
 
-	// Solution 1: priority queue (TLE)
+	// Solution 1: Priority queue (TLE)
 	public double minmaxGasDist(int[] stations, int K) {
 		PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
 				(a, b) -> ((double) b[0] / b[1]) < (double) a[0] / a[1] ? -1 : 1);
@@ -37,7 +37,7 @@ public class MinimizeMaxDistanceToGasStation {
 	// Time complexity is O(n*log(n) + k*log(n)).
 	// Space complexity is O(n).
 
-	// Solution 2: binary search
+	// Solution 2: Binary search
 	public double minmaxGasDist2(int[] stations, int K) {
 		double left = 0, right = 1e8;
 		while (right - left > 1e-6) {
