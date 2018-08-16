@@ -34,7 +34,7 @@ public class LongestUnivaluePath {
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 
-	private static class TreeNode {
+	private class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
