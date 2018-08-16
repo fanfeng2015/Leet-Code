@@ -14,7 +14,7 @@ import java.util.LinkedList;
 // Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
 // Output: 7 -> 8 -> 0 -> 7
 
-// Follow-up: What if you cannot modify the input lists? In other words, reversing the lists is
+// Follow up: What if you cannot modify the input lists? In other words, reversing the lists is
 // not allowed.
 
 public class AddTwoNumbers2 {
@@ -53,7 +53,7 @@ public class AddTwoNumbers2 {
 	// Time complexity is O(m + n).
 	// Space complexity is O(1), because reverse() is iterative.
 
-	// Solution 2: Follow-up: Use stack
+	// Solution 2 (follow up): Use stack
 	public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
 		LinkedList<Integer> stack1 = new LinkedList<>(), stack2 = new LinkedList<>();
 		ListNode head1 = l1, head2 = l2;
