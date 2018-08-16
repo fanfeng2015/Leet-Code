@@ -53,7 +53,7 @@ public class AddAndSearchWord {
 		return false;
 	}
 
-	private static class TrieNode {
+	private class TrieNode {
 		int n = 26;
 		boolean isWord;
 		TrieNode[] children = new TrieNode[n];
