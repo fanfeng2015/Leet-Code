@@ -13,12 +13,13 @@
 
 public class RangeSumQueryMutable {
 
-	int n;
-	int[] segmentTree;
+	// Solution 1: Segment tree
+	private int n;
+	private int[] segmentTree;
 
 	public RangeSumQueryMutable(int[] nums) {
 		this.n = nums.length;
-		segmentTree = new int[2 * n];
+		this.segmentTree = new int[2 * n];
 		constructSegmentTree(nums);
 	}
 
@@ -58,7 +59,56 @@ public class RangeSumQueryMutable {
 		}
 	}
 
-	// Time complexity is O(n) to construct the segment tree, O(log(n)) to update
+	// Time complexity is O(n) to construct the segment tree and O(log(n)) to update
 	// and to query.
 	// Space complexity is O(n).
+
+/*
+	// Solution 2: Binary indexed tree
+	private int n;
+	private int[] nums;
+	private int[] binaryIndexedTree;
+
+	public RangeSumQueryMutable(int[] nums) {
+		this.n = nums.length;
+		this.nums = nums;
+		binaryIndexedTree = new int[n + 1];
+		for (int i = 0; i < n; i++) {
+			initialize(i, nums[i]);
+		}
+	}
+
+	private void initialize(int i, int val) {
+		i++;
+		while (i <= n) {
+			binaryIndexedTree[i] += val;
+			i += (i & -i); // next closest in [ 1, 2, 4, 8, 16, ... ]
+		}
+	}
+
+	public void update(int i, int val) {
+		int diff = val - nums[i];
+		nums[i] = val;
+		initialize(i, diff);
+	}
+
+	public int sumRange(int i, int j) {
+		return findSum(j) - findSum(i - 1);
+	}
+
+	private int findSum(int i) {
+		int sum = 0;
+		i++;
+		while (i > 0) {
+			sum += binaryIndexedTree[i];
+			i -= (i & -i);
+		}
+		return sum;
+	}
+
+	// Time complexity is O(n*log(n)) to construct the segment tree and O(log(n)) to
+	// update and to query.
+	// Space complexity is O(n).
+*/
+
 }
