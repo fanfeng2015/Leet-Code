@@ -22,6 +22,6 @@ public class RangeSumQueryImmutable {
 		return nums[j] - (i == 0 ? 0 : nums[i - 1]);
 	}
 
-	// Time complexity is O(1).
-	// Space complexity is O(n).
+	// Time complexity is O(n) to construct and O(1) to query.
+	// Space complexity is O(1).
 }
