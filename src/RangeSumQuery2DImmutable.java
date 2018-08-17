@@ -31,6 +31,6 @@ public class RangeSumQuery2DImmutable {
 		return matrix[row2][col2] - left - top + missing;
 	}
 
-	// Time complexity is O(m*n) to construct the matrix and O(1) to query.
+	// Time complexity is O(m*n) to construct and O(1) to query.
 	// Space complexity is O(1).
 }
