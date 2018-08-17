@@ -62,4 +62,7 @@ public class RangeSumQuery2DMutable {
 		return sum;
 	}
 
+	// Time complexity is O(m * n * log(m) * log(n)) to construct the binary indexed
+	// tree and O(log(m) * log(n)) to update and to query.
+	// Space complexity is O(m * n).
 }
