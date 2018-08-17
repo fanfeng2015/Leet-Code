@@ -34,7 +34,6 @@ public class OptimalAccountBalancing {
 		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 			if (entry.getValue() != 0) {
 				balance.add(entry.getValue());
-
 			}
 		}
 		return DFS(balance, 0);
@@ -42,8 +41,11 @@ public class OptimalAccountBalancing {
 
 	private int DFS(List<Integer> balance, int cur) {
 		int min = Integer.MAX_VALUE;
+		while (cur < balance.size() && balance.get(cur) == 0) {
+			cur++;
+		}
 		for (int i = cur + 1; i < balance.size(); i++) {
-			if (balance.get(cur) * balance.get(i) < 0 && (i == cur + 1 || balance.get(i) != balance.get(i - 1))) {
+			if (balance.get(cur) * balance.get(i) < 0) {
 				balance.set(i, balance.get(i) + balance.get(cur));
 				min = Math.min(min, 1 + DFS(balance, cur + 1));
 				balance.set(i, balance.get(i) - balance.get(cur));
@@ -52,4 +54,6 @@ public class OptimalAccountBalancing {
 		return (min == Integer.MAX_VALUE) ? 0 : min;
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
