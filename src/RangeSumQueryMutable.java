@@ -67,29 +67,25 @@ public class RangeSumQueryMutable {
 	// Solution 2: Binary indexed tree
 	private int n;
 	private int[] nums;
-	private int[] binaryIndexedTree;
+	private int[] bit;
 
 	public RangeSumQueryMutable(int[] nums) {
 		this.n = nums.length;
-		this.nums = nums;
-		binaryIndexedTree = new int[n + 1];
+		this.nums = new int[n];
+		bit = new int[n + 1];
 		for (int i = 0; i < n; i++) {
-			initialize(i, nums[i]);
-		}
-	}
-
-	private void initialize(int i, int val) {
-		i++;
-		while (i <= n) {
-			binaryIndexedTree[i] += val;
-			i += (i & -i); // next closest in [ 1, 2, 4, 8, 16, ... ]
+			update(i, nums[i]);
 		}
 	}
 
 	public void update(int i, int val) {
 		int diff = val - nums[i];
 		nums[i] = val;
-		initialize(i, diff);
+		i++;
+		while (i <= n) {
+			bit[i] += diff;
+			i += (i & -i); // 1->2, 2->4, 3->4, 4->8, 5->6, 6->8, 7->8, ...
+		}
 	}
 
 	public int sumRange(int i, int j) {
@@ -100,8 +96,8 @@ public class RangeSumQueryMutable {
 		int sum = 0;
 		i++;
 		while (i > 0) {
-			sum += binaryIndexedTree[i];
-			i -= (i & -i);
+			sum += bit[i];
+			i -= (i & -i); // 8->0, 7->6, 6->4, 5->4, 4->0, 3->2, 2->0, 1->0, ...
 		}
 		return sum;
 	}
@@ -110,5 +106,4 @@ public class RangeSumQueryMutable {
 	// update and to query.
 	// Space complexity is O(n).
 */
-
 }
