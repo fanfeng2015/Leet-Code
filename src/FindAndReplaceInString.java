@@ -2,6 +2,9 @@ import java.util.Arrays;
 
 // LeetCode #833 (Find And Replace in String).
 
+// To some string S, we will perform some replacement operations that replace groups of letters
+// with new ones (not necessarily the same size).
+
 public class FindAndReplaceInString {
 
 	public String findReplaceString(String S, int[] indexes, String[] sources, String[] targets) {
