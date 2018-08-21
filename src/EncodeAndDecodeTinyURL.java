@@ -18,5 +18,7 @@ public class EncodeAndDecodeTinyURL {
 	public String decode(String shortUrl) {
 
 	}
+	
+	// Time complexity is .
 
 }
