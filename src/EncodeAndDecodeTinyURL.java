@@ -12,11 +12,11 @@
 public class EncodeAndDecodeTinyURL {
 
 	public String encode(String longUrl) {
-
+		return "";
 	}
 
 	public String decode(String shortUrl) {
-
+		return "";
 	}
 	
 	// Time complexity is .
