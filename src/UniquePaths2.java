@@ -1,6 +1,7 @@
 // LeetCode #63 (Unique Paths II).
 
 // Now consider if some obstacles are added to the grids. How many unique paths could there be?
+
 // An obstacle and empty space is marked as 1 and 0 respectively in the grid.
 
 public class UniquePaths2 {
