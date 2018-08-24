@@ -28,5 +28,6 @@ public class FindMinimumInRotatedSortedArray2 {
 
 	// Time complexity is O(n) in the worst case, when array is not rotated.
 	// Otherwise, time complexity is O(log(n)).
+	
 	// Space complexity is O(1).
 }
