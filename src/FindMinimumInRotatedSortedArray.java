@@ -27,7 +27,7 @@ public class FindMinimumInRotatedSortedArray {
 				return left;
 			}
 		}
-		return nums[left] <= nums[right] ? left : right;
+		return Math.min(nums[left], nums[right]);
 	}
 
 	// Time complexity is O(log(n)).
