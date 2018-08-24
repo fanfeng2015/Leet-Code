@@ -24,7 +24,7 @@ public class FindMinimumInRotatedSortedArray {
 			} else if (nums[mid] > nums[right]) {
 				left = mid;
 			} else {
-				return left;
+				return nums[left];
 			}
 		}
 		return Math.min(nums[left], nums[right]);
