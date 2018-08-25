@@ -1,10 +1,10 @@
 // LeetCode #169 (Majority Element).
 
-// Given an integer array of length L, find the number that occurs more than 0.5 * L times.
+// Given an array of size n, find the majority element. The majority element is
+// the element that appears more than ⌊ n/2 ⌋ times.
 
-// Assumptions:
-// 1. The given array is not null or empty
-// 2. It is guaranteed there exists such a majority number
+// You may assume that the array is non-empty and the majority element always 
+// exists in the array.
 
 public class MajorityElement {
 
