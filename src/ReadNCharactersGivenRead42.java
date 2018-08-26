@@ -25,4 +25,3 @@ public class ReadNCharactersGivenRead42 extends Reader4 {
 	}
 
 }
-
