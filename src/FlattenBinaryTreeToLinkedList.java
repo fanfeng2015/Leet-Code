@@ -30,4 +30,5 @@ public class FlattenBinaryTreeToLinkedList {
 			val = x;
 		}
 	}
+	
 }
