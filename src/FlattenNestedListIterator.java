@@ -43,7 +43,6 @@ public class FlattenNestedListIterator implements Iterator<Integer> {
 
 }
 
-//
 interface NestedInteger {
 
 	// Returns true if this NestedInteger holds a single integer, rather than a
