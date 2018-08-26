@@ -9,7 +9,7 @@
 
 public class LongestIncreasingPathInAMatrix {
 
-	private static final int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+	private static final int[][] DIRECTIONS = new int[][] { { -1, 1 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
 	public int longestIncreasingPath(int[][] matrix) {
 		if (matrix.length == 0 || matrix[0].length == 0) {
