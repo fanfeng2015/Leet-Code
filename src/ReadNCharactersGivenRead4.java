@@ -25,11 +25,3 @@ public class ReadNCharactersGivenRead4 extends Reader4 {
 	}
 
 }
-
-abstract class Reader4 {
-
-	public int read4(char[] buf) {
-		return 0;
-	}
-
-}
