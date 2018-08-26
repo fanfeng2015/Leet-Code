@@ -26,7 +26,7 @@ public class LongestIncreasingPathInAMatrix {
 		return max;
 	}
 
-	// Returns length of the longest increasing path starting from [i, j].
+	// Returns length of the longest increasing path starting from (i, j).
 	private int DFS(int[][] matrix, int[][] memoization, int i, int j) {
 		int m = matrix.length, n = matrix[0].length;
 		if (memoization[i][j] != 0) {
