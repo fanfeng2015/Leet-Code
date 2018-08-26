@@ -30,8 +30,7 @@ public class FirstUniqueCharacterInAString {
 	// Space complexity is O(n), but is obviously bounded by the number of possible
 	// characters.
 
-	// Follow up: what if chars are give as data stream?
-	// LinkedHashMap
+	// Follow up: What if chars are give as data stream? LinkedHashMap
 	public int firstUniqChar2(String s) {
 		Map<Character, Integer> map = new LinkedHashMap<>();
 		Set<Character> set = new HashSet<>();
