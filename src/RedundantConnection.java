@@ -32,5 +32,7 @@ public class RedundantConnection {
 		}
 		return new int[] { -1, -1 };
 	}
-
+	
+	// Time complexityt is O(n*log(n)).
+	// Space complexity is O(1).
 }
