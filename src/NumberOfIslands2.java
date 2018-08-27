@@ -28,7 +28,7 @@ public class NumberOfIslands2 {
 			for (int[] direction : DIRECTIONS) {
 				int newRow = row + direction[0];
 				int newCol = col + direction[1];
-				if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && grid[newRow][newCol] == '1') {
+				if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && grid[newRow][newCol] == 1) {
 					unionFind.union(row * n + col, newRow * n + newCol);
 				}
 			}
