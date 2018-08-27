@@ -69,7 +69,7 @@ public class NumberOfIslands {
 
 	// Follow up: LeetCode #305 (Number of Islands II).
 
-	public class UnionFind {
+	private class UnionFind {
 
 		private int[] parent; // parent of i
 		private int[] size; // size of the tree rooted at i
