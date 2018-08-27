@@ -30,4 +30,6 @@ public class CountUnivalueSubtrees {
 		return (root.left == null || root.val == root.left.val) && (root.right == null || root.val == root.right.val);
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n), when the binary tree is highly unbalanced.
 }
