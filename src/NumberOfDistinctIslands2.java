@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class NumberOfDistinctIslands2 {
 
-	private int[][] directions = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+	private int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
 	public int numDistinctIslands(int[][] grid) {
 		int m = grid.length, n = grid[0].length;
@@ -41,7 +41,7 @@ public class NumberOfDistinctIslands2 {
 		if (row >= 0 && row < m && col >= 0 && col < n && grid[row][col] == 1) {
 			grid[row][col] = 0;
 			coordinates.add(row * n + col);
-			for (int[] direction : directions) {
+			for (int[] direction : DIRECTIONS) {
 				DFS(grid, row + direction[0], col + direction[1], coordinates);
 			}
 		}
