@@ -26,14 +26,4 @@ public class AddTwoNumbers {
 
 	// Time complexity is O(m + n).
 	// Space complexity is O(1).
-
-	private class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
-
 }
