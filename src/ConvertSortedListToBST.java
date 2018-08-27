@@ -30,16 +30,7 @@ public class ConvertSortedListToBST {
 
 	// Time complexity is O(n*log(n)).
 	// Space complexity is O(log(n)).
-
-	private class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
-
+	
 	private class TreeNode {
 		int val;
 		TreeNode left;
