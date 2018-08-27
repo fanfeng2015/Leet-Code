@@ -43,7 +43,7 @@ public class NumberOfIslands {
 	// Space complexity is O(m*n), because of call-stack.
 
 	// Solution 2: Union Find
-	private int[][] directions = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
+	private static final int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
 	public int numIslands2(char[][] grid) {
 		int m = grid.length, n = grid[0].length;
@@ -51,7 +51,7 @@ public class NumberOfIslands {
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == '1') {
-					for (int[] direction : directions) {
+					for (int[] direction : DIRECTIONS) {
 						int row = i + direction[0];
 						int col = j + direction[1];
 						if (row >= 0 && row < m && col >= 0 && col < n && grid[row][col] == '1') {
