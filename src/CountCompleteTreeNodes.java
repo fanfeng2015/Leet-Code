@@ -26,15 +26,4 @@ public class CountCompleteTreeNodes {
 
 	// Time complexity is O(log(n)*log(n)).
 	// Space complexity is O(log(n)).
-
-	private class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
 }
