@@ -71,5 +71,5 @@ public class BoundaryOfBinaryTree {
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(n), when binary tree is highly unbalanced.
+	// Space complexity is O(n), when the binary tree is highly unbalanced.
 }
