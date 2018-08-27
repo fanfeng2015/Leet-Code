@@ -15,7 +15,7 @@ public class BinaryTreeLongestConsecutiveSequence {
 		return max;
 	}
 
-	// returns length of the longest consecutive sequence starting from root
+	// Returns length of the longest consecutive sequence starting from root.
 	private int helper(TreeNode root) {
 		if (root == null) {
 			return 0;
