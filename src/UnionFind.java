@@ -1,3 +1,10 @@
+// Implementation of the Union Find data structure, using weighted quick union
+// (by size) with full path compression.
+
+// See
+// https://algs4.cs.princeton.edu/15uf/WeightedQuickUnionPathCompressionUF.java.html
+// for the original implementation.
+
 public class UnionFind {
 
 	private int[] parent; // parent of i
