@@ -30,14 +30,4 @@ public class CountUnivalueSubtrees {
 		return (root.left == null || root.val == root.left.val) && (root.right == null || root.val == root.right.val);
 	}
 
-	private class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
-
 }
