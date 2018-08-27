@@ -9,29 +9,36 @@
 
 public class MaxAreaOfIsland {
 
+	private int cur;
+
 	public int maxAreaOfIsland(int[][] grid) {
 		int m = grid.length, n = grid[0].length;
 		int max = 0;
 		for (int i = 0; i < m; i++) {
 			for (int j = 0; j < n; j++) {
 				if (grid[i][j] == 1) {
-					max = Math.max(max, maxAreaOfIsland(grid, i, j));
+					cur = 0;
+					DFS(grid, i, j);
+					max = Math.max(max, cur);
 				}
 			}
 		}
 		return max;
 	}
 
-	private int maxAreaOfIsland(int[][] grid, int row, int col) {
+	private void DFS(int[][] grid, int row, int col) {
 		int m = grid.length, n = grid[0].length;
-		if (row >= 0 && row < m && col >= 0 && col < n && grid[row][col] == 1) {
-			grid[row][col] = 0;
-			return 1 + maxAreaOfIsland(grid, row - 1, col) + maxAreaOfIsland(grid, row, col + 1)
-					+ maxAreaOfIsland(grid, row + 1, col) + maxAreaOfIsland(grid, row, col - 1);
+		if (row < 0 || row >= m || col < 0 || col >= n || grid[row][col] == 0) {
+			return;
 		}
-		return 0;
+		cur++;
+		grid[row][col] = 0;
+		DFS(grid, row - 1, col);
+		DFS(grid, row, col + 1);
+		DFS(grid, row + 1, col);
+		DFS(grid, row, col - 1);
 	}
-	
+
 	// Time complexity is O(m*n).
 	// Space complexity is O(m*n).
 }
