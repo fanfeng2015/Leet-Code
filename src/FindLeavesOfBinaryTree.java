@@ -17,6 +17,7 @@ public class FindLeavesOfBinaryTree {
 		return result;
 	}
 
+	// Returns height of the tree rooted at root.
 	private int findLeaves(TreeNode root, List<List<Integer>> result) {
 		if (root == null) {
 			return -1;
@@ -32,15 +33,5 @@ public class FindLeavesOfBinaryTree {
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(n), when the Fbinary tree is highly unbalanced.
-
-	private class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
+	// Space complexity is O(n), when the binary tree is highly unbalanced.
 }
