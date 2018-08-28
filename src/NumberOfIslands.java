@@ -40,7 +40,7 @@ public class NumberOfIslands {
 	}
 
 	// Time complexity is O(m*n).
-	// Space complexity is O(m*n), because of call-stack.
+	// Space complexity is O(m*n), because of call stack.
 
 	// Solution 2: Union Find
 	private static final int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
