@@ -6,7 +6,7 @@
 // bool search(word)
 
 // search(word) can search a literal word or a regular expression string 
-// containing only letters a-z or .. 
+// containing only letters 'a' - 'z' or .. 
 
 // A . means it can represent any one letter.
 
@@ -59,4 +59,14 @@ public class AddAndSearchWord {
 		TrieNode[] children = new TrieNode[n];
 	}
 
+	// Time complexity is O(n) for add(...), and O(26^n) for search(...).
+	// Space complexity is O(k*n).
+
+	// Follow up: Optimize search(...)?
+
+	// Make each TrieNode have 27 children ('a' - 'z' and '.'). When adding a word,
+	// add to both the current char and to '.'.
+
+	// Time complexity is O(2^n) for add(...), and O(n).
+	// Space complexity is O(k*n).
 }
