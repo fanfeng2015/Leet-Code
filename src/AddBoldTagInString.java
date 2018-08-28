@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 // LeetCode #616 (Add Bold Tag in String).
@@ -53,7 +52,7 @@ public class AddBoldTagInString {
 	// Time complexity is O(n*log(n)), where n = size of intervals.
 	// Space complexity is O(n), because of merge sort.
 	private List<Interval> merge(List<Interval> intervals) {
-		Collections.sort(intervals, new IntervalComparator());
+		Collections.sort(intervals, (a, b) -> (a.start - b.start));
 		List<Interval> result = new ArrayList<>();
 		for (Interval interval : intervals) {
 			Interval lastInterval = result.size() == 0 ? null : result.get(result.size() - 1);
@@ -66,26 +65,6 @@ public class AddBoldTagInString {
 			}
 		}
 		return result;
-	}
-
-	private class Interval {
-		int start;
-		int end;
-
-		Interval(int start, int end) {
-			this.start = start;
-			this.end = end;
-		}
-	}
-
-	private class IntervalComparator implements Comparator<Interval> {
-		@Override
-		public int compare(Interval i1, Interval i2) {
-			if (i1.start == i2.start) {
-				return 0;
-			}
-			return i1.start < i2.start ? -1 : 1;
-		}
 	}
 
 }
