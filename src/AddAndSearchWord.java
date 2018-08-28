@@ -12,10 +12,10 @@
 
 public class AddAndSearchWord {
 
-	TrieNode root = new TrieNode();
+	TrieNode root;
 
 	public AddAndSearchWord() {
-
+		root = new TrieNode();
 	}
 
 	public void addWord(String word) {
