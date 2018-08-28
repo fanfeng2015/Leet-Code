@@ -16,7 +16,7 @@ import java.util.List;
 public class EmployeeFreeTime {
 
 	public List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
-		List<int[]> events = new ArrayList<>(); // [ time, 0/1 ]
+		List<int[]> events = new ArrayList<>(); // [time, 0/1]
 		for (List<Interval> employee : schedule) {
 			for (Interval interval : employee) {
 				events.add(new int[] { interval.start, 0 });
@@ -39,14 +39,4 @@ public class EmployeeFreeTime {
 
 	// Time complexity is O(n*log(n)), where n is the total number of intervals.
 	// Space complexity is O(n).
-
-	private class Interval {
-		int start;
-		int end;
-
-		Interval(int s, int e) {
-			start = s;
-			end = e;
-		}
-	}
 }
