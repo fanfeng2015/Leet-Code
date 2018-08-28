@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.Comparator;
 
 // LeetCode #252 (Meeting Rooms).
 
