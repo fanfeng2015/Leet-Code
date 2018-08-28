@@ -14,8 +14,8 @@ public class DecodeWays {
 		int[] array = new int[s.length()];
 		array[0] = s.charAt(0) == '0' ? 0 : 1;
 		for (int i = 1; i < s.length(); i++) {
-			array[i] = (s.charAt(i) == '0') ? 0 : array[i - 1];
-			int value = Integer.parseInt(s.substring(i - 1, i + 1));
+			array[i] = (s.charAt(i) == '0') ? 0 : array[i - 1]; // one digit
+			int value = Integer.parseInt(s.substring(i - 1, i + 1)); // two digits
 			if (value >= 10 && value <= 26) {
 				array[i] += (i == 1) ? 1 : array[i - 2];
 			}
