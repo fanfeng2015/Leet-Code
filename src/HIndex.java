@@ -22,7 +22,7 @@ public class HIndex {
 
 	// Solution 2: Sort first, then for i = n, ..., 0, run binary search to find
 	// the index of the greatest number smaller than i, return the first i such
-	// that index < n - i --> O(n * log(n)) time, O(1) space.
+	// that index < n - i.
 	public int hIndex(int[] citations) {
 		int n = citations.length;
 		Arrays.sort(citations);
@@ -46,6 +46,9 @@ public class HIndex {
 		}
 		return (target <= citations[left]) ? left - 1 : (target <= citations[right]) ? left : right;
 	}
+
+	// Time complexity is O(n * log(n)).
+	// Space complexity is O(1).
 
 	// Solution 3: Bucket sort
 	public int hIndex2(int[] citations) {
