@@ -28,4 +28,6 @@ public class MaximumSizeSubarraySumEqualsK {
 		return max;
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
