@@ -53,12 +53,6 @@ public class AddAndSearchWord {
 		return false;
 	}
 
-	private class TrieNode {
-		int n = 26;
-		boolean isWord;
-		TrieNode[] children = new TrieNode[n];
-	}
-
 	// Time complexity is O(n) for add(...), and O(26^n) for search(...).
 	// Space complexity is O(k*n).
 
