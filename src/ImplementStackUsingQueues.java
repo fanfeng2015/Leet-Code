@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 public class ImplementStackUsingQueues {
 
+	// Can only use offerLast(), pollFirst() and peekFirst().
 	LinkedList<Integer> queue = new LinkedList<>();
 
 	public ImplementStackUsingQueues() {
