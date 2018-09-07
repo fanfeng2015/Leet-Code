@@ -41,11 +41,3 @@ public class FindTheCelebrity extends Relation {
 	// Space complexity is O(1).
 
 }
-
-abstract class Relation {
-
-	public boolean knows(int a, int b) {
-		return true;
-	}
-
-}
