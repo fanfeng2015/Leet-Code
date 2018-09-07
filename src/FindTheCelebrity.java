@@ -41,3 +41,4 @@ public class FindTheCelebrity extends Relation {
 	// Space complexity is O(1).
 
 }
+
