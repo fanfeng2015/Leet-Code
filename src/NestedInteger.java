@@ -1,6 +1,6 @@
 import java.util.List;
 
-public interface NestedInteger {
+interface NestedInteger {
 
 	// Returns true if this NestedInteger holds a single integer, rather than a
 	// nested list.
