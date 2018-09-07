@@ -4,9 +4,9 @@
 
 // Notes: There are 3 possiblities to satisify one edit distance apart:
 
-// Insert a character into s to get t.
-// Delete a character from s to get t.
-// Replace a character of s to get t.
+// 1. Insert a character into s to get t.
+// 2. Delete a character from s to get t.
+// 3. Replace a character of s to get t.
 
 public class OneEditDistance {
 
