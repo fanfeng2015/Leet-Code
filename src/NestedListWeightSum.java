@@ -25,6 +25,6 @@ public class NestedListWeightSum {
 		return sum[0];
 	}
 
-	// Time complexity is O(n).
+	// Time complexity is O(n), where n is the total number of integers.
 	// Space complexity is O(n), because of call-stack.
 }
