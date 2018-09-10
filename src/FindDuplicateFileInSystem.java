@@ -45,4 +45,29 @@ public class FindDuplicateFileInSystem {
 
 	// Time complexity is O(n*k).
 	// Space complexity is O(n*k).
+
+	// Follow up:
+
+	// 1. Imagine you are given a real file system, how will you search files?
+	// Answer: DFS if file system is not too deep. BFS if branching factor is not
+	// too large.
+
+	// 2. If the file content is very large (GB), how will you modify your solution?
+	// Answer: Use metadata, { file size: file content }. Then we only need to hash
+	// the file content when there are more than one file with the same size.
+
+	// 3. If you can only read the file by 1KB each time, how will you modify your
+	// solution?
+	// Answer: a. Increase heap size if possible. b. Change buffer size to 1KB to
+	// make memory more efficient.
+
+	// 4. What is the time complexity of your modified solution? What is the most
+	// time-consuming part and memory consuming part of it? How to optimize?
+	// Answer: Hashing. Instead of hashing, use checksum in GFS. GFS stores large
+	// files in chunks. Each chunk has meta data including file name, file size,
+	// index and checksum of each chunk, etc. This introduces false positive since
+	// two different chunks can have the same checksum.
+
+	// 5. How to make sure the duplicated files you find are not false positive?
+	// Answer: Check the files chunk by chunk.
 }
