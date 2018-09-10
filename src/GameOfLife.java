@@ -54,8 +54,16 @@ public class GameOfLife {
 	// Time complexity is O(m*n).
 	// Space complexity is O(m*n).
 
-	// Follow-up: Could you solve it in-place?
-	// Answer: Use the second least bit to store the next state,
-	// In the first pass, compute the next state; in the second pass, shift all
-	// values to the right by one bit.
+	// Follow up: Could you solve it in-place?
+	// Answer: Use the second least bit to store the next state. In the first pass,
+	// compute the next state. In the second pass, shift all values to the right by
+	// one bit.
+
+	// Follow up: What if the board is too large to fit in memory all at once?
+	// Answer: Initially read 3 rows into memory, then read the remaining rows one
+	// by one.
+
+	// Follow up: What if the board is infinitely large?
+	// Answer: Clarify what format input is of. { (Xi, Yi), ... }, then for each
+	// cell, count how many of its 8 neighboring cells are in the set.
 }
