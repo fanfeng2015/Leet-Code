@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 // LeetCode #39 (Combination Sum).
@@ -68,4 +69,34 @@ public class CombinationSum {
 
 	// Time complexity is O(target^n), ignoring time that add(...) takes.
 	// Space complexity is O(n).
+
+	// DP
+	// M[i]: List of all combinations that sum to i.
+	public List<List<Integer>> combinationSum3(int[] candidates, int target) {
+		Arrays.sort(candidates);
+		List<List<List<Integer>>> result = new ArrayList<>();
+		for (int i = 0; i <= target; i++) {
+			List<List<Integer>> cur = new ArrayList<>();
+			for (int j = 0; j < candidates.length && candidates[j] <= i; j++) {
+				if (candidates[j] == i) {
+					cur.add(Arrays.asList(candidates[j]));
+				} else {
+					List<List<Integer>> prev = result.get(i - candidates[j]);
+					for (List<Integer> combo : prev) {
+						if (candidates[j] <= combo.get(0)) {
+							List<Integer> temp = new ArrayList<>();
+							temp.add(candidates[j]);
+							temp.addAll(combo);
+							cur.add(temp);
+						}
+					}
+				}
+			}
+			result.add(cur);
+		}
+		return result.get(target);
+	}
+
+	// Time complexity is O(target * n * combo).
+	// Space complexity is O(target * combo).
 }
