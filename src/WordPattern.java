@@ -8,6 +8,9 @@ import java.util.Map;
 // Here follow means a full match, such that there is a bijection between a letter in pattern and a 
 // non-empty word in str.
 
+// Note: You may assume pattern contains only lowercase letters, and str contains lowercase letters'
+// separated by a single space.
+
 public class WordPattern {
 
 	// Same as LeetCode #205 (Isomorphic Strings).
