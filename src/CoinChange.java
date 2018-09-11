@@ -21,7 +21,7 @@ public class CoinChange {
 				}
 			}
 		}
-		return M[amount] == amount + 1 ? -1 : M[amount];
+		return (M[amount] == amount + 1) ? -1 : M[amount];
 	}
 
 	// Time complexity is O(n*amount).
