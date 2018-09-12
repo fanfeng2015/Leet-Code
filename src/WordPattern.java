@@ -19,15 +19,15 @@ public class WordPattern {
 		if (pattern.length() != words.length) {
 			return false;
 		}
-		Map<Character, String> patternToStr = new HashMap<>();
-		Map<String, Character> strToPattern = new HashMap<>();
+		Map<Character, String> charToStr = new HashMap<>();
+		Map<String, Character> strToChar = new HashMap<>();
 		for (int i = 0; i < pattern.length(); i++) {
-			String s = patternToStr.get(pattern.charAt(i));
-			Character ch = strToPattern.get(words[i]);
-			if (s == null && ch == null) {
-				patternToStr.put(pattern.charAt(i), words[i]);
-				strToPattern.put(words[i], pattern.charAt(i));
-			} else if (s == null || ch == null || !s.equals(words[i]) || !ch.equals(pattern.charAt(i))) {
+			String s = charToStr.get(pattern.charAt(i));
+			Character c = strToChar.get(words[i]);
+			if (s == null && c == null) {
+				charToStr.put(pattern.charAt(i), words[i]);
+				strToChar.put(words[i], pattern.charAt(i));
+			} else if (s == null || c == null || !s.equals(words[i]) || !c.equals(pattern.charAt(i))) {
 				return false;
 			}
 		}
