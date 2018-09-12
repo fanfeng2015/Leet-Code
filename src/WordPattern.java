@@ -34,6 +34,6 @@ public class WordPattern {
 		return true;
 	}
 
-	// Time complexity is O(n).
-	// Space complexity is O(n).
+	// Time complexity is O(n*k).
+	// Space complexity is O(n*k).
 }
