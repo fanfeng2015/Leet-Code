@@ -43,4 +43,6 @@ public class WordPattern2 {
 		return false;
 	}
 
+	// Time complexity is O(n^n).
+	// Space complexity is O(n).
 }
