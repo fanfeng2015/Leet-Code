@@ -28,13 +28,13 @@ public class WordPattern2 {
 			String s = charToStr.get(pattern.charAt(m));
 			Character c = strToChar.get(substr);
 			if (s == null && c == null) {
-				charToStr.put(c, s);
-				strToChar.put(s, c);
+				charToStr.put(pattern.charAt(m), substr);
+				strToChar.put(substr, pattern.charAt(m));
 				if (DFS(pattern, str, charToStr, strToChar, m + 1, i + 1)) {
 					return true;
 				}
-				charToStr.remove(c);
-				strToChar.remove(s);
+				charToStr.remove(pattern.charAt(m));
+				strToChar.remove(substr);
 			} else if (s != null && c != null && s.equals(substr) && c.equals(pattern.charAt(m))) {
 				return DFS(pattern, str, charToStr, strToChar, m + 1, i + 1);
 			}
