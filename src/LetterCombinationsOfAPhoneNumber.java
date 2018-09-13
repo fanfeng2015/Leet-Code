@@ -34,5 +34,13 @@ public class LetterCombinationsOfAPhoneNumber {
 	// Time complexity is O(4^n).
 	// Space complexity is O(n).
 
-	// Follow up (Facebook): filter the result with a word list.
+	// Follow up (Facebook): Given also a dictionary of words, return only
+	// combinations that are in the dictionary.
+	// Answer: Modify base case of DFS(...).
+
+	// Follow up (Dropbox): Additionally, a combination is valid only if it is
+	// comprised of words in the dictionary.
+	// Answer: Modify base case of DFS(...) to use LeetCode 
+	
+
 }
