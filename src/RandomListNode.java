@@ -1,9 +1,8 @@
 public class RandomListNode {
-	public int value;
-	public RandomListNode next;
-	public RandomListNode random;
+	int label;
+	RandomListNode next, random;
 
-	public RandomListNode(int value) {
-		this.value = value;
+	RandomListNode(int x) {
+		this.label = x;
 	}
 }
