@@ -40,7 +40,14 @@ public class LetterCombinationsOfAPhoneNumber {
 
 	// Follow up (Dropbox): Additionally, a combination is valid only if it is
 	// comprised of words in the dictionary.
-	// Answer: Modify base case of DFS(...) to use LeetCode 
-	
+	// Answer: Modify base case of DFS(...) to use LeetCode #139 (Word Break).
 
+	// Follow up (Dropbox): What if you don't have access to the dictionary, but
+	// instead you are provided with an API, boolean isWord(String word) { ... }
+	// Answer: In DFS(...), maintain an index end to indicate that [0, end] of the
+	// current string can be comprised of words in the dictionary. We need to call
+	// the API inside the for loop, in other words, update the index end whenever a
+	// new char is appended.
+
+	// Note that boolean isWord(String word) can be realized with a Trie implementation.
 }
