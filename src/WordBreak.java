@@ -3,17 +3,18 @@ import java.util.Set;
 
 // LeetCode #139 (Word Break).
 
-// Given a word and a dictionary, determine if it can be composed by 
-// concatenating words from the given dictionary.
+// Given a non-empty string s and a dictionary wordDict containing a list of non-empty words,
+// determine if s can be segmented into a space-separated sequence of one or more dictionary
+// words.
 
-// Assumptions:
-// 1. The given word is not null and is not empty
-// 2. The given dictionary is not null and is not empty and all the words in the dictionary are not null or empty
+// Notes:
+// 1. The same word in the dictionary may be reused multiple times in the segmentation.
+// 2. You may assume the dictionary does not contain duplicate words.
 
 public class WordBreak {
 
-	// M[i]: whether index 0 to i - 1, inclusive, in input string can be
-	// composed by concatenating words from the dictionary
+	// M[i]: Whether [0, i - 1] of input can be composed by concatenating words from
+	// the dictionary.
 	public boolean canBreak(String input, String[] dict) {
 		Set<String> set = new HashSet<>();
 		for (String s : dict) {
@@ -36,6 +37,6 @@ public class WordBreak {
 	// Time complexity is O(n + m^3).
 	// Space complexity is O(n + m).
 
-	// Follow up: return all possible compositions?
+	// Follow up: Return all possible compositions?
 	// LeetCode #140 (Word Break II).
 }
