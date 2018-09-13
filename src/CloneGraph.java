@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 // LeetCode #133 (Clone Graph).
@@ -15,7 +16,7 @@ public class CloneGraph {
 			return null;
 		}
 		Queue<UndirectedGraphNode> queue = new LinkedList<>();
-		HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+		Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
 		queue.offer(node);
 		map.put(node, new UndirectedGraphNode(node.label));
 		while (!queue.isEmpty()) {
@@ -30,6 +31,30 @@ public class CloneGraph {
 			}
 		}
 		return map.get(node);
+	}
+
+	// Time complexity is O(|V|+|E|).
+	// Space complexity is O(|V|+|E|).
+
+	// DFS
+	public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node) {
+		if (node == null) {
+			return null;
+		}
+		Map<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<>();
+		map.put(node, new UndirectedGraphNode(node.label));
+		DFS(node, map);
+		return map.get(node);
+	}
+
+	private void DFS(UndirectedGraphNode node, Map<UndirectedGraphNode, UndirectedGraphNode> map) {
+		for (UndirectedGraphNode neighbor : node.neighbors) {
+			if (!map.containsKey(neighbor)) {
+				map.put(neighbor, new UndirectedGraphNode(neighbor.label));
+				DFS(neighbor, map);
+			}
+			map.get(node).neighbors.add(map.get(neighbor));
+		}
 	}
 
 	// Time complexity is O(|V|+|E|).
