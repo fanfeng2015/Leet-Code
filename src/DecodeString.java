@@ -18,50 +18,36 @@ import java.util.Stack;
 public class DecodeString {
 
 	public String decodeString(String s) {
-		int parentheses = 0;
-		StringBuilder result = new StringBuilder();
+		String result = "";
 		Stack<Integer> counts = new Stack<>();
 		Stack<String> sequences = new Stack<>();
 		int i = 0;
 		while (i < s.length()) {
-			if (s.charAt(i) == '[') {
-				i++;
-				parentheses++;
-			} else if (s.charAt(i) == ']') {
-				i++;
-				parentheses--;
-				int count = counts.pop();
-				String sequence = sequences.pop();
-				StringBuilder temp = new StringBuilder();
-				for (int j = 0; j < count; j++) {
-					temp.append(sequence);
-				}
-
-				if (parentheses > 0) {
-					String next = ((sequences.isEmpty()) ? "" : sequences.pop()) + temp.toString();
-					sequences.push(next);
-				} else {
-					result.append(temp);
-				}
-
-			} else if (Character.isDigit(s.charAt(i))) {
-				int count = Character.getNumericValue(s.charAt(i++));
+			if (Character.isDigit(s.charAt(i))) {
+				int count = 0;
 				while (i < s.length() && Character.isDigit(s.charAt(i))) {
 					count = 10 * count + Character.getNumericValue(s.charAt(i++));
 				}
 				counts.push(count);
-			} else {
-				int j = i;
-				while (j < s.length() && !Character.isDigit(s.charAt(j)) && s.charAt(j) != '[' && s.charAt(j) != ']') {
-					j++;
+			} else if (s.charAt(i) == '[') {
+				sequences.add(result);
+				result = "";
+				i++;
+			} else if (s.charAt(i) == ']') {
+				StringBuilder temp = new StringBuilder(sequences.pop());
+				int count = counts.pop();
+				for (int j = 0; j < count; j++) {
+					temp.append(result);
 				}
-				sequences.add(s.substring(i, j));
-				i = j;
+				result = temp.toString();
+				i++;
+			} else {
+				result += s.charAt(i++);
 			}
 		}
-		return result.toString();
+		return result;
 	}
 
-	// Time complexity is
-
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
