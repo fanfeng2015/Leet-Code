@@ -53,25 +53,21 @@ public class DesignHitCounter {
 /*
 	private static final int TIME_FRAME = 300;
 
-	private int size;
 	private LinkedList<Integer> queue; // offerFirst(), pollLast(), peekLast()
 
 	public DesignHitCounter() {
-		this.size = 0;
 		this.queue = new LinkedList<>();
 	}
 
 	public void hit(int timestamp) {
-		size++;
 		queue.offerFirst(timestamp);
 	}
 
 	public int getHits(int timestamp) {
-		while (size > 0 && (timestamp - queue.peekLast()) >= TIME_FRAME) {
-			size--;
+		while (queue.size() > 0 && (timestamp - queue.peekLast()) >= TIME_FRAME) {
 			queue.pollLast();
 		}
-		return size;
+		return queue.size();
 	}
 	
 	// Time complexity is O(1) for hit(), but can be infinitely large for getHits().
