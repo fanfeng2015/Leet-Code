@@ -14,7 +14,6 @@ import java.util.Set;
 
 public class DesignPhoneDirectory {
 
-/*
 	private Queue<Integer> queue; // available numbers
 	private Set<Integer> allocated;
 
@@ -47,8 +46,6 @@ public class DesignPhoneDirectory {
 
 	// Time complexity is O(n) to initialize, and O(1) for all three operations.
 	// Space complexity is O(n).
-*/
-	
 	
 /*	
 	// Follow up (Dropbox): Save memory usage.
@@ -83,11 +80,12 @@ public class DesignPhoneDirectory {
 		}
 	}
 	
-	// Time complexity is O(1) to initialize, O(1) to check and to release, O(n) to get. 
-	// Space complexity is O(n). However, the unit is 1 bit, compared with 8 bytes.
+	// Time complexity is O(1) to initialize, O(1) to check and to release, and O(n) to get. 
+	// Space complexity is O(n). However, the unit is 1 bit, instead of 8 bytes.
 
 */
 	
+/*
 	// Follow up (Dropbox): Optimize get().
 	private final int MAX;
 	private BitSet bs; // implemented using a long[] bits, the i-th bit is in bits[i/64] at i%64
@@ -97,6 +95,7 @@ public class DesignPhoneDirectory {
 		this.bs = new BitSet(2 * maxNumbers - 1);
 	}
 
+	// Note that get() might not return available number starting from 0.
 	public int get() {
         if (bs.get(0)) {
             return -1;
@@ -147,6 +146,9 @@ public class DesignPhoneDirectory {
 		}
 	}
 	
-	// Time complexity is O(1) to initialize, O(1) to check and to release, O(n) to get. 
-	// Space complexity is O(n). However, the unit is 1 bit, compared with 8 bytes.
+	// Time complexity is O(1) to initialize, O(1) to check, and O(log(n)) to get and release. 
+	// Space complexity is O(n). However, the unit is 2 bit, instead of 8 bytes.
+
+*/
+	
 }
