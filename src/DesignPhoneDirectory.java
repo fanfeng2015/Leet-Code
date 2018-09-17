@@ -49,6 +49,8 @@ public class DesignPhoneDirectory {
 	// Space complexity is O(n).
 */
 	
+	
+/*	
 	// Follow up (Dropbox): Save memory usage.
 	private final int MAX;
 	private BitSet bs; // implemented using a long[] bits, the i-th bit is in bits[i/64] at i%64
@@ -83,6 +85,68 @@ public class DesignPhoneDirectory {
 	
 	// Time complexity is O(1) to initialize, O(1) to check and to release, O(n) to get. 
 	// Space complexity is O(n). However, the unit is 1 bit, compared with 8 bytes.
-	
 
+*/
+	
+	// Follow up (Dropbox): Optimize get().
+	private final int MAX;
+	private BitSet bs; // implemented using a long[] bits, the i-th bit is in bits[i/64] at i%64
+
+	public DesignPhoneDirectory(int maxNumbers) {
+		this.MAX = maxNumbers;
+		this.bs = new BitSet(2 * maxNumbers - 1);
+	}
+
+	public int get() {
+        if (bs.get(0)) {
+            return -1;
+        }
+		int index = 0;
+		while (index < MAX - 1) {
+			if (!bs.get(2 * index + 1)) { // an available number exists in the left half
+				index = 2 * index + 1;
+			} else if (!bs.get(2 * index + 2)) { // an available number exists in the right half
+				index = 2 * index + 2;
+			} else {
+				return -1;
+			}
+		}
+		bs.set(index);
+		updateTree(index);
+		return index - (MAX - 1);
+	}
+
+	public boolean check(int number) { // assume number is valid
+		return !bs.get(number + MAX - 1);
+	}
+
+	public void release(int number) { // assume number is valid
+		if (bs.get(number + MAX - 1)) {
+			bs.clear(number + MAX - 1);
+			updateTree(number + MAX - 1);
+		}
+	}
+	
+	private void updateTree(int index) {
+		while (index > 0) {
+			int parent = (index - 1) / 2;
+			if (index % 2 == 1) {
+				if (bs.get(index) && bs.get(index + 1)) {
+					bs.set(parent);
+				} else {
+					bs.clear(parent);
+				}
+			} else {
+				if (bs.get(index - 1) && bs.get(index)) {
+					bs.set(parent);
+				} else {
+					bs.clear(parent);
+				}
+			}
+			index = parent;
+		}
+	}
+	
+	// Time complexity is O(1) to initialize, O(1) to check and to release, O(n) to get. 
+	// Space complexity is O(n). However, the unit is 1 bit, compared with 8 bytes.
 }
