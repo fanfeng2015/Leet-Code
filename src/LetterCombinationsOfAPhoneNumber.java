@@ -40,14 +40,20 @@ public class LetterCombinationsOfAPhoneNumber {
 
 	// Follow up (Dropbox): Additionally, a combination is valid only if it is
 	// comprised of words in the dictionary.
-	// Answer: Modify base case of DFS(...) to use LeetCode #139 (Word Break).
+	// Answer: 1. Modify base case of DFS(...) to use LeetCode #139 (Word Break). 2.
+	// Construct a Trie tree, and carry a Trie node with DFS(...). If a Trie node is
+	// null, continue. Otherwise, add to string builder, DFS, remove from string
+	// builder. Add to result only if the last Trie node has isWord equal to true.
 
-	// Follow up (Dropbox): What if you don't have access to the dictionary, but
-	// instead you are provided with an API, boolean isWord(String word) { ... }
-	// Answer: In DFS(...), maintain an index end to indicate that [0, end] of the
-	// current string can be comprised of words in the dictionary. We need to call
-	// the API inside the for loop, in other words, update the index end whenever a
-	// new char is appended.
+	// Follow up: Return a list of list of strings, where each sublist represents
+	// words in the dictionary that can compose a valid letter combination.
+	// Answer: DFS needs to keep the index of last ending word, and a current
+	// running list. In the for loop, add the substring of string builder in [index,
+	// sb.length() - 1] to the running list if Trie node has isWord equal to true.
+	// Then DFS(...), remove from running list if Trie node has isWord equal to
+	// true, remove from sb. Continue...
 
-	// Note that boolean isWord(String word) can be realized with a Trie implementation.
+	// Follow up (Dropbox): You don't have access to the dictionary, but instead you
+	// are provided with an API, boolean existInDict(String word) { ... }.
+	// Answer: Similar to the above.
 }
