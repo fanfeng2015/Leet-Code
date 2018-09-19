@@ -41,4 +41,6 @@ public class IntegerToEnglishWords {
 		}
 	}
 
+	// Time comlexity is O(n^2), where n is the length of input.
+	// Space complexity is O(n).
 }
