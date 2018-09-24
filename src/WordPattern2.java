@@ -38,7 +38,6 @@ public class WordPattern2 {
 			} else if (s != null && c != null && s.equals(substr) && c.equals(pattern.charAt(m))) {
 				return DFS(pattern, str, charToStr, strToChar, m + 1, i + 1);
 			}
-
 		}
 		return false;
 	}
