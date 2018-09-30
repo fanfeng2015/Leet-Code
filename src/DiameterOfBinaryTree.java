@@ -23,5 +23,7 @@ public class DiameterOfBinaryTree {
 		max = Math.max(max, left + right);
 		return Math.max(left, right) + 1;
 	}
-
+	
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
