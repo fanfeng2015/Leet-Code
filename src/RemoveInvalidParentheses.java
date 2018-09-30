@@ -40,7 +40,7 @@ public class RemoveInvalidParentheses {
 					remove(s.substring(0, j) + s.substring(j + 1, s.length()), result, i, j, parentheses);
 				}
 			}
-			return;
+			return; // the rest has already been handled in recursion
 		}
 		// once this point is reached, there is no invalid ) in string s, check for any
 		// invalid (
