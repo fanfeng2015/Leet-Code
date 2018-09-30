@@ -22,6 +22,8 @@ public class ConvertBinarySearchTreeToSortedDoublyLinkedList {
 		return head.right;
 	}
 
+	// Converts the BST rooted at cur to a doubly linked list. Updates prev along
+	// the way.
 	private void inorder(TreeNode cur) {
 		if (cur == null) {
 			return;
