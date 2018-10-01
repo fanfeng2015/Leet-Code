@@ -10,7 +10,7 @@ public class IsGraphBipartite {
 
 	public boolean isBipartite(int[][] graph) {
 		int n = graph.length;
-		Map<Integer, Integer> visited = new HashMap<>();
+		Map<Integer, Integer> visited = new HashMap<>(); // { node: group }
 		for (Integer i = 0; i < n; i++) {
 			if (!validate(i, visited, graph)) {
 				return false;
@@ -39,8 +39,7 @@ public class IsGraphBipartite {
 		}
 		return true;
 	}
-	
-	
+
 	// Time complexity is O(m + n).
 	// Space complexity is O(n).
 }
