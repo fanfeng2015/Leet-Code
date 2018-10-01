@@ -22,20 +22,20 @@ public class DecodeWays2 {
 		array[0] = s.charAt(0) == '*' ? 9 : array[0];
 		for (int i = 1; i < s.length(); i++) {
 			if (s.charAt(i) == '*') {
-				array[i] = NUM_DIGITS * array[i - 1];
-				char prev = s.charAt(i - 1);
+				array[i] = NUM_DIGITS * array[i - 1]; // one digit
+				char prev = s.charAt(i - 1); // two digits
 				long base = (i == 1) ? 1 : array[i - 2];
 				int mult = (prev == '*') ? 15 : (prev == '1') ? 9 : (prev == '2') ? 6 : 0;
 				array[i] += base * mult;
 			} else if (s.charAt(i - 1) == '*') {
-				array[i] = (s.charAt(i) == '0') ? 0 : array[i - 1];
-				int cur = s.charAt(i) - '0';
+				array[i] = (s.charAt(i) == '0') ? 0 : array[i - 1]; // one digit
+				int cur = s.charAt(i) - '0'; // two digits
 				long base = (i == 1) ? 1 : array[i - 2];
 				int mult = (cur >= 0 && cur <= 6) ? 2 : 1;
 				array[i] += base * mult;
 			} else {
-				array[i] = (s.charAt(i) == '0') ? 0 : array[i - 1];
-				int value = Integer.parseInt(s.substring(i - 1, i + 1));
+				array[i] = (s.charAt(i) == '0') ? 0 : array[i - 1]; // ont sigit
+				int value = Integer.parseInt(s.substring(i - 1, i + 1)); // two digits
 				if (value >= 10 && value <= 26) {
 					array[i] += (i == 1) ? 1 : array[i - 2];
 				}
