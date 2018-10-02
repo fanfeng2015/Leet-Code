@@ -6,12 +6,12 @@
 
 public class IntegerToEnglishWords {
 
-	private String[] lessThanTwenty = new String[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
-			"Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen",
-			"Nineteen" };
-	private String[] tens = new String[] { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy",
+	private final String[] LESSTHANTWENTY = new String[] { "", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
+			"Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen",
+			"Eighteen", "Nineteen" };
+	private final String[] TENS = new String[] { "", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy",
 			"Eighty", "Ninety" };
-	private final String[] thousands = { "", "Thousand", "Million", "Billion" };
+	private final String[] THOUSANDS = { "", "Thousand", "Million", "Billion" };
 
 	public String numberToWords(int num) {
 		if (num == 0) {
@@ -21,7 +21,7 @@ public class IntegerToEnglishWords {
 		String result = "";
 		while (num > 0) {
 			if (num % 1000 != 0) {
-				result = convert(num % 1000) + thousands[index] + " " + result;
+				result = convert(num % 1000) + THOUSANDS[index] + " " + result;
 			}
 			num /= 1000;
 			index++;
@@ -33,11 +33,11 @@ public class IntegerToEnglishWords {
 		if (num == 0) {
 			return "";
 		} else if (num < 20) {
-			return lessThanTwenty[num] + " ";
+			return LESSTHANTWENTY[num] + " ";
 		} else if (num < 100) {
-			return tens[num / 10] + " " + convert(num % 10);
+			return TENS[num / 10] + " " + convert(num % 10);
 		} else {
-			return lessThanTwenty[num / 100] + " Hundred " + convert(num % 100);
+			return LESSTHANTWENTY[num / 100] + " Hundred " + convert(num % 100);
 		}
 	}
 
