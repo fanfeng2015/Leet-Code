@@ -46,7 +46,9 @@ public class LongestIncreasingSubsequence {
 		return result;
 	}
 
-	// find the largest value that is smaller than target
+	// Returns index of the largest value that is smaller than target.
+	// The result index indicates the number of elements that are smaller than
+	// target.
 	private int find(int[] helper, int left, int right, int target) {
 		while (left <= right) {
 			int mid = left + (right - left) / 2;
