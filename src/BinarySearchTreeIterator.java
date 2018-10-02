@@ -40,4 +40,48 @@ public class BinarySearchTreeIterator {
 		return result;
 	}
 
+	// Time complexity is O(1) for hasNext() and O(h) for next().
+	// Space complexity is O(h).
+
+	// Follow up (Facebook):
+	// 1. Two BSTs.
+	// 2. O(1) space -> Morris.
+	
+/*
+	public BinarySearchTreeIterator(TreeNode root) {
+		cur = root;
+	}
+
+	public boolean hasNext() {
+		return cur != null;
+	}
+
+	public int next() {
+		TreeNode temp = null;
+		int result = 0;
+		while (cur != null) {
+			if (cur.left == null) {
+				result = cur.val;
+				cur = cur.right;
+				break; // when next() is called again, while loop continues
+			} else {
+				temp = cur.left;
+				while (temp.right != null && temp.right != cur) {
+					temp = temp.right;
+				}
+				if (temp.right == null) {
+					temp.right = cur;
+					cur = cur.left;
+				} else {
+					result = cur.val;
+					temp.right = null;
+					cur = cur.right;
+					break; // when next() is called again, while loop continues
+				}
+			}
+		}
+		return result;
+	}
+*/
+
 }
