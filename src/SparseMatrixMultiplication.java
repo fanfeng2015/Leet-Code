@@ -28,6 +28,9 @@ public class SparseMatrixMultiplication {
 		return result;
 	}
 
+	// Time complexity is O(a*b*c).
+	// Space complexity is O(1).
+
 	// Solution 2
 	private static class Cell {
 		int col;
@@ -66,4 +69,9 @@ public class SparseMatrixMultiplication {
 		return result;
 	}
 
+	// Time complexity is O(a*b + a*c), assuming each list has constant size.
+	// Space complexity is O(a).
+
+	// Follow up (Facebook): Sparse vector multiplication.
+	// [ (index, value), ... ] for A and B respectively + two pointers.
 }
