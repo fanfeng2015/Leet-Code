@@ -32,4 +32,28 @@ public class MeetingRooms2 {
 
 	// Time complexity is O(n*log(n)).
 	// Space complexity is O(n).
+
+	// two arrays that are essentially the same as above
+	public int minMeetingRooms2(Interval[] intervals) {
+		int n = intervals.length;
+		int[] starts = new int[n], ends = new int[n];
+		for (int i = 0; i < intervals.length; i++) {
+			starts[i] = intervals[i].start;
+			ends[i] = intervals[i].end;
+		}
+		Arrays.sort(starts);
+		Arrays.sort(ends);
+		int rooms = 0, index = 0;
+		for (int i = 0; i < n; i++) {
+			if (starts[i] < ends[index]) {
+				rooms++;
+			} else {
+				index++;
+			}
+		}
+		return rooms;
+	}
+
+	// Time complexity is O(n*log(n)).
+	// Space complexity is O(n).
 }
