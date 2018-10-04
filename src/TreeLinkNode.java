@@ -6,4 +6,3 @@ public class TreeLinkNode {
 		val = x;
 	}
 }
-
