@@ -42,7 +42,7 @@ public class PopulatingNextRightPointerInEachNode {
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 
-	// Solution 2: in place
+	// Solution 2: in-place
 	public void connect2(TreeLinkNode root) {
 		if (root == null) {
 			return;
