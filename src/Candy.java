@@ -38,12 +38,14 @@ public class Candy {
 
 	// Solution 2
 	public int candy2(int[] ratings) {
+		// prev: number of candies given at last peak
+		// countDown: number of children in descending order since last peak
 		int prev = 1, countDown = 0, result = 1;
 		for (int i = 1; i < ratings.length; i++) {
 			if (ratings[i] >= ratings[i - 1]) {
 				if (countDown > 0) {
 					result += countDown * (countDown + 1) / 2;
-					result += countDown >= prev ? countDown - prev + 1 : 0;
+					result += (countDown >= prev) ? (countDown - prev + 1) : 0;
 					prev = 1;
 					countDown = 0;
 				}
