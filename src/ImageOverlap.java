@@ -49,6 +49,7 @@ public class ImageOverlap {
 	}
 
 	// n = number of rows = number of columns
+
 	// Time complexity is O(n^4), which is quadratic in input size.
 	// Space complexity is O(n^2).
 
