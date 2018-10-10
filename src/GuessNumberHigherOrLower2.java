@@ -16,7 +16,7 @@
 public class GuessNumberHigherOrLower2 {
 
 	// M[i][j]: amount of money to guarantee a win to guess a number in [i, j]
-	// M[i][j] = min(k + max(M[i][k - 1], M[i + 1][j]), for all k in [i, j].
+	// M[i][j] = min(k + max(M[i][k - 1], M[k + 1][j]), for all k in [i, j].
 	public int getMoneyAmount(int n) {
 		int[][] M = new int[n + 1][n + 1];
 		for (int i = n; i >= 1; i--) {
