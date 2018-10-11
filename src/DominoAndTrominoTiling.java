@@ -18,21 +18,23 @@
 
 public class DominoAndTrominoTiling {
 
-	// A[i]: number of ways to tile all cells in column 0 to i, plus one more cell
-	// B[i]: number of ways to tile all cells in column 0 to i
+	private static final int MAX = 1000;
+	private static final int MOD = 1000000007;
 
+	// A[i]: number of ways to tile i full columns, plus one single cell
+	// B[i]: number of ways to tile i full columns
 	// A[i] = A[i - 1] + B[i - 1], for one domino and one tromino
 	// B[i] = B[i - 1] + B[i - 2] + 2 * A[i - 2], for one domino, two dominos, and
 	// one tromino
 	public int numTilings(int N) {
-		int[] A = new int[N + 1], B = new int[N + 1];
-		B[0] = 0;
-		B[1] = 1;
-		for (int i = 2; i <= N; i++) {
-			A[i] = A[i - 1] + B[i - 1];
-			B[i] = B[i - 1] + B[i - 2] + 2 * A[i - 2];
+		long[] A = new long[MAX + 1], B = new long[MAX + 1];
+		A[1] = 1; A[2] = 2;
+		B[0] = 0; B[1] = 1; B[2] = 2;
+		for (int i = 3; i <= N; i++) {
+			A[i] = (A[i - 1] + B[i - 1]) % MOD;
+			B[i] = (B[i - 1] + B[i - 2] + 2 * A[i - 2]) % MOD;
 		}
-		return B[N];
+		return (int) B[N];
 	}
 
 	// Time complexity is O(n).
