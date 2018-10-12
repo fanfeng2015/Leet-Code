@@ -24,5 +24,5 @@ public class LongestPalindromicSubsequence {
 	}
 
 	// Time complexity is O(n^2).
-	// Space complexity is O(n^2), but can obviously be optimized to O(n).
+	// Space complexity is O(n^2), but obviously can be optimized to O(n).
 }
