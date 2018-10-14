@@ -12,6 +12,8 @@ import java.util.Set;
 
 public class EvaluateDivision {
 
+	
+	// Solution 1: DFS
 	public double[] calcEquation(String[][] equations, double[] values, String[][] queries) {
 		Map<String, Map<String, Double>> graph = new HashMap<>();
 		for (int i = 0; i < equations.length; i++) {
@@ -46,5 +48,33 @@ public class EvaluateDivision {
 		}
 		return -1;
 	}
+	
+	// Solution 2: Union Find
+	public double[] calcEquation2(String[][] equations, double[] values, String[][] queries) {
+		Map<String, String> parent = new HashMap<>(); // a / b = 2.0, { a: b }
+		Map<String, Double> weight = new HashMap<>(); // a / b = 2.0, { a: 2.0 }
+		for (int i = 0; i < equations.length; i++) {
+			String[] equation = equations[i];
+			String a = equation[0], b = equation[1];
+			double value = values[i];
+			
+		}
+	}
+	
+	// Finds the root node of str
+	private String find(Map<String, String> parent, Map<String, Double> weight) {
+
+	}
+	
+//	private class Node {
+//		String label; // 
+//		double value; // root.label / label = value; 
+//		public Node(String label, double value) {
+//			this.label = label;
+//			this.value = value;
+//		}
+//	}
 
 }
+
+
