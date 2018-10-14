@@ -1,5 +1,5 @@
 // Implementation of the Union Find data structure, using weighted quick union
-// (by size) with full path compression.
+// (by size) and full path compression.
 
 // See
 // https://algs4.cs.princeton.edu/15uf/WeightedQuickUnionPathCompressionUF.java.html
@@ -32,10 +32,11 @@ public class UnionFind {
 		while (root != parent[root]) {
 			root = parent[root];
 		}
-		while (p != root) { // path compression to make tree flat
-			int newParent = parent[root];
+		// path compression to make tree flat: connect node directly to root
+		while (p != root) { 
+			int temp = parent[p];
 			parent[p] = root;
-			p = newParent;
+			p = temp;
 		}
 		return root;
 	}
