@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 // LeetCode #489 (Robot Room Cleaner).
 
 // Given a robot cleaner in a room modeled as a grid.
@@ -23,8 +26,33 @@
 
 public class RobotRoomCleaner {
 
-	public void cleanRoom(Robot robot) {
+	// U, R, D, L
+	private static final int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
+	public void cleanRoom(Robot robot) {
+		Set<String> visited = new HashSet<>();
+		visited.add("0#0");
+		DFS(robot, visited, 0, 0, 0);
+	}
+
+	private void DFS(Robot robot, Set<String> visited, int row, int col, int curDir) {
+		robot.clean();
+		for (int i = 0; i < 4; i++) {
+			int nextDir = (curDir + i) % 4;
+			int nextRow = row + DIRECTIONS[nextDir][0], nextCol = col + DIRECTIONS[nextDir][1];
+			// currently facing nextDir
+			if (!visited.contains(nextRow + "#" + nextCol) && robot.move()) {
+				visited.add(nextRow + "#" + nextCol);
+				DFS(robot, visited, nextRow, nextCol, nextDir);
+			}
+			robot.turnRight();
+		}
+		// return to the previous cell
+		robot.turnRight();
+		robot.turnRight();
+		robot.move();
+		robot.turnRight();
+		robot.turnRight();
 	}
 
 }
