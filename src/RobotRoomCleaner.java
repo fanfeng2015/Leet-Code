@@ -55,4 +55,6 @@ public class RobotRoomCleaner {
 		robot.turnRight();
 	}
 
+	// Time complexity is O(m*n).
+	// Space complexity is O(m*n).
 }
