@@ -30,8 +30,7 @@ public class MaximumConsecutiveOnes2 {
 	// Follow up: What if the input numbers come in one by one as an infinite
 	// stream?
 	// In other words, you can't store all numbers coming from the stream as it's
-	// too
-	// large to hold in memory.
+	// too large to hold in memory.
 
 	public int findMaxConsecutiveOnes2(int[] nums) {
 		int max = 0;
@@ -48,4 +47,7 @@ public class MaximumConsecutiveOnes2 {
 		}
 		return max;
 	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(1).
 }
