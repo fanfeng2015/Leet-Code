@@ -22,4 +22,8 @@ public class MinimumPathSum {
 
 	// Time complexity is O(m*n).
 	// Space complexity is O(m*n), but obviously can be optimized to O(n).
+	
+	// Follow up (Google): Reconstruct the path?
+	// 1. DP: While computing value in each cell, also record a direction.
+	// 2. DFS.
 }
