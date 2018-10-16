@@ -20,11 +20,23 @@ public class MaximumDepthOfNaryTree {
 		int max = maxDepth(children.get(0));
 		for (int i = 1; i < children.size(); i++) {
 			max = Math.max(max, maxDepth(children.get(i)));
-			int cur = maxDepth(children.get(i));
 		}
 		return max + 1;
 	}
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
+
+	private class Node {
+		public int val;
+		public List<Node> children;
+
+		public Node() {
+		}
+
+		public Node(int val, List<Node> children) {
+			this.val = val;
+			this.children = children;
+		}
+	}
 }
