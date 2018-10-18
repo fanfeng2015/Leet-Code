@@ -64,8 +64,9 @@ public class EvaluateDivision {
 
 			String r1 = find(parent, x1);
 			String r2 = find(parent, x2);
+			double temp = compute(parent, parentDivChild, x1) / compute(parent, parentDivChild, x2) * values[i];
 			parent.put(r2, r1); // r1 = parent of r2
-			parentDivChild.put(r2, parentDivChild.get(x1) / parentDivChild.get(x2) * values[i]);
+			parentDivChild.put(r2, temp);
 		}
 
 		double[] result = new double[queries.length];
