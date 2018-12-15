@@ -16,7 +16,7 @@ import java.util.Set;
 public class MostCommonWord {
 
 	public String mostCommonWord(String paragraph, String[] banned) {
-		String[] split = paragraph.replaceAll("[!?',;.]", "").toLowerCase().split(" ");
+		String[] split = paragraph.replaceAll("\\W+" , " ").toLowerCase().split("\\s+");
 		Set<String> set = new HashSet<>(Arrays.asList(banned));
 		Map<String, Integer> countMap = new HashMap<>();
 		for (int i = 0; i < split.length; i++) {
