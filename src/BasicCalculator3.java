@@ -12,7 +12,7 @@
 public class BasicCalculator3 {
 
 	public int calculate(String s) {
-
+		return -1;
 	}
 
 }
