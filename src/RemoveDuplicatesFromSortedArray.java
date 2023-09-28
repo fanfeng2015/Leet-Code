@@ -18,5 +18,8 @@ public class RemoveDuplicatesFromSortedArray {
             }
         }
         return slow;
-    }	
+    }
+    
+	// Time complexity is O(n).
+	// Space complexity is O(n).    
 }
