@@ -43,5 +43,5 @@ public class SpiralMatrix {
 	    }
 	  
 		// Time complexity is O(m*n).
-		// Space complexity is O(1).	  
+		// Space complexity is O(1).
 }
