@@ -24,11 +24,11 @@ public class RegularExpressionMatching {
 				if (p.charAt(j - 1) == '.' || p.charAt(j - 1) == s.charAt(i - 1)) {
 					M[i][j] = M[i - 1][j - 1];
 				} else if (p.charAt(j - 1) == '*') {
-					// assumption: * is not the first character, and must follow
-					// some other character
-					M[i][j] = M[i][j - 2]; // * is 0 preceding element
+					// assumption: * is not the first character, and must follow some other character
+					// * is 0 preceding element (that means the preceding element appears 0 times!)
+					M[i][j] = M[i][j - 2]; 
 					if (p.charAt(j - 2) == '.' || p.charAt(j - 2) == s.charAt(i - 1)) {
-						M[i][j] = M[i][j] || M[i][j - 1] || M[i - 1][j];
+						M[i][j] = M[i][j] || M[i - 1][j];
 					}
 				}
 			}
@@ -39,3 +39,9 @@ public class RegularExpressionMatching {
 	// Time complexity is O(m*n).
 	// Space complexity is O(m*n), but obviously can be optimized to O(n).
 }
+
+//        i-1.     j-1
+// 'xxxxxab', 'xxx?*'
+// * = 0, [0, i-1] == [0, j-3]?
+// * = 1 or more
+//   -- ? has to be '.' or 'b', then s[i-1] is matched, [0, i-2] == [0, j-1]?
