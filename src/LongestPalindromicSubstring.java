@@ -29,4 +29,7 @@ public class LongestPalindromicSubstring {
 
 	// Time complexity is O(n^2).
 	// Space complexity is O(1).
+	
+	// Note: There is an O(n) time, O(n) space algorithm.
+	// https://en.wikipedia.org/wiki/Longest_palindromic_substring#Manacher's_algorithm
 }
