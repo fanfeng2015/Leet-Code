@@ -44,6 +44,9 @@ public class WordSearch {
 		return false;
 	}
 
-	// Time complexity is O(m*n * 4^l), where l is the length of word.
+	// Time complexity is O(m*n * 3^l), where l is the length of word.
 	// Space complexity is O(l).
+
+	// The reason for base 3 instead of base 4 is that one direction is already
+	// visited in the parent recursive call, thus visited[i][j] is true.
 }
