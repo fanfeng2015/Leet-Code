@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 // LeetCode #300 (Longest Increasing Subsequence).
@@ -29,36 +30,30 @@ public class LongestIncreasingSubsequence {
 	// Space complexity is O(n).
 
 	public int lengthOfLIS2(int[] nums) {
-		if (nums == null || nums.length == 0) {
-			return 0;
-		}
-		int[] helper = new int[nums.length + 1];
-		int result = 1;
-		helper[1] = nums[0];
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(nums[0]);
 		for (int i = 1; i < nums.length; i++) {
-			int index = find(helper, 1, result, nums[i]);
-			if (index == result) { // current largest value < nums[i]
-				helper[++result] = nums[i];
-			} else {
-				helper[index + 1] = nums[i];
+			if (nums[i] > list.get(list.size() - 1)) {
+				list.add(nums[i]);
+			} else {  // binary search to find the first element that's larger than nums[i]
+				int index = binarySearch(list, nums[i]);
+				list.set(index, nums[i]);
 			}
 		}
-		return result;
+		return list.size();
 	}
 
-	// Returns index of the largest value that is smaller than target.
-	// The result index indicates the number of elements that are smaller than
-	// target.
-	private int find(int[] helper, int left, int right, int target) {
+	private int binarySearch(ArrayList<Integer> list, int target) {
+		int left = 0, right = list.size() - 1;
 		while (left <= right) {
 			int mid = left + (right - left) / 2;
-			if (helper[mid] >= target) {
-				right = mid - 1;
-			} else {
+			if (list.get(mid) < target) {
 				left = mid + 1;
+			} else {
+				right = mid - 1;
 			}
 		}
-		return right;
+		return left;
 	}
 
 	// Time complexity is O(n*log(n)).
