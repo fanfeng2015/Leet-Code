@@ -39,10 +39,8 @@ public class InsertDeleteGetRandomO1 {
 		int index = map.get(val);
 		if (index != list.size() - 1) {
 			// swap with the last value in list to avoid O(n) time to remove
-			map.put(list.get(list.size() - 1), index);
-			int temp = list.get(index);
 			list.set(index, list.get(list.size() - 1));
-			list.set(list.size() - 1, temp);
+			map.put(list.get(list.size() - 1), index);
 		}
 		list.remove(list.size() - 1);
 		map.remove(val);
