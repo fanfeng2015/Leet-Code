@@ -25,3 +25,20 @@ public class CoinChange2 {
 	// Compare LeetCode #518 (Coin Change 2) with LeetCode #377 (Combination Sum
 	// IV).
 }
+
+// [1, 2, 3], target = 4
+
+// #518: each coin is grouped together, won't see cases like [1, 2, 1]
+// [1, 1, 1, 1, 1] -> (/), (1), (1, 1), (1, 1, 1), (1, 1, 1, 1)
+// [1, 1, 2, 2, 3] -> (/), (1), +(2),   +(1, 2),   +(1, 1, 2) or (2, 2)  
+// [1, 1, 2, 3, 4] ->                   +(3),      +(1, 3)
+
+
+// #377: 
+// [1, 1, 0, 0, 0] -> (1)
+// [1, 1, 2, 0, 0] -> (2) / (1, 1)
+// [1, 1, 2, 4, 0] -> (3) or (1, 2) or (2, 1) / (1, 1, 1)
+// [1, 1, 2, 4, 7]
+
+// If order doesn't matter, loop coins first.
+// If order does matter, loop target first.
