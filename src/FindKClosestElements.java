@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//LeetCode #658 (Find K Closest Elements).
+// LeetCode #658 (Find K Closest Elements).
 
 // Given a sorted integer array arr, two integers k and x, return the k closest integers to x 
 // in the array. The result should also be sorted in ascending order.
