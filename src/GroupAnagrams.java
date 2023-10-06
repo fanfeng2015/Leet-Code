@@ -13,7 +13,8 @@ import java.util.Map;
 
 public class GroupAnagrams {
 
-	// first 26 prime numbers
+	// first 26 prime numbers, or you can use a 26-bit binary number (but then some
+	// binary operations are needed)
 	private int[] PRIMES = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
 			101, 103 };
 
