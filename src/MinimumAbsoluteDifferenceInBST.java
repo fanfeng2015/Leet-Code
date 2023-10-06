@@ -7,7 +7,34 @@ import java.util.Stack;
 
 public class MinimumAbsoluteDifferenceInBST {
 
+	private int min = Integer.MAX_VALUE;
+	private TreeNode prev = null;
+
 	public int getMinimumDifference(TreeNode root) {
+		inorderTraversal(root);
+		return min;
+	}
+
+	// In-order traversal of a BST is a list of strictly increasing/decreasing
+	// values.
+	// The recursive function does 1). traversal, 2). potentially update min, 3).
+	// set prev to the current largest value.
+	private void inorderTraversal(TreeNode root) {
+		if (root == null) {
+			return;
+		}
+		inorderTraversal(root.left);
+		if (prev != null) {
+			min = Math.min(min, root.val - prev.val);
+		}
+		prev = root;
+		inorderTraversal(root.right);
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n).
+
+	public int getMinimumDifference2(TreeNode root) {
 		int min = Integer.MAX_VALUE;
 		TreeNode cur = root, prev = null;
 		Stack<TreeNode> stack = new Stack<>();
@@ -17,8 +44,8 @@ public class MinimumAbsoluteDifferenceInBST {
 				cur = cur.left;
 			} else {
 				cur = stack.pop();
-				if (prev != null && Math.abs(cur.val - prev.val) < min) {
-					min = Math.abs(cur.val - prev.val);
+				if (prev != null) {
+					min = Math.min(min, Math.abs(cur.val - prev.val));
 				}
 				prev = cur;
 				cur = cur.right;
