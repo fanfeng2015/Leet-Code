@@ -34,6 +34,27 @@ public class LongestCommonPrefix {
 	// Time complexity is O(n*k).
 	// Space complexity is O(1).
 
+	// October 2023. Or pretend the first string is the shortest.
+	public String longestCommonPrefix3(String[] strs) {
+		if (strs == null || strs.length == 0) {
+			return "";
+		}
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < strs[0].length(); i++) {
+			char ch = strs[0].charAt(i);
+			for (String s : strs) {
+				if (i >= s.length() || s.charAt(i) != ch) {
+					return sb.toString();
+				}
+			}
+			sb.append(ch);
+		}
+		return sb.toString();
+	}
+
+	// Time complexity is O(n*k).
+	// Space complexity is O(1).
+
 	// Sort first, then check for common prefix of the first an last string.
 	public String longestCommonPrefix2(String[] strs) {
 		if (strs == null || strs.length == 0) {
