@@ -40,5 +40,5 @@ public class MaximumLevelSumOfABinaryTree {
 	}
 	
 	// Time complexity is O(n).
-	// Space complexity is O(n).	
+	// Space complexity is O(n).
 }
