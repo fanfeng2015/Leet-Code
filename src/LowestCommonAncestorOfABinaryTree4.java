@@ -29,4 +29,7 @@ public class LowestCommonAncestorOfABinaryTree4 {
 		}
 		return left == null ? right : left;
 	}
+	
+	// Time complexity is O(n).
+	// Space complexity is O(n).	
 }
