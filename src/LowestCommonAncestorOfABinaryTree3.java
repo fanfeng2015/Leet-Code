@@ -17,7 +17,7 @@ public class LowestCommonAncestorOfABinaryTree3 {
 	// 1. p != q
 	// 2. All nodes of the tree have unique values.
 	// 3. The given two nodes are guaranteed to be in the binary tree.
-	// 4. Each node has a pointer to parent.
+	// 4. Each node has a pointer to its parent.
 	public Node lowestCommonAncestor(Node p, Node q) {
 		int lp = length(p), lq = length(q);
 		if (lp < lq) {
