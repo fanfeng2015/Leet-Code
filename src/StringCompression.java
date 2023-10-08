@@ -32,7 +32,7 @@ public class StringCompression {
 	private int fillCharsNums(char[] chars, int result, int slow, int fast) {
 		chars[result++] = chars[slow];
 		int count = fast - slow;
-		if (count > 1) {
+		if (count > 1) { // can also use Integer.toString(), then append char by char
 			int numDigits = (int) Math.log10(count) + 1;
 			for (int i = numDigits - 1; i >= 0; i--) {
 				chars[result++] = (char) (count / Math.pow(10, i) + '0');
