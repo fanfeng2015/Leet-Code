@@ -7,8 +7,11 @@
 public class LowestCommonAncestorOfABinaryTree3 {
 
 	private class Node {
+		@SuppressWarnings("unused")
 		public int val;
+		@SuppressWarnings("unused")
 		public Node left;
+		@SuppressWarnings("unused")
 		public Node right;
 		public Node parent;
 	};
@@ -46,7 +49,7 @@ public class LowestCommonAncestorOfABinaryTree3 {
 		}
 		return len;
 	}
-	
+
 	// Time complexity is O(n).
-	// Space complexity is O(n).	
+	// Space complexity is O(n).
 }
