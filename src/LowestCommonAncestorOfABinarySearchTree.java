@@ -9,6 +9,10 @@
 
 public class LowestCommonAncestorOfABinarySearchTree {
 
+	// Assumptions:
+	// 1. p != q
+	// 2. All nodes of the tree have unique values.
+	// 3. The given two nodes are guaranteed to be in the binary tree.
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		// root != null
 		if (root.val < p.val && root.val < q.val) {
