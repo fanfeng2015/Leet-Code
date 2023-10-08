@@ -4,8 +4,9 @@
 
 public class LowestCommonAncestorOfABinaryTree {
 
-	// Important Assumption: The given two nodes are guaranteed to be in the binary
-	// tree.
+	// Assumptions:
+	// 1. p != q
+	// 2. The given two nodes are guaranteed to be in the binary tree.
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		if (root == null || root == p || root == q) {
 			return root;
