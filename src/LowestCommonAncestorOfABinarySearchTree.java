@@ -10,12 +10,27 @@
 public class LowestCommonAncestorOfABinarySearchTree {
 
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		while ((root.val - p.val) * (root.val - q.val) > 0)
-			root = p.val < root.val ? root.left : root.right;
+		// root != null
+		if (root.val < p.val && root.val < q.val) {
+			return lowestCommonAncestor(root.right, p, q);
+		} else if (root.val > p.val && root.val > q.val) {
+			return lowestCommonAncestor(root.left, p, q);
+		}
 		return root;
 	}
 
-	// Time complexity is O(n), when the BST is highly unbalanced, and p and q
-	// are far away from root.
+	// Time complexity is O(n), when the BST is highly unbalanced, and p and q are
+	// far away from root.
+	// Space complexity is O(n).
+
+	public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+		while ((long) (root.val - p.val) * (long) (root.val - q.val) > 0) { // potential overflow, so cast to long
+			root = p.val < root.val ? root.left : root.right;
+		}
+		return root;
+	}
+
+	// Time complexity is O(n), when the BST is highly unbalanced, and p and q are
+	// far away from root.
 	// Space complexity is O(1).
 }
