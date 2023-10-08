@@ -1,4 +1,4 @@
-import java.util.Stack;
+import java.util.LinkedList;
 
 // LeetCode #394 (Decode String).
 
@@ -9,43 +9,37 @@ import java.util.Stack;
 // integer.
 
 // You may assume that the input string is always valid. No extra white spaces, square 
-// brackets are well-formed, etc.
-
-// Furthermore, you may assume that the original data does not contain any digits and that
-// digits are only for those repeat numbers, k. For example, there won't be input like 3a
-// or 2[4].
+// brackets are well-formed, etc. Furthermore, you may assume that the original data does 
+// not contain any digits and that digits are only for those repeat numbers, k. For example,
+// there won't be input like 3a or 2[4].
 
 public class DecodeString {
 
 	public String decodeString(String s) {
-		String result = "";
-		Stack<Integer> counts = new Stack<>();
-		Stack<String> sequences = new Stack<>();
-		int i = 0;
-		while (i < s.length()) {
+		LinkedList<Integer> counts = new LinkedList<>();
+		LinkedList<StringBuilder> sbs = new LinkedList<>();
+		int k = 0;
+		StringBuilder cur = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
 			if (Character.isDigit(s.charAt(i))) {
-				int count = 0;
-				while (i < s.length() && Character.isDigit(s.charAt(i))) {
-					count = 10 * count + Character.getNumericValue(s.charAt(i++));
-				}
-				counts.push(count);
-			} else if (s.charAt(i) == '[') {
-				sequences.add(result);
-				result = "";
-				i++;
-			} else if (s.charAt(i) == ']') {
-				StringBuilder temp = new StringBuilder(sequences.pop());
-				int count = counts.pop();
+				k = 10 * k + (s.charAt(i) - '0');
+			} else if (s.charAt(i) == '[') { // '[': push to stack
+				counts.addLast(k);
+				sbs.addLast(cur);
+				k = 0;
+				cur = new StringBuilder();
+			} else if (s.charAt(i) == ']') { // ']': top of stack + count * cur
+				Integer count = counts.removeLast();
+				StringBuilder sb = sbs.removeLast();
 				for (int j = 0; j < count; j++) {
-					temp.append(result);
+					sb.append(cur);
 				}
-				result = temp.toString();
-				i++;
+				cur = sb;
 			} else {
-				result += s.charAt(i++);
+				cur.append(s.charAt(i));
 			}
 		}
-		return result;
+		return cur.toString();
 	}
 
 	// Time complexity is O(n).
