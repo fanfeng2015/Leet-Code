@@ -73,6 +73,6 @@ public class CapacityToShipPackagesWithinDDays {
 		return numDays;
 	}
 
-	// Time complexity is O(n * log(sum)).
+	// Time complexity is O(n*log(sum)).
 	// Space complexity is O(1).
 }
