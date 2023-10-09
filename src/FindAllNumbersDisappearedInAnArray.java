@@ -3,10 +3,8 @@ import java.util.List;
 
 // LeetCode #448 (Find All Numbers Disappeared in an Array).
 
-// Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some 
-// elements appear twice and others appear once.
-
-// Find all the elements of [1, n] inclusive that do not appear in this array.
+// Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the
+// integers in the range [1, n] that do not appear in nums.
 
 public class FindAllNumbersDisappearedInAnArray {
 
@@ -37,7 +35,7 @@ public class FindAllNumbersDisappearedInAnArray {
 	public List<Integer> findDisappearedNumbers2(int[] nums) {
 		List<Integer> result = new ArrayList<>();
 		for (int i = 0; i < nums.length; i++) {
-			int pos = Math.abs(nums[i]) - 1;
+			int pos = Math.abs(nums[i]) - 1; // 4 should be at index 3
 			if (nums[pos] > 0) {
 				nums[pos] *= -1;
 			}
