@@ -7,11 +7,11 @@
 // Given an integer target, return true if target is in matrix or false otherwise.
 
 public class SearchA2DMatrix {
-	
+
 	public boolean searchMatrix(int[][] matrix, int target) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
-            return false;
-        }
+		if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+			return false;
+		}
 		int m = matrix.length, n = matrix[0].length;
 		int left = 0, right = m * n - 1;
 		while (left < right) {
