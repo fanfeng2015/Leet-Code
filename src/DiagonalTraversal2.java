@@ -42,7 +42,8 @@ public class DiagonalTraversal2 {
 	}
 
 	// Time complexity is O(m*n), where m is the number of elements in the longest
-	// row and n is the number of elements in the longest column.
+	// row and n is the number of elements in the longest column, which is not
+	// optimal for cases where there is a really long row and a really low column.
 	// Space complexity is O(1).
 
 	public int[] findDiagonalOrder2(List<List<Integer>> nums) {
