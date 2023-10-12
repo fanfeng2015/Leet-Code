@@ -59,9 +59,10 @@ public class DiagonalTraversal2 {
 			}
 		}
 		int[] result = new int[count];
-		for (List<Integer> stack : stacks) {
-			for (Integer val : stack) {
-				result[index++] = val;
+		for (LinkedList<Integer> stack : stacks) {
+			int size = stack.size();
+			for (int i = 0; i < size; i++) {
+				result[index++] = stack.pollFirst();
 			}
 		}
 		return result;
