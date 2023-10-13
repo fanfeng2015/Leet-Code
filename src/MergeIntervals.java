@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 // LeetCode #56 (Merge Intervals).
@@ -20,6 +22,19 @@ public class MergeIntervals {
 			}
 		}
 		return result;
+	}
+
+	public int[][] merge(int[][] intervals) {
+		LinkedList<int[]> result = new LinkedList<>();
+		Arrays.sort(intervals, (i1, i2) -> (i1[0] - i2[0]));
+		for (int[] interval : intervals) {
+			if (result.isEmpty() || result.getLast()[1] < interval[0]) {
+				result.addLast(interval);
+			} else {
+				result.getLast()[1] = Math.max(result.getLast()[1], interval[1]);
+			}
+		}
+		return result.toArray(new int[result.size()][]);
 	}
 
 	// Time complexity is O(n*log(n)).
