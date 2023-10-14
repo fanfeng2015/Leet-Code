@@ -32,4 +32,26 @@ public class InsertInterval {
 
 	// Time complexity is O(n).
 	// Space complexity is O(1).
+
+	public int[][] insert(int[][] intervals, int[] newInterval) {
+		ArrayList<int[]> result = new ArrayList<>();
+		int index = 0;
+		while (index < intervals.length && intervals[index][1] < newInterval[0]) {
+			result.add(intervals[index++]);
+		}
+		int start = newInterval[0], end = newInterval[1];
+		while (index < intervals.length && intervals[index][0] <= end) {
+			start = Math.min(start, intervals[index][0]);
+			end = Math.max(end, intervals[index][1]);
+			index++;
+		}
+		result.add(new int[] { start, end });
+		while (index < intervals.length) {
+			result.add(intervals[index++]);
+		}
+		return result.toArray(new int[result.size()][]);
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n), but that's because of the input/return type.
 }

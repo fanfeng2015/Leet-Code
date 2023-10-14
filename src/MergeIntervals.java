@@ -34,7 +34,7 @@ public class MergeIntervals {
 				result.getLast()[1] = Math.max(result.getLast()[1], interval[1]);
 			}
 		}
-		return result.toArray(new int[result.size()][]);
+		return result.toArray(new int[result.size()][2]);
 	}
 
 	// Time complexity is O(n*log(n)).
