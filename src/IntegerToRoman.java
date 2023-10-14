@@ -13,4 +13,7 @@ public class IntegerToRoman {
 		String[] I = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
 		return M[num / 1000] + C[(num % 1000) / 100] + X[(num % 100) / 10] + I[num % 10];
 	}
+
+	// Time complexity is O(1).
+	// Space complexity is O(1).
 }
