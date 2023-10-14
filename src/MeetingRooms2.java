@@ -56,4 +56,41 @@ public class MeetingRooms2 {
 
 	// Time complexity is O(n*log(n)).
 	// Space complexity is O(n).
+
+	public int minMeetingRooms(int[][] intervals) {
+		int index = 0;
+		Pair[] pairs = new Pair[2 * intervals.length];
+		for (int[] interval : intervals) {
+			pairs[index++] = new Pair(interval[0], true);
+			pairs[index++] = new Pair(interval[1], false);
+		}
+		Arrays.sort(pairs);
+		int result = 0, cur = 0;
+		for (Pair pair : pairs) {
+			cur = pair.start ? cur + 1 : cur - 1;
+			result = Math.max(result, cur);
+		}
+		return result;
+	}
+
+	// Time complexity is O(n*log(n)).
+	// Space complexity is O(n).
+
+	private class Pair implements Comparable<Pair> {
+		int time;
+		boolean start;
+
+		Pair(int time, boolean start) {
+			this.time = time;
+			this.start = start;
+		}
+
+		@Override
+		public int compareTo(Pair other) {
+			if (this.time == other.time) {
+				return this.start ? 1 : -1;
+			}
+			return this.time - other.time;
+		}
+	}
 }
