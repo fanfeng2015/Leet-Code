@@ -5,9 +5,24 @@
 
 public class UniqueBinarySearchTrees {
 
+	public int numTrees(int n) {
+		if (n <= 1) {
+			return 1;
+		}
+		int count = 0;
+		for (int i = 1; i <= n; i++) { // i is the root
+			count += numTrees(i - 1) * numTrees(n - i);
+		}
+		return count;
+	}
+
+	// Time complexity is O(3^n).
+	// Space complexity is O(n).
+	// https://stackoverflow.com/questions/27371612/catalan-numbers-recursive-function-time-complexity.
+
 	// array[i]: number of different BSTs generated from 1, ..., i
 	// array[i] = array[j - 1] * array[i - j], for j = 1, ..., i
-	public int numTrees(int n) {
+	public int numTrees2(int n) {
 		int[] array = new int[n + 1];
 		array[0] = 1;
 		array[1] = 1;
@@ -23,12 +38,12 @@ public class UniqueBinarySearchTrees {
 	// Space complexity is O(n).
 
 	// Mathematically this is called Catalan number, Cn = (2n)!/(n+1)!*n!
-	public int numTrees2(int n) {
-		return binomialCoefficient(2 * n, n) / (n + 1);
+	public int numTrees3(int n) {
+		return (int) (binomialCoefficient(2 * n, n) / (n + 1));
 	}
 
-	private int binomialCoefficient(int n, int k) {
-		int result = 1;
+	private double binomialCoefficient(int n, int k) {
+		double result = 1;
 		// C(n, k) = C(n, n - k)
 		if (k > n - k) {
 			k = n - k;
