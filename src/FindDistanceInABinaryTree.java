@@ -36,6 +36,6 @@ public class FindDistanceInABinaryTree {
 		return (left == -1 && right == -1) ? -1 : (left == -1) ? (right + 1) : (left + 1);
 	}
 
-	// Time complexity is O(2^n).
+	// Time complexity is O(n).
 	// Space complexity is O(n).
 }
