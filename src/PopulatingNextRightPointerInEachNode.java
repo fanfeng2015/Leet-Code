@@ -2,32 +2,54 @@ import java.util.LinkedList;
 
 // LeetCode #116 (Populating Next Right Pointers in Each Node).
 
-// Given a binary tree, populate each next pointer to point to its next right node. 
+// You are given a perfect binary tree where all leaves are on the same level, and every parent has
+// two children. The binary tree has the following definition:
 
-// If there is no next right node, the next pointer should be set to null.
+// Populate each next pointer to point to its next right node. If there is no next right node, the 
+// next pointer should be set to NULL.
 
-// Initially, all next pointers are set to null.
+// Initially, all next pointers are set to NULL.
 
-// Notes:
+// Follow-up:
 // 1. You may only use constant extra space.
-// 2. Recursive approach is fine, implicit stack space does not count as extra space 
-//    for this problem.
-// 3. You may assume that it is a perfect binary tree (i.e., all leaves are at the 
-//    same level, and every parent has two children).
+// 2. The recursive approach is fine. You may assume implicit stack space does not count as extra space
+// for this problem.
 
 public class PopulatingNextRightPointerInEachNode {
 
-	// Solution 1: BFS
-	public void connect(TreeLinkNode root) {
-		if (root == null) {
-			return;
+	private class Node {
+		@SuppressWarnings("unused")
+		private int val;
+		private Node left;
+		private Node right;
+		private Node next;
+
+		private Node() {
 		}
-		LinkedList<TreeLinkNode> queue = new LinkedList<>();
+
+		private Node(int _val) {
+			val = _val;
+		}
+
+		private Node(int _val, Node _left, Node _right, Node _next) {
+			val = _val;
+			left = _left;
+			right = _right;
+			next = _next;
+		}
+	};
+
+	// Solution 1: BFS
+	public Node connect(Node root) {
+		if (root == null) {
+			return root;
+		}
+		LinkedList<Node> queue = new LinkedList<>();
 		queue.offerFirst(root);
 		while (!queue.isEmpty()) {
 			int size = queue.size();
 			for (int i = 0; i < size; i++) {
-				TreeLinkNode cur = queue.pollLast();
+				Node cur = queue.pollLast();
 				cur.next = (i == size - 1) ? null : queue.peekLast();
 				if (cur.left != null) {
 					queue.offerFirst(cur.left);
@@ -37,17 +59,18 @@ public class PopulatingNextRightPointerInEachNode {
 				}
 			}
 		}
+		return root;
 	}
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 
 	// Solution 2: in-place
-	public void connect2(TreeLinkNode root) {
+	public Node connect2(Node root) {
 		if (root == null) {
-			return;
+			return root;
 		}
-		TreeLinkNode prev = root, cur = null;
+		Node prev = root, cur = null;
 		while (prev.left != null) {
 			cur = prev;
 			while (cur != null) {
@@ -59,6 +82,7 @@ public class PopulatingNextRightPointerInEachNode {
 			}
 			prev = prev.left; // next level
 		}
+		return root;
 	}
 
 	// Time complexity is O(n).
