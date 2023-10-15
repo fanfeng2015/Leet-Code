@@ -2,12 +2,17 @@ import java.util.Arrays;
 
 // LeetCode #45 (Jump Game II).
 
-// Given an array of non-negative integers, you are initially positioned at the first
-// index of the array.
+// You are given a 0-indexed array of integers nums of length n. You are initially positioned at 
+// nums[0].
 
-// Each element in the array represents your maximum jump length at that position.
+// Each element nums[i] represents the maximum length of a forward jump from index i. In other words, 
+// if you are at nums[i], you can jump to any nums[i + j] where:
 
-// Your goal is to reach the last index in the minimum number of jumps.
+// 1. 0 <= j <= nums[i], and
+// 2. i + j < n
+
+// Return the minimum number of jumps to reach nums[n - 1]. The test cases are generated such that you
+// can reach nums[n - 1].
 
 public class JumpGame2 {
 
@@ -33,18 +38,15 @@ public class JumpGame2 {
 
 	// Greedy
 	public int jump2(int[] nums) {
-		// cur: the farthest position with jumps
-		// next: the farthest reachable position
-		int jump = 0, cur = 0, next = 0;
-		for (int i = 0; i < nums.length; i++) {
-			if (i > cur) {
-				jump++;
-				if (cur == next) {
-					return -1;
-				}
-				cur = next;
+		// curEnd: the farthest position with current number of jumps
+		// curFur: the farthest reachable position
+		int jump = 0, curEnd = 0, curFur = 0;
+		for (int i = 0; i < nums.length - 1; i++) {
+			curFur = Math.max(curFur, i + nums[i]); // either jump from i, or not
+			if (curEnd == i) { // with the current number of jumps, can only reach i
+				jump++; // then take one more jump, and the further you can reach is curFur
+				curEnd = curFur;
 			}
-			next = Math.max(next, i + nums[i]);
 		}
 		return jump;
 	}
