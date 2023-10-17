@@ -29,8 +29,8 @@ public class WordBreak {
 	}
 
 	// Let s be the length of String s, and n be the size of the dictionary.
-	// Time complexity is O(s + n^3).
-	// Space complexity is O(s + n).
+	// Time complexity is O(n + s^3).
+	// Space complexity is O(n + s).
 
 	// Follow up: Return all possible compositions?
 	// LeetCode #140 (Word Break II).
