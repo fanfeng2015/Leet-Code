@@ -1,7 +1,7 @@
 // LeetCode #108 (Convert Sorted Array to BST).
 
-// Given an array where elements are sorted in ascending order, 
-// convert it to a height balanced BST.
+// Given an integer array nums where the elements are sorted in ascending order, convert it to a 
+// height-balanced binary search tree.
 
 public class ConvertSortedArrayToBST {
 
