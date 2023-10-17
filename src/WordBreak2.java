@@ -5,13 +5,10 @@ import java.util.Set;
 
 // LeetCode #140 (Word Break II).
 
-// Given a non-empty string s and a dictionary wordDict containing a list of 
-// non-empty words, add spaces in s to construct a sentence where each word is
-// a valid dictionary word. Return all such possible sentences.
+// Given a string s and a dictionary of strings wordDict, add spaces in s to construct a sentence where 
+// each word is a valid dictionary word. Return all such possible sentences in any order.
 
-// Assumptions:
-// 1. The same word in the dictionary may be reused multiple times in the segmentation.
-// 2. You may assume the dictionary does not contain duplicate words.
+// Note that the same word in the dictionary may be reused multiple times in the segmentation.
 
 public class WordBreak2 {
 
@@ -41,12 +38,12 @@ public class WordBreak2 {
 			sb.append(str);
 			cur.add(str);
 			DFS(s, set, sb, cur, result);
-			sb.delete(len, sb.length());
-			cur.remove(cur.size() - 2);
+			sb.delete(len, sb.length()); // [start, end)
+			cur.remove(cur.size() - 1);
 		}
 	}
 
-	// LeetCode #139 (Word Break). Necessary to avoid TLE.
+	// LeetCode #139 (Word Break), necessary to avoid TLE.
 	public boolean canBreak(String s, List<String> wordDict) {
 		Set<String> set = new HashSet<>(wordDict);
 		boolean[] canBreak = new boolean[s.length() + 1];
@@ -62,7 +59,8 @@ public class WordBreak2 {
 		return canBreak[s.length()];
 	}
 
-	// Let m be the length of String s, and n be the size of the dictionary.
-	// Time complexity is O(n + m^3 + n^m) = O(m^3 + n^m).
-	// Space complexity is O(n + m).
+	// Let s be the length of String s, and n be the size of the dictionary.
+	// Time complexity is O(n + s^3 + n^s) = O(s^3 + n^s), not considering the
+	// complexity of StringBuilder operations. Maybe O(s^3 + (n*s)^s)?
+	// Space complexity is O(n + s).
 }
