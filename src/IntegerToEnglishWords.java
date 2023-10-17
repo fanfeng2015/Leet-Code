@@ -1,6 +1,6 @@
 // LeetCode #273 (Integer to English Words).
 
-// Convert a non-negative integer to its English words representation.
+// Convert a non-negative integer num to its English words representation.
 
 // Given input is guaranteed to be less than 2^31 - 1.
 
@@ -43,5 +43,5 @@ public class IntegerToEnglishWords {
 
 	// Time complexity is O(n^2), where n is the length of input, because of string
 	// concatenation.
-	// Space complexity is O(n). 
+	// Space complexity is O(n).
 }
