@@ -64,4 +64,10 @@ public class WordBreak2 {
 	// complexity of StringBuilder operations. Maybe O(s^3 + (n*s)^s)?
 
 	// Space complexity is O(n + s).
+
+	// Follow up: If each word can be used at most once? How about at most K times?
+	
+	// Answer: In addition to cur, maintain a frequency map of the dictionary. Each
+	// time a word is appended, reduce its frequency by 1, and vice versa. Can only
+	// append if a word has a frequency greater than 0.
 }
