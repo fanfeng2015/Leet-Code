@@ -1,20 +1,18 @@
 // LeetCode #209 (Minimum Size Subarray Sum).
 
-// Given an array of n positive integers and a positive integer s, find the minimal
-// length of a contiguous subarray of which the sum >= s. If there isn't one, return
-// 0 instead.
+// Given an array of positive integers nums and a positive integer target, return the minimal length of a 
+// subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 
 public class MinimumSizeSubarrySum {
 
 	// Solution 1
-	public int minSubArrayLen(int s, int[] nums) {
-		int min = Integer.MAX_VALUE;
-		int i = 0, j = 0, sum = 0; // cummulative sum of nums in [i, j]
-		for (; j < nums.length; j++) {
-			sum += nums[j];
-			while (sum >= s) {
-				min = Math.min(min, j - i + 1);
-				sum -= nums[i++];
+	public int minSubArrayLen(int target, int[] nums) {
+		int left = 0, right = 0, sum = 0, min = Integer.MAX_VALUE;
+		for (; right < nums.length; right++) {
+			sum += nums[right];
+			while (sum >= target) {
+				min = Math.min(min, right - left + 1);
+				sum -= nums[left++];
 			}
 		}
 		return (min == Integer.MAX_VALUE) ? 0 : min;
@@ -24,8 +22,8 @@ public class MinimumSizeSubarrySum {
 	// Space complexity is O(1).
 
 	// Solution 2: O(n*log(n)) time, O(n) space.
-	
+
 	// 1. Compute the array of prefix sums.
 	// 2. For each prefix sum, run binary search to get the index of the smallest
-	//    prefix sum >= (prefix sum + s). Update min if index < n.
+	// prefix sum >= (prefix sum + s). Update min if index < n.
 }
