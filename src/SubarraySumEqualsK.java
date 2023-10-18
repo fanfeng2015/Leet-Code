@@ -8,19 +8,18 @@ import java.util.Map;
 
 public class SubarraySumEqualsK {
 
-	public int subarraySum(int[] nums, int target) {
-		int count = 0;
-		int prefixSum = 0;
-		Map<Integer, Integer> prefixSums = new HashMap<>();
-		prefixSums.put(0, 1);
+	public int subarraySum(int[] nums, int k) {
+		int sum = 0, count = 0;
+		Map<Integer, Integer> map = new HashMap<>(); // { sum: count }
+		map.put(0, 1);
 		for (int i = 0; i < nums.length; i++) {
-			prefixSum += nums[i];
-			if (prefixSums.containsKey(prefixSum - target)) {
-				count += prefixSums.get(prefixSum - target);
+			sum += nums[i];
+			if (map.containsKey(sum - k)) {
+				count += map.get(sum - k);
 			}
-			Integer frequency = prefixSums.get(prefixSum);
+			Integer frequency = map.get(sum);
 			frequency = (frequency == null) ? 1 : frequency + 1;
-			prefixSums.put(prefixSum, frequency);
+			map.put(sum, frequency);
 		}
 		return count;
 	}
