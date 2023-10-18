@@ -3,27 +3,28 @@ import java.util.Map;
 
 // LeetCode #523 (Continuous Subarray Sum).
 
-// Given a list of non-negative numbers and a target integer k, write a function to check 
-// if the array has a continuous subarray of size at least 2 that sums up to the multiple
-// of k, that is, sums up to n*k where n is also an integer.
+// Given an integer array nums and an integer k, return true if nums has a good subarray or false otherwise.
+
+// A good subarray is a subarray where:
+// 1. Its length is at least two.
+// 2. The sum of the elements of the subarray is a multiple of k.
 
 public class ContinuousSubarraySum {
 
 	public boolean checkSubarraySum(int[] nums, int k) {
-		int prefixSum = 0;
-		Map<Integer, Integer> prefixSums = new HashMap<>();
-		prefixSums.put(0, -1);
+		int sum = 0, max = 0;
+		Map<Integer, Integer> map = new HashMap<>(); // { sum: earliest index }
+		map.put(0, -1);
 		for (int i = 0; i < nums.length; i++) {
-			prefixSum += nums[i];
-			if (k != 0) {
-				prefixSum = prefixSum % k; // Java's % is a remainder operation, not a modular operation
-			}
-			if (prefixSums.containsKey(prefixSum) && (i - prefixSums.get(prefixSum)) > 1) {
+			sum += nums[i];
+			// Java's % is a remainder operation, not a modular operation.
+			sum %= k; // assume k is not 0
+			if (map.containsKey(sum) && (i - map.get(sum)) > 1) {
 				return true;
 			}
-			Integer index = prefixSums.get(prefixSum);
-			index = (index == null) ? i : index; // keep the earliest (shortest) prefix sum
-			prefixSums.put(prefixSum, index);
+			if (!map.containsKey(sum)) {
+				map.put(sum, i); // if sum is already in the map, do nothing
+			}
 		}
 		return false;
 	}
