@@ -12,7 +12,7 @@ import java.util.Map;
 public class ContinuousSubarraySum {
 
 	public boolean checkSubarraySum(int[] nums, int k) {
-		int sum = 0, max = 0;
+		int sum = 0;
 		Map<Integer, Integer> map = new HashMap<>(); // { sum: earliest index }
 		map.put(0, -1);
 		for (int i = 0; i < nums.length; i++) {
