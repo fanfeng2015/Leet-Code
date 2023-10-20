@@ -1,11 +1,8 @@
 // LeetCode #303 (Range Sum Query - Immutable).
 
-// Given an integer array nums, find the sum of the elements between indices 
-// i and j (i ≤ j), inclusive.
+// Given an integer array nums, handle multiple queries of the following type:
 
-// Assumptions:
-// 1. You may assume that the array does not change.
-// 2. There are many calls to sumRange function.
+// Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
 
 public class RangeSumQueryImmutable {
 
