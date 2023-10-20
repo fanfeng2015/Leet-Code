@@ -48,5 +48,4 @@ public class TopKFrequentWords {
 	// Solution 2: priority queue
 	// Solution 3: quick select (need a comparator)
 	// Solution 4: count map
-
 }
