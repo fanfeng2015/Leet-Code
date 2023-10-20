@@ -2,12 +2,8 @@ import java.util.LinkedList;
 
 // LeetCode #224 (Basic Calculator).
 
-// Implement a basic calculator to evaluate a simple expression string.
-
-// The expression string may contain open parentheses ( and closing parentheses ), 
-// the plus + or minus sign -, non-negative integers and empty spaces.
-
-// You may assume that the given expression is always valid.
+// Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the 
+// evaluation.
 
 public class BasicCalculator {
 
@@ -26,11 +22,12 @@ public class BasicCalculator {
 				result += sign * num;
 				sign = -1;
 				num = 0;
-			} else if (s.charAt(i) == '(') { // num must equal 0
+			} else if (s.charAt(i) == '(') { // '(' must be preceded with '+' or '-', or is the first char
 				stack.offerLast(result);
 				stack.offerLast(sign);
 				result = 0;
 				sign = 1;
+				// num = 0; guaranteed
 			} else if (s.charAt(i) == ')') {
 				result = (result + sign * num) * stack.pollLast() + stack.pollLast();
 				sign = 1;
