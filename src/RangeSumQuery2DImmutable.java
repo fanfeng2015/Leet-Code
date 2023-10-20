@@ -1,18 +1,15 @@
 // LeetCode #304 (Range Sum Query 2D - Immutable).
 
-// Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by
-// its upper left corner (row1, col1) and lower right corner (row2, col2).
+// Given a 2D matrix matrix, handle multiple queries of the following type:
 
-// Notes:
-// 1. You may assume that the matrix does not change.
-// 2. There are many calls to sumRegion function.
-// 3. You may assume that row1 ≤ row2 and col1 ≤ col2.
+// Calculate the sum of the elements of matrix inside the rectangle defined by its upper left corner (row1, col1) and lower right
+// corner (row2, col2).
 
 public class RangeSumQuery2DImmutable {
 
 	int[][] matrix;
 
-	public RangeSumQuery2DImmutable(int[][] matrix) {
+	public RangeSumQuery2DImmutable(int[][] matrix) { // constructor
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
 				int left = (i > 0) ? matrix[i - 1][j] : 0;
