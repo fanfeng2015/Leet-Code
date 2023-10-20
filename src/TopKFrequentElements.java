@@ -33,4 +33,12 @@ public class TopKFrequentElements {
 
 	// Time complexity is O(n + n*log(k) + k*log(k)) = O(n*log(k)).
 	// Space complexity is O(n + k).
+
+	// Convert the nums array to { value: frequency }, then run Kth largest on the
+	// frequency.
+
+	// Solution 1: sort
+	// Solution 2: priority queue
+	// Solution 3: quick select
+	// Solution 4: count map	
 }
