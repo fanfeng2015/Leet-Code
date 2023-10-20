@@ -32,5 +32,5 @@ public class TopKFrequentElements {
 	}
 
 	// Time complexity is O(n + n*log(k) + k*log(k)) = O(n*log(k)).
-	// Space complexity is O(n + k);
+	// Space complexity is O(n + k).
 }
