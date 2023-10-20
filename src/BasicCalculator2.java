@@ -2,10 +2,11 @@ import java.util.Stack;
 
 // LeetCode #227 (Basic Calculator II).
 
-// Implement a basic calculator to evaluate a simple expression string.
+// Given a string s which represents an expression, evaluate this expression and return its value. 
 
-// The expression string contains only non-negative integers, +, -, *, / 
-// operators and empty spaces. The integer division should truncate toward zero.
+// The integer division should truncate toward zero.
+
+// You may assume that the given expression is always valid. All intermediate results will be in the range of [-2^31, 2^31 - 1].
 
 public class BasicCalculator2 {
 
