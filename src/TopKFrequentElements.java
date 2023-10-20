@@ -37,8 +37,8 @@ public class TopKFrequentElements {
 	// Convert the nums array to { value: frequency }, then run Kth largest on the
 	// frequency.
 
-	// Solution 1: sort
+	// Solution 1: sort (need a comparator)
 	// Solution 2: priority queue
-	// Solution 3: quick select
-	// Solution 4: count map	
+	// Solution 3: quick select (need a comparator)
+	// Solution 4: count map
 }
