@@ -1,11 +1,9 @@
 // LeetCode #200 (Number of Islands).
 
-// Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
+// Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
 
-// An island is surrounded by water and is formed by connecting adjacent lands horizontally
-// or vertically. 
-
-// You may assume all four edges of the grid are all surrounded by water.
+// An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all
+// four edges of the grid are all surrounded by water.
 
 public class NumberOfIslands {
 
@@ -111,6 +109,7 @@ public class NumberOfIslands {
 			return root;
 		}
 
+		@SuppressWarnings("unused")
 		public boolean connected(int p, int q) {
 			return find(p) == find(q);
 		}
@@ -142,5 +141,5 @@ public class NumberOfIslands {
 		// Time complexity is O((m+n) * log(n)), on any m union-find operations
 		// on a set of n objects.
 	}
-	
+
 }
