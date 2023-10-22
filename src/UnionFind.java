@@ -13,12 +13,12 @@ public class UnionFind {
 	private int count; // number of components
 
 	public UnionFind(int n) {
-		count = n;
+		count = n; // number of distinct groups
 		parent = new int[n];
 		size = new int[n];
 		for (int i = 0; i < n; i++) {
-			parent[i] = i;
-			size[i] = 1;
+			parent[i] = i; // [0, 1, 2, 3, 4]
+			size[i] = 1; // [1, 1, 1, 1, 1]
 		}
 	}
 
@@ -33,7 +33,7 @@ public class UnionFind {
 			root = parent[root];
 		}
 		// path compression to make tree flat: connect node directly to root
-		while (p != root) { 
+		while (p != root) {
 			int temp = parent[p];
 			parent[p] = root;
 			p = temp;
