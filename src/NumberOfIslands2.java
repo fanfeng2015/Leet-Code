@@ -18,7 +18,7 @@ public class NumberOfIslands2 {
 
 	private static final int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
-	public List<Integer> numIslands(int m, int n, int[][] positions) {
+	public List<Integer> numIslands2(int m, int n, int[][] positions) {
 		List<Integer> result = new ArrayList<>();
 		int[][] grid = new int[m][n]; // default int is 0
 		UnionFind unionFind = new UnionFind(grid);
