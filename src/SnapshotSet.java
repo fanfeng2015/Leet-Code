@@ -1,6 +1,8 @@
 import java.util.HashSet;
 import java.util.Iterator;
 
+import org.junit.Assert;
+
 // Databricks SnapshotSet.
 
 // Create a class that has methods add(), remove(), contains(), iterator() like a regular set, but allows for 
@@ -56,4 +58,14 @@ public class SnapshotSet {
 		return snapshot.iterator();
 	}
 
+	public static void main(String[] agrs) {
+		// tests
+		SnapshotSet set = new SnapshotSet();
+		set.add(1);
+		set.add(2);
+		set.add(3);
+		Assert.assertTrue(set.contains(1));
+		Assert.assertTrue(set.contains(2));
+		Assert.assertTrue(set.contains(3));
+	}
 }
