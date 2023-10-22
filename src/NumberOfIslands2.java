@@ -23,13 +23,14 @@ public class NumberOfIslands2 {
 		int[][] grid = new int[m][n]; // default int is 0
 		UnionFind unionFind = new UnionFind(grid);
 		for (int[] position : positions) {
-			int row = position[0];
-			int col = position[1];
+			int row = position[0], col = position[1];
+			if (grid[row][col] == 1) {
+				continue;
+			}
 			grid[row][col] = 1; // add land
 			unionFind.add(row, col);
 			for (int[] direction : DIRECTIONS) {
-				int newRow = row + direction[0];
-				int newCol = col + direction[1];
+				int newRow = row + direction[0], newCol = col + direction[1];
 				if (newRow >= 0 && newRow < m && newCol >= 0 && newCol < n && grid[newRow][newCol] == 1) {
 					unionFind.union(row * n + col, newRow * n + newCol);
 				}
@@ -66,9 +67,11 @@ public class NumberOfIslands2 {
 		// add land operation
 		public void add(int row, int col) {
 			int index = row * n + col;
-			parent[index] = index;
-			size[index] = 1;
-			count++;
+			if (parent[index] == 0) { // if parent[index] != 0, then index has already been changed to a land before
+				parent[index] = index;
+				size[index] = 1;
+				count++;
+			}
 		}
 
 		public int find(int p) {
