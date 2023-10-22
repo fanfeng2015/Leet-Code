@@ -3,14 +3,16 @@ import java.util.List;
 
 // LeetCode #305 (Number of Islands II).
 
-// A 2d grid map of m rows and n columns is initially filled with water. 
+// You are given an empty 2D binary grid grid of size m x n. The grid represents a map where 0's represent water and 1's represent 
+// land. Initially, all the cells of grid are water cells (i.e., all the cells are 0's).
 
-// We may perform an addLand operation which turns the water at position 
-// (row, col) into a land. Given a list of positions to operate, count the
-// number of islands after each addLand operation. An island is surrounded
-// by water and is formed by connecting adjacent lands horizontally or vertically. 
+// We may perform an add land operation which turns the water at position into a land. You are given an array positions where 
+// positions[i] = [ri, ci] is the position (ri, ci) at which we should operate the ith operation.
 
-// You may assume all four edges of the grid are all surrounded by water.
+// Return an array of integers answer where answer[i] is the number of islands after turning the cell (ri, ci) into a land.
+
+// An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four
+// edges of the grid are all surrounded by water.
 
 public class NumberOfIslands2 {
 
@@ -21,8 +23,7 @@ public class NumberOfIslands2 {
 		int[][] grid = new int[m][n]; // default int is 0
 		UnionFind unionFind = new UnionFind(grid);
 		for (int[] position : positions) {
-			int row = position[0];
-			int col = position[1];
+			int row = position[0], col = position[1];
 			grid[row][col] = 1; // add land
 			unionFind.add(row, col);
 			for (int[] direction : DIRECTIONS) {
@@ -37,7 +38,7 @@ public class NumberOfIslands2 {
 		return result;
 	}
 
-	// Time complexity is O(k * log(m*n)).
+	// Time complexity is O(k*log(m*n)).
 	// Space complexity is O(m*n).
 
 	private class UnionFind {
@@ -112,7 +113,7 @@ public class NumberOfIslands2 {
 			}
 		}
 
-		// Time complexity is O((m+n) * log(n)), on any m union-find operations
-		// on a set of n objects.
+		// Time complexity is O(m*log(n)), on any m union-find operations on a set of n
+		// objects.
 	}
 }
