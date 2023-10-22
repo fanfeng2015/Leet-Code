@@ -33,7 +33,4 @@ public class MaxAreaOfIsland {
 
 	// Time complexity is O(m*n).
 	// Space complexity is O(m*n).
-
-	// Follow up (Google): You are allowed to change one 0 to 1.
-	// Answer: { index: island # }, { island #: area }.
 }
