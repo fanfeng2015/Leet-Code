@@ -23,7 +23,8 @@ public class NumberOfIslands2 {
 		int[][] grid = new int[m][n]; // default int is 0
 		UnionFind unionFind = new UnionFind(grid);
 		for (int[] position : positions) {
-			int row = position[0], col = position[1];
+			int row = position[0];
+			int col = position[1];
 			grid[row][col] = 1; // add land
 			unionFind.add(row, col);
 			for (int[] direction : DIRECTIONS) {
