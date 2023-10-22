@@ -6,16 +6,71 @@ import java.util.Set;
 
 // LeetCode #827 (Making A Large Island).
 
-// In a 2D grid of 0s and 1s, we change at most one 0 to a 1.
+// You are given an n x n binary matrix grid. You are allowed to change at most one 0 to be 1.
 
-// After, what is the size of the largest island? (An island is a 4-directionally connected 
-// group of 1s).
+// Return the size of the largest island in grid after applying this operation.
+
+// An island is a 4-directionally connected group of 1s.
 
 public class MakingALargeIsland {
 
-	Map<Integer, Integer> countMap = new HashMap<>();
+	// --------------------------------------------------
+	// 2023
+	// --------------------------------------------------
+	private static final int[][] DIRECTIONS = new int[][] { { -1, 0 }, { 0, 1 }, { 1, 0 }, { 0, -1 } };
 
 	public int largestIsland(int[][] grid) {
+		int m = grid.length, n = grid[0].length, group = 2, result = 0;
+		Map<Integer, Integer> groupToArea = new HashMap<>(); // { group: area }
+		groupToArea.put(0, 0);
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (grid[i][j] == 1) {
+					groupToArea.put(group, DFS(grid, i, j, group));
+					result = Math.max(result, groupToArea.get(group++)); // increment group number
+				}
+			}
+		}
+		// up to this point, each island is marked as the group that it belongs to
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				// can change grid[i][j] to 1, then add up neighbor's area (neighbors in the
+				// same group should be added only once)
+				if (grid[i][j] == 0) {
+					int cur = 1;
+					Set<Integer> addedGroups = new HashSet<>();
+					for (int[] dir : DIRECTIONS) {
+						int row = i + dir[0], col = j + dir[1];
+						if (row >= 0 && row < m && col >= 0 && col < n && addedGroups.add(grid[row][col])) {
+							cur += groupToArea.get(grid[row][col]);
+						}
+					}
+					result = Math.max(result, cur);
+				}
+			}
+		}
+		return result;
+	}
+
+	// Time complexity is O(m*n).
+	// Space complexity is O(m*n).
+
+	private int DFS(int[][] grid, int row, int col, int group) {
+		int m = grid.length, n = grid[0].length;
+		if (row < 0 || row >= m || col < 0 || col >= n || grid[row][col] != 1) {
+			return 0;
+		}
+		grid[row][col] = group;
+		return 1 + DFS(grid, row - 1, col, group) + DFS(grid, row, col + 1, group) + DFS(grid, row + 1, col, group)
+				+ DFS(grid, row, col - 1, group);
+	}
+
+	// --------------------------------------------------
+	// 2018
+	// --------------------------------------------------
+	Map<Integer, Integer> countMap = new HashMap<>();
+
+	public int largestIsland2(int[][] grid) {
 		int m = grid.length, n = grid[0].length;
 		int max = 0;
 		paint(grid);
