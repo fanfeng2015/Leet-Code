@@ -3,10 +3,7 @@ import java.util.List;
 
 // LeetCode #229 (Majority Element II).
 
-// Given an integer array of size n, find all elements that appear more than 
-// ⌊ n/3 ⌋ times.
-
-// Note: The algorithm should run in linear time and in O(1) space.
+// Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
 
 public class MajorityElement2 {
 
@@ -33,6 +30,7 @@ public class MajorityElement2 {
 				count2--;
 			}
 		}
+		// second pass
 		count1 = count2 = 0;
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] == candidate1) {
