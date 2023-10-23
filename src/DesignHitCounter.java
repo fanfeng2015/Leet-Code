@@ -17,8 +17,8 @@ public class DesignHitCounter {
 
 	private static final int TIME_FRAME = 300;
 
-	private int[] timestamps;
-	private int[] hits;
+	private int[] timestamps; // timestamps of hits
+	private int[] hits; // number of hits at the timestamp
 
 	public DesignHitCounter() {
 		timestamps = new int[TIME_FRAME];
