@@ -30,6 +30,8 @@ public class MinimumAbsoluteDifferenceBetweenElementsWithConstraint {
 		return result;
 	}
 
+	// Time complexity is O((n-x)*log(n-x)).
+	// Space complexity is O(n-x).
 }
 
 // [5, 3, 2, 10, 15], x = 2
