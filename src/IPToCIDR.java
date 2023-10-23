@@ -66,3 +66,17 @@ public class IPToCIDR {
 	// Time complexity is O(log(n)).
 	// Space complexity is O(1).
 }
+
+// target = 192.168.0.1
+
+// rules = {
+//   "ALLOW", "8.8.8.8/8",
+//   "DENY", "192.168.25.25/16",
+// }
+
+// return "DENY"
+
+// ------------------------------
+// Solution: 
+// for each rule, get k, create a 32-bit mask where the first k are 1's and the rest are 0's
+// convert target and rule to binary, mask on both, if the results match, return the status
