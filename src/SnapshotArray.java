@@ -17,6 +17,7 @@ public class SnapshotArray {
 	// each TreeMap contains { snap_id: value }
 	TreeMap<Integer, Integer>[] maps;
 
+	@SuppressWarnings("unchecked")
 	public SnapshotArray(int length) {
 		maps = new TreeMap[length];
 		for (int i = 0; i < length; i++) {
