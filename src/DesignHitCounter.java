@@ -1,12 +1,17 @@
 // LeetCode #362 (Design Hit Counter).
 
-// Design a hit counter which counts the number of hits received in the past 5 minutes.
+// Design a hit counter which counts the number of hits received in the past 5 minutes (i.e., the past 300 seconds).
 
-// Each function accepts a timestamp parameter (in seconds granularity) and you may assume 
-// that calls are being made to the system in chronological order (ie, the timestamp is 
-// monotonically increasing). You may assume that the earliest timestamp starts at 1.
+// Your system should accept a timestamp parameter (in seconds granularity), and you may assume that calls are being made to the system
+// in chronological order (i.e., timestamp is monotonically increasing). Several hits may arrive roughly at the same time.
 
-// It is possible that several hits arrive roughly at the same time.
+// Implement the HitCounter class:
+
+// - HitCounter() Initializes the object of the hit counter system.
+// - void hit(int timestamp) Records a hit that happened at timestamp (in seconds). Several hits may happen at the same timestamp.
+// - int getHits(int timestamp) Returns the number of hits in the past 5 minutes from timestamp (i.e., the past 300 seconds).
+
+import java.util.LinkedList;
 
 public class DesignHitCounter {
 
@@ -43,40 +48,30 @@ public class DesignHitCounter {
 	// Time complexity is O(1) for hit(), but O(t) for getHits().
 	// Space complexity is O(t).
 
-	// Follow up: What if the number of hits per second could be very large? Does
+	// Follow-up: What if the number of hits per second could be very large? Does
 	// your design scale?
 	// Answer: Yes. Of course we need to worry about overflow.
 
-	// Follow up: Could you solve the problem without storing all timestamps?
+	// Follow-up: Could you solve the problem without storing all timestamps?
 	// Answer: Use a FIFO queue.
 
-/*
-	private static final int TIME_FRAME = 300;
+	private LinkedList<Integer> queue = new LinkedList<>(); // offerFirst(), pollLast(), peekLast()
 
-	private LinkedList<Integer> queue; // offerFirst(), pollLast(), peekLast()
-
-	public DesignHitCounter() {
-		this.queue = new LinkedList<>();
-	}
-
-	public void hit(int timestamp) {
+	public void hit2(int timestamp) {
 		queue.offerFirst(timestamp);
 	}
 
-	public int getHits(int timestamp) {
+	public int getHits2(int timestamp) {
 		while (queue.size() > 0 && (timestamp - queue.peekLast()) >= TIME_FRAME) {
 			queue.pollLast();
 		}
 		return queue.size();
 	}
-	
+
 	// Time complexity is O(1) for hit(), but can be infinitely large for getHits().
 	// Space complexity can be infinitely large.
-	
-	// Follow up: What if the number of hits per second could be very large? Does
+
+	// Follow-up: What if the number of hits per second could be very large? Does
 	// your design scale?
 	// Answer: No. Scalability is limited by the size of memory.
-*/
-
 }
-
