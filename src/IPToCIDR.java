@@ -80,3 +80,6 @@ public class IPToCIDR {
 // Solution: 
 // for each rule, get k, create a 32-bit mask where the first k are 1's and the rest are 0's
 // convert target and rule to binary, mask on both, if the results match, return the status
+
+// How to optimize? Trade-off between time and space.
+// Store all allowed IPs in a sorted array, and all denied IPs in a sorted array, then run binary search.
