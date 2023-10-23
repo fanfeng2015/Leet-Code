@@ -84,4 +84,5 @@ public class IPToCIDR {
 // convert target and rule to binary, mask on both, if the results match, return the status
 
 // How to optimize? Trade-off between time and space.
-// Store all allowed IPs in a sorted array, and all denied IPs in a sorted array, then run binary search.
+// Option 1: Store all allowed IPs in a sorted array, and all denied IPs in a sorted array, then run binary search.
+// Option 2: Trie.
