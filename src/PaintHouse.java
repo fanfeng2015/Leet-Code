@@ -26,6 +26,6 @@ public class PaintHouse {
 		return Math.min(prev[0], Math.min(prev[1], prev[2]));
 	}
 
-	// Time complexity is O(n).
-	// Space complexity is O(1).
+	// Time complexity is O(n*k).
+	// Space complexity is O(k).
 }
