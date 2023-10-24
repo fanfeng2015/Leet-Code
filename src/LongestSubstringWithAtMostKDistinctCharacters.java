@@ -1,7 +1,7 @@
 // LeetCode #340 (Longest Substring with At Most K Distinct Characters).
 
-// Given a string, find the length of the longest substring T that contains at 
-// most k distinct characters.
+// Given a string s and an integer k, return the length of the longest substring of s that contains at most k distinct
+// characters.
 
 public class LongestSubstringWithAtMostKDistinctCharacters {
 
