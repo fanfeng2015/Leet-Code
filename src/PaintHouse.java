@@ -28,4 +28,7 @@ public class PaintHouse {
 
 	// Time complexity is O(n*k).
 	// Space complexity is O(k).
+
+	// Space complexity can be optimized to O(1), since we only need to maintain the
+	// minimum and second minimum cost (plus their indices) from the prevou row.
 }
