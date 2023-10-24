@@ -1,12 +1,11 @@
-import java.util.Deque;
 import java.util.LinkedList;
 
 // LeetCode #239 (Sliding Window Maximum).
 
-// Given an array nums, there is a sliding window of size k which is moving
-// from the very left of the array to the very right. You can only see the 
-// k numbers in the window. Each time the sliding window moves right by one
-// position. Return the max sliding window.
+// You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the
+// very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
+
+// Return the max sliding window.
 
 public class SlidingWindowMaximum {
 
@@ -16,7 +15,7 @@ public class SlidingWindowMaximum {
 		}
 		int[] result = new int[nums.length - k + 1];
 		// a descending deque, but stores indices instead of actual values
-		Deque<Integer> linkedList = new LinkedList<>();
+		LinkedList<Integer> linkedList = new LinkedList<>();
 		for (int i = 0; i < nums.length; i++) {
 			while (linkedList.size() > 0 && nums[linkedList.peekLast()] < nums[i]) {
 				linkedList.pollLast();
@@ -37,5 +36,9 @@ public class SlidingWindowMaximum {
 
 	// Note: Using priority queue, time complexity is O(n*k), because remove(...)
 	// take O(k) time.
-
 }
+
+// nums = [1,3,-1,-3,5,3,6,7], k = 3
+// k = 3, num = -3
+// deque: [ 3, -1, -3, ... ]
+// ressult: [ 3, 3, ... ]
