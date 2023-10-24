@@ -6,8 +6,7 @@
 public class LongestSubstringWithAtMostKDistinctCharacters {
 
 	public int lengthOfLongestSubstringKDistinct(String s, int k) {
-		int max = 0, lo = 0;
-		int count = 0;
+		int lo = 0, count = 0, max = 0;
 		int[] countMap = new int[256];
 		for (int i = 0; i < s.length(); i++) {
 			if (countMap[s.charAt(i)]++ == 0) {
