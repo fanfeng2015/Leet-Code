@@ -79,7 +79,7 @@ public class IPToCIDR {
 // ------------------------------
 // Solution: 
 // for each rule, get k, create a 32-bit mask where the first k are 1's and the rest are 0's
-// mask = (2^32 - 1) - (2 ^ (32 - k - 1) - 1)
+// mask = (2^32 - 1) - (2^(32-k-1) - 1)
 // e.g., k = 29, (11111111 11111111 11111111 11111111) - (00000000 00000000 00000000 00000011) = (11111111 11111111 11111111 11111000)
 // convert target and rule to binary, mask on both, if the results match, return the status
 
