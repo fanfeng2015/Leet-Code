@@ -33,7 +33,7 @@ public class CourseSchedule {
 		}
 	}
 
-	private int topologicalOrder(int[] incomingDegrees, List<List<Integer>> adjacentList) {
+	private int topologicalOrder(int[] incomingDegrees, List<List<Integer>> adjacentList) { // a bfs algorithm
 		int numCourses = incomingDegrees.length;
 		LinkedList<Integer> queue = new LinkedList<>();
 		for (int i = 0; i < numCourses; i++) {
