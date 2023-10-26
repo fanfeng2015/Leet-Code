@@ -4,18 +4,19 @@ import java.util.List;
 
 // LeetCode #207 (Course Schedule).
 
-// There are a total of n courses you have to take, labeled from 0 to n-1.
+// There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array 
+// prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course
+// ai.
 
-// Some courses may have prerequisites, for example to take course 0 you have
-// to first take course 1, which is expressed as a pair [0, 1].
+// For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
 
-// Given the total number of courses and a list of prerequisite pairs, is it
-// possible for you to finish all courses? 
+// Return true if you can finish all courses. Otherwise, return false.
 
 public class CourseSchedule {
 
 	public boolean canFinish(int numCourses, int[][] prerequisites) {
 		int[] incomingDegrees = new int[numCourses];
+		// adjacentList.get(i) contains all of the next nodes from i
 		List<List<Integer>> adjacentList = new ArrayList<>();
 		constructGraph(prerequisites, incomingDegrees, adjacentList);
 		return topologicalOrder(incomingDegrees, adjacentList) == numCourses;
