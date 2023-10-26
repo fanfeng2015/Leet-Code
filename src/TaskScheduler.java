@@ -7,16 +7,14 @@ import java.util.Queue;
 
 // LeetCode #621 (Task Scheduler).
 
-// Given a char array representing tasks CPU need to do. It contains capital letters A to Z 
-// where different letters represent different tasks. Tasks could be done without original order. 
-// Each task could be done in one interval. For each interval, CPU could finish one task or just
-// be idle.
+// Given a characters array tasks, representing the tasks a CPU needs to do, where each letter represents a different task.
+// Tasks could be done in any order. Each task is done in one unit of time. For each unit of time, the CPU could complete 
+// either one task or just be idle.
 
-// However, there is a non-negative cooling interval n that means between two same tasks, 
-// there must be at least n intervals that CPU are doing different tasks or just be idle.
+// However, there is a non-negative integer n that represents the cooldown period between two same tasks (the same letter 
+// in the array), that is that there must be at least n units of time between any two same tasks.
 
-// You need to return the least number of intervals the CPU will take to finish all the given 
-// tasks.
+// Return the least number of units of times that the CPU will take to finish all the given tasks.
 
 public class TaskScheduler {
 
@@ -47,7 +45,7 @@ public class TaskScheduler {
 		}
 
 		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
-				(a, b) -> (b.getValue() - a.getValue()));
+				(a, b) -> (b.getValue() - a.getValue())); // entry with larger value has higher priority
 		maxHeap.addAll(map.entrySet());
 
 		int result = 0;
@@ -75,6 +73,6 @@ public class TaskScheduler {
 		return result;
 	}
 
-	// Time complexity is O(t).
-	// Space complexity is (1).
+	// Time complexity is O(t*log(t)).
+	// Space complexity is (t).
 }
