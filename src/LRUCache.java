@@ -3,9 +3,16 @@ import java.util.Map;
 
 // LeetCode #146 (LRU Cache).
 
-// Implement a least recently used cache. It should provide set(), get() operations.
+// Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
-// If not exists, return null.
+// Implement the LRUCache class:
+
+// - LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+// - int get(int key) Return the value of the key if the key exists, otherwise return -1.
+// - void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the
+//   cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+
+// The functions get and put must each run in O(1) average time complexity.
 
 public class LRUCache {
 
@@ -16,11 +23,6 @@ public class LRUCache {
 		int value;
 
 		Node(int key, int value) {
-			this.key = key;
-			this.value = value;
-		}
-
-		void update(int key, int value) {
 			this.key = key;
 			this.value = value;
 		}
@@ -52,17 +54,28 @@ public class LRUCache {
 			node = map.get(key);
 			node.value = value;
 			remove(node);
-		} else if (map.size() < CAPACITY) {
+		} else if (map.size() == CAPACITY) {
 			node = new Node(key, value);
+			remove(tail);
 		} else {
-			node = tail;
-			remove(node);
-			node.update(key, value);
+			node = new Node(key, value);
 		}
 		append(node);
 	}
 
-	// removes node from doubly linked list
+	// appends node at the beginning of the doubly linked list
+	private void append(Node node) {
+		map.put(node.key, node);
+		if (head == null) {
+			head = tail = node;
+		} else {
+			node.next = head;
+			head.prev = node;
+			head = node;
+		}
+	}
+
+	// removes node from the doubly linked list
 	private Node remove(Node node) {
 		map.remove(node.key);
 		// remove node
@@ -80,19 +93,6 @@ public class LRUCache {
 			tail = tail.prev;
 		}
 		node.next = node.prev = null;
-		return node;
-	}
-
-	// appends node at the beginning of doubly linked list
-	private Node append(Node node) {
-		map.put(node.key, node);
-		if (head == null) {
-			head = tail = node;
-		} else {
-			node.next = head;
-			head.prev = node;
-			head = node;
-		}
 		return node;
 	}
 
