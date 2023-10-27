@@ -3,12 +3,12 @@ import java.util.PriorityQueue;
 
 // LeetCode #253 (Meeting Rooms 2).
 
-// Given an array of meeting time intervals consisting of start and end times
-// [[s1, e1], [s2, e2], ...] (si < ei), find the minimum number of conference 
+// Given an array of meeting time intervals intervals where intervals[i] = [start_i, end_i], return the minimum number of conference
 // rooms required.
 
 public class MeetingRooms2 {
 
+	// -------------------- 2018 --------------------
 	// sort + heap
 	public int minMeetingRooms(Interval[] intervals) {
 		if (intervals == null || intervals.length == 0) {
@@ -57,7 +57,57 @@ public class MeetingRooms2 {
 	// Time complexity is O(n*log(n)).
 	// Space complexity is O(n).
 
+	// -------------------- 2023 --------------------
+	// sort + heap
 	public int minMeetingRooms(int[][] intervals) {
+		if (intervals == null || intervals.length == 0) {
+			return 0;
+		}
+		Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
+		PriorityQueue<int[]> minHeap = new PriorityQueue<>(intervals.length, (a, b) -> (a[1] - b[1]));
+		minHeap.offer(intervals[0]);
+		for (int i = 1; i < intervals.length; i++) {
+			int[] cur = minHeap.poll();
+			// If cur and intervals[i] can use the same meeting room (no overlap), merge
+			// them.
+			if (cur[1] <= intervals[i][0]) {
+				cur[1] = intervals[i][1];
+			} else { // there is an overlap
+				minHeap.offer(intervals[i]);
+			}
+			minHeap.offer(cur);
+		}
+		return minHeap.size();
+	}
+
+	// Time complexity is O(n*log(n)).
+	// Space complexity is O(n).
+
+	// two arrays that are essentially the same as above
+	public int minMeetingRooms2(int[][] intervals) {
+		int n = intervals.length;
+		int[] starts = new int[n], ends = new int[n];
+		for (int i = 0; i < intervals.length; i++) {
+			starts[i] = intervals[i][0];
+			ends[i] = intervals[i][1];
+		}
+		Arrays.sort(starts);
+		Arrays.sort(ends);
+		int rooms = 0, index = 0;
+		for (int i = 0; i < n; i++) {
+			if (starts[i] < ends[index]) { // there is an overlap
+				rooms++;
+			} else { // this is the same as updating the end time in the above solution
+				index++;
+			}
+		}
+		return rooms;
+	}
+
+	// Time complexity is O(n*log(n)).
+	// Space complexity is O(n).
+
+	public int minMeetingRooms3(int[][] intervals) {
 		int index = 0;
 		Pair[] pairs = new Pair[2 * intervals.length];
 		for (int[] interval : intervals) {
