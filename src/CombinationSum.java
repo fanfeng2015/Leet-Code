@@ -39,9 +39,44 @@ public class CombinationSum {
 	// Time complexity is O(n^target).
 	// Space complexity is O(target).
 
+	// another solution that records counts first, then translate to combinations
+	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+		List<Integer> cur = new ArrayList<>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		DFS2(candidates, target, cur, result, 0);
+		return result;
+	}
+
+	private void DFS2(int[] candidates, int target, List<Integer> cur, List<List<Integer>> result, int level) {
+		if (level == candidates.length) {
+			if (target == 0) {
+				add(candidates, cur, result);
+			}
+			return;
+		}
+		for (int i = 0; i <= target / candidates[level]; i++) {
+			cur.add(i);
+			DFS2(candidates, target - i * candidates[level], cur, result, level + 1);
+			cur.remove(cur.size() - 1);
+		}
+	}
+
+	private void add(int[] candidates, List<Integer> cur, List<List<Integer>> result) {
+		List<Integer> r = new ArrayList<>();
+		for (int i = 0; i < cur.size(); i++) { // add candidates[i] cur.get(i) many times
+			for (int j = 0; j < cur.get(i); j++) {
+				r.add(candidates[i]);
+			}
+		}
+		result.add(r);
+	}
+
+	// Time complexity is O(target^n), ignoring time that add(...) takes.
+	// Space complexity is O(n).
+
 	// DP
 	// M[i]: List of all combinations that sum to i.
-	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+	public List<List<Integer>> combinationSum3(int[] candidates, int target) {
 		Arrays.sort(candidates);
 		List<List<List<Integer>>> result = new ArrayList<>();
 		for (int i = 0; i <= target; i++) {
