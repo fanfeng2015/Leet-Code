@@ -6,8 +6,12 @@ import java.util.Map;
 
 // LeetCode #40 (Combination Sum II).
 
-// Given a collection of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
-// Each number in C may only be used once in the combination.
+// Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where
+// the candidate numbers sum to target.
+
+// Each number in candidates may only be used once in the combination.
+
+// Note: The solution set must not contain duplicate combinations.
 
 public class CombinationSum2 {
 
@@ -27,6 +31,8 @@ public class CombinationSum2 {
 			return;
 		}
 		for (int i = start; i < candidates.length; i++) {
+			// because for [1, 1, 2], [T, F, ?] and [F, T, ?] generate the same result
+			// in other words, the second combination is already included
 			if (i > start && candidates[i] == candidates[i - 1]) {
 				continue;
 			}
@@ -38,7 +44,7 @@ public class CombinationSum2 {
 
 	// Time complexity is O(n^target).
 	// Space complexity is O(target).
-	
+
 	private int[] nums;
 	private int[] count;
 
