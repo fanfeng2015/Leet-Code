@@ -16,7 +16,7 @@ public class CombinationSum3 {
 
 	public List<List<Integer>> combinationSum3(int k, int n) {
 		List<Integer> cur = new ArrayList<>();
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		List<List<Integer>> result = new ArrayList<>();
 		DFS(k, n, cur, result, 1);
 		return result;
 	}
@@ -32,7 +32,7 @@ public class CombinationSum3 {
 				break;
 			}
 			cur.add(i);
-			DFS(k, n - i, cur, result, i + 1);
+			DFS(k, n - i, cur, result, i + 1); // each number from 1 to 9 is allowed at most once
 			cur.remove(cur.size() - 1);
 		}
 	}
