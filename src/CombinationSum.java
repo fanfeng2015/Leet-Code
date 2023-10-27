@@ -4,16 +4,20 @@ import java.util.List;
 
 // LeetCode #39 (Combination Sum).
 
-// Given a set of candidate numbers (C) (without duplicates) and a target number (T), 
-// find all unique combinations in C where the candidate numbers sums to T.
+// Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates
+// where the chosen numbers sum to target. You may return the combinations in any order.
 
-// The same repeated number may be chosen from C unlimited number of times.
+// The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least
+// one of the chosen numbers is different.
+
+// The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the
+// given input.
 
 public class CombinationSum {
 
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
 		List<Integer> cur = new ArrayList<>();
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		List<List<Integer>> result = new ArrayList<>();
 		DFS(candidates, target, cur, result, 0);
 		return result;
 	}
@@ -35,44 +39,9 @@ public class CombinationSum {
 	// Time complexity is O(n^target).
 	// Space complexity is O(target).
 
-	// LaiCode: Combinations of Coins
-	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-		List<Integer> cur = new ArrayList<>();
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		DFS2(candidates, target, cur, result, 0);
-		return result;
-	}
-
-	private void DFS2(int[] candidates, int target, List<Integer> cur, List<List<Integer>> result, int level) {
-		if (level == candidates.length) {
-			if (target == 0) {
-				add(candidates, cur, result);
-			}
-			return;
-		}
-		for (int i = 0; i <= target / candidates[level]; i++) {
-			cur.add(i);
-			DFS2(candidates, target - i * candidates[level], cur, result, level + 1);
-			cur.remove(cur.size() - 1);
-		}
-	}
-
-	private void add(int[] candidates, List<Integer> cur, List<List<Integer>> result) {
-		List<Integer> r = new ArrayList<>();
-		for (int i = 0; i < cur.size(); i++) { // add candidates[i] cur.get(i) many times
-			for (int j = 0; j < cur.get(i); j++) {
-				r.add(candidates[i]);
-			}
-		}
-		result.add(r);
-	}
-
-	// Time complexity is O(target^n), ignoring time that add(...) takes.
-	// Space complexity is O(n).
-
 	// DP
 	// M[i]: List of all combinations that sum to i.
-	public List<List<Integer>> combinationSum3(int[] candidates, int target) {
+	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 		Arrays.sort(candidates);
 		List<List<List<Integer>>> result = new ArrayList<>();
 		for (int i = 0; i <= target; i++) {
