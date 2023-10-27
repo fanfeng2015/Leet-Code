@@ -4,10 +4,9 @@ import java.util.PriorityQueue;
 
 // LeetCode #767 (Reorganize String).
 
-// Given a string S, check if the letters can be rearranged so that two characters 
-// that are adjacent to each other are not the same.
+// Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
 
-// If possible, output any possible result. If not possible, return the empty string.
+// Return any possible rearrangement of s or return "" if not possible.
 
 public class ReorganizeString {
 
@@ -21,7 +20,6 @@ public class ReorganizeString {
 			}
 			map.put(ch, count);
 		}
-
 		PriorityQueue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>(
 				(a, b) -> (b.getValue() - a.getValue()));
 		maxHeap.addAll(map.entrySet());
@@ -47,6 +45,7 @@ public class ReorganizeString {
 		return sb.toString();
 	}
 
-	// Time complexity is O(n*log(n)), but O(n) if the alphabet has fixed size.
-	// Space complexity is O(n).
+	// Time complexity is O(n*log(k)), where n is the length of the string and k is
+	// the number of unique characters.
+	// Space complexity is O(k).
 }
