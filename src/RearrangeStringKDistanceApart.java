@@ -6,11 +6,8 @@ import java.util.Queue;
 
 // LeetCode #358 (Rearrange String k Distance Apart).
 
-// Given a non-empty string s and an integer k, rearrange the string such that 
-// the same characters are at least distance k from each other.
-
-// All input strings are given in lower-case letters. If it is not possible to 
-// rearrange the string, return an empty string "".
+// Given a string s and an integer k, rearrange s such that the same characters are at least distance k from each other. 
+// If it is not possible to rearrange the string, return an empty string "".
 
 public class RearrangeStringKDistanceApart {
 
@@ -50,7 +47,8 @@ public class RearrangeStringKDistanceApart {
 
 		return (sb.length() == s.length()) ? sb.toString() : "";
 	}
-	
-	// Time complexity is O(n*log(n)), but O(n) if the alphabet has fixed size.
-	// Space complexity is O(n).
+
+	// Time complexity is O(n*log(m)), where n is the length of the string and m is
+	// the number of unique characters.
+	// Space complexity is O(m).
 }
