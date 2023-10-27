@@ -37,7 +37,7 @@ public class CombinationSum2 {
 				continue;
 			}
 			cur.add(candidates[i]);
-			DFS(candidates, target - candidates[i], cur, result, i + 1);
+			DFS(candidates, target - candidates[i], cur, result, i + 1); // i if unlimited number is allowed
 			cur.remove(cur.size() - 1);
 		}
 	}
