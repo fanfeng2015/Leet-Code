@@ -48,4 +48,42 @@ public class ReorganizeString {
 	// Time complexity is O(n*log(k)), where n is the length of the string and k is
 	// the number of unique characters.
 	// Space complexity is O(k).
+
+	public String reorganizeString2(String s) {
+		int[] freq = new int[26];
+		for (char ch : s.toCharArray()) {
+			freq[ch - 'a']++;
+		}
+		int ch = 0, count = 0;
+		for (int i = 0; i < freq.length; i++) {
+			if (freq[i] > count) {
+				ch = i;
+				count = freq[i];
+			}
+		}
+		if (count > (s.length() + 1) / 2) {
+			return "";
+		}
+		int index = 0;
+		char[] result = new char[s.length()];
+		while (freq[ch] > 0) {
+			result[index] = (char) (ch + 'a');
+			freq[ch]--;
+			index += 2;
+		}
+		for (int i = 0; i < freq.length; i++) {
+			while (freq[i] > 0) {
+				if (index >= s.length()) {
+					index = 1;
+				}
+				result[index] = (char) (i + 'a');
+				freq[i]--;
+				index += 2;
+			}
+		}
+		return String.valueOf(result);
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(k), where k is the number of unique characters.
 }
