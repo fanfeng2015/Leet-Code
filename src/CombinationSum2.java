@@ -17,7 +17,7 @@ public class CombinationSum2 {
 
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
 		List<Integer> cur = new ArrayList<>();
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		List<List<Integer>> result = new ArrayList<>();
 		Arrays.sort(candidates); // important
 		DFS(candidates, target, cur, result, 0);
 		return result;
