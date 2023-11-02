@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 // LeetCode #1854 (Maximum Population Year).
 
@@ -24,19 +25,44 @@ public class MaximumPopulationYear {
 			map.put(birth, map.getOrDefault(birth, 0) + 1);
 			map.put(death, map.getOrDefault(death, 0) - 1);
 		}
-		int count = 0, max = 0, year = start;
+		int population = 0, max = 0, year = start;
 		for (int i = start; i <= end; i++) {
-			count += map.getOrDefault(i, 0);
-			if (count > max) {
-				max = count;
+			population += map.getOrDefault(i, 0);
+			if (population > max) {
+				max = population;
 				year = i;
 			}
 		}
 		return year;
 	}
 
-	// Time complexity is O(n + t).
+	// Time complexity is O(n+t).
 	// Space complexity is O(t).
+
+	public int maximumPopulation2(int[][] logs) {
+		int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
+		TreeMap<Integer, Integer> map = new TreeMap<>();
+		for (int[] log : logs) {
+			int birth = log[0], death = log[1];
+			start = Math.min(start, birth);
+			end = Math.max(end, death);
+			map.put(birth, map.getOrDefault(birth, 0) + 1);
+			map.put(death, map.getOrDefault(death, 0) - 1);
+		}
+		int count = map.size(), population = 0, max = 0, year = start;
+		for (int i = 0; i < count; i++) {
+			Map.Entry<Integer, Integer> entry = map.pollFirstEntry();
+			population += entry.getValue();
+			if (population > max) {
+				max = population;
+				year = entry.getKey();
+			}
+		}
+		return year;
+	}
+
+	// Time complexity is O(n*log(n)).
+	// Space complexity is O(n).
 }
 
 // { 1993: 1
