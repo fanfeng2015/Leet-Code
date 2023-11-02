@@ -1,5 +1,8 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.TreeMap;
 
 // LeetCode #253 (Meeting Rooms 2).
 
@@ -143,4 +146,47 @@ public class MeetingRooms2 {
 			return this.time - other.time;
 		}
 	}
+
+	// -------------------- Sweep Line --------------------
+
+	public int minMeetingRooms4(int[][] intervals) {
+		int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
+		Map<Integer, Integer> map = new HashMap<>();
+		for (int[] interval : intervals) {
+			int left = interval[0], right = interval[1];
+			start = Math.min(start, left);
+			end = Math.max(end, right);
+			map.put(left, map.getOrDefault(left, 0) + 1);
+			map.put(right, map.getOrDefault(right, 0) - 1);
+		}
+		int count = 0, result = 0;
+		for (int i = start; i <= end; i++) {
+			count += map.getOrDefault(i, 0);
+			result = Math.max(result, count);
+		}
+		return result;
+	}
+
+	// Time complexity is O(n+t).
+	// Space complexity is O(t).
+
+	public int minMeetingRooms5(int[][] intervals) {
+		TreeMap<Integer, Integer> map = new TreeMap<>();
+		for (int[] interval : intervals) {
+			int left = interval[0], right = interval[1];
+			map.put(left, map.getOrDefault(left, 0) + 1);
+			map.put(right, map.getOrDefault(right, 0) - 1);
+		}
+		int size = map.size(), rooms = 0, result = 0;
+		for (int i = 0; i < size; i++) {
+			Map.Entry<Integer, Integer> entry = map.pollFirstEntry();
+			rooms += entry.getValue();
+			result = Math.max(result, rooms);
+		}
+		return result;
+	}
+
+	// Time complexity is O(t*log(t)).
+	// Space complexity is O(t).
+
 }
