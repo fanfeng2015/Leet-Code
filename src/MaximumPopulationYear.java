@@ -34,6 +34,9 @@ public class MaximumPopulationYear {
 		}
 		return year;
 	}
+
+	// Time complexity is O(n + t).
+	// Space complexity is O(t).
 }
 
 // { 1993: 1
