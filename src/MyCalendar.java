@@ -4,33 +4,23 @@ import java.util.TreeMap;
 
 // LeetCode #729 (My Calendar I).
 
-// Implement a MyCalendar class to store your events. A new event can be added if adding the event
-// will not cause a double booking.
+// You are implementing a program to use as your calendar. We can add a new event if adding the event will not cause a double
+// booking.
 
-// Your class will have the method, book(int start, int end). Formally, this represents a booking on
-// the half open interval [start, end), the range of real numbers x such that start <= x < end.
+// A double booking happens when two events have some non-empty intersection (i.e., some moment is common to both events.).
 
-// A double booking happens when two events have some non-empty intersection (i.e., there is some time
-// that is common to both events.)
+// The event can be represented as a pair of integers start and end that represents a booking on the half-open interval 
+// [start, end), the range of real numbers x such that start <= x < end.
 
-// For each call to the method MyCalendar.book, return true if the event can be added to the calendar 
-// successfully without causing a double booking. Otherwise, return false and do not add the event to 
-// the calendar.
+// Implement the MyCalendar class:
+
+// - MyCalendar() Initializes the calendar object.
+// - boolean book(int start, int end) Returns true if the event can be added to the calendar successfully without causing a 
+//   double booking. Otherwise, return false and do not add the event to the calendar.
 
 public class MyCalendar {
 
 	public MyCalendar() {
-
-	}
-
-	private static class Interval {
-		private int start;
-		private int end;
-
-		public Interval(int start, int end) {
-			this.start = start;
-			this.end = end;
-		}
 	}
 
 	// Solution 1: Brute force
@@ -48,6 +38,16 @@ public class MyCalendar {
 
 	// Time complexity is O(n)
 	// Space complexity is O(n).
+
+	private static class Interval {
+		private int start;
+		private int end;
+
+		public Interval(int start, int end) {
+			this.start = start;
+			this.end = end;
+		}
+	}
 
 	// Solution 2: Red-black tree (TreeMap in Java).
 	TreeMap<Integer, Integer> calendar = new TreeMap<>();
