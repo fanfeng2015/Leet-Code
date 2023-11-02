@@ -1,7 +1,6 @@
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 // LeetCode #2848 (Points That Intersect With Cars).
 
@@ -32,27 +31,5 @@ public class PointsThatIntersectWithCars {
 	}
 
 	// Time complexity is O(n+l).
-	// Space complexity is O(l).
-
-	public int numberOfPoints2(List<List<Integer>> nums) {
-		int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
-		TreeMap<Integer, Integer> map = new TreeMap<>();
-		for (List<Integer> num : nums) {
-			int head = num.get(0), tail = num.get(1);
-			start = Math.min(start, head);
-			end = Math.max(end, tail);
-			map.put(head, map.getOrDefault(head, 0) + 1);
-			map.put(tail + 1, map.getOrDefault(tail + 1, 0) - 1);
-		}
-		int size = map.size(), count = 0, result = 0;
-		for (int i = 0; i < size; i++) {
-			Map.Entry<Integer, Integer> entry = map.pollFirstEntry();
-			count += entry.getValue();
-			result = (count > 0) ? (result + 1) : result;
-		}
-		return result;
-	}
-
-	// Time complexity is O(l*log(l)).
 	// Space complexity is O(l).
 }
