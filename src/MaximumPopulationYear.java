@@ -40,17 +40,14 @@ public class MaximumPopulationYear {
 	// Space complexity is O(t).
 
 	public int maximumPopulation2(int[][] logs) {
-		int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
 		TreeMap<Integer, Integer> map = new TreeMap<>();
 		for (int[] log : logs) {
 			int birth = log[0], death = log[1];
-			start = Math.min(start, birth);
-			end = Math.max(end, death);
 			map.put(birth, map.getOrDefault(birth, 0) + 1);
 			map.put(death, map.getOrDefault(death, 0) - 1);
 		}
-		int count = map.size(), population = 0, max = 0, year = start;
-		for (int i = 0; i < count; i++) {
+		int size = map.size(), population = 0, max = 0, year = -1;
+		for (int i = 0; i < size; i++) {
 			Map.Entry<Integer, Integer> entry = map.pollFirstEntry();
 			population += entry.getValue();
 			if (population > max) {
