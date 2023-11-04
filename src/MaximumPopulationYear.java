@@ -1,4 +1,3 @@
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -15,29 +14,28 @@ import java.util.TreeMap;
 
 public class MaximumPopulationYear {
 
+	// assumption: 1950 <= birthi < deathi <= 2050
 	public int maximumPopulation(int[][] logs) {
-		int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
-		Map<Integer, Integer> map = new HashMap<>();
+		int[] map = new int[101];
 		for (int[] log : logs) {
 			int birth = log[0], death = log[1];
-			start = Math.min(start, birth);
-			end = Math.max(end, death);
-			map.put(birth, map.getOrDefault(birth, 0) + 1);
-			map.put(death, map.getOrDefault(death, 0) - 1);
+			map[birth - 1950]++;
+			map[death - 1950]--;
 		}
-		int population = 0, max = 0, year = start;
-		for (int i = start; i <= end; i++) {
-			population += map.getOrDefault(i, 0);
+		int population = 0, max = 0, year = -1;
+		for (int i = 0; i < map.length; i++) {
+			population += map[i];
 			if (population > max) {
 				max = population;
-				year = i;
+				year = i + 1950;
 			}
 		}
 		return year;
 	}
 
-	// Time complexity is O(n+t).
-	// Space complexity is O(t).
+	// Time complexity is O(l + r), where l is the number of logs, and r is
+	// the range.
+	// Space complexity is O(r).
 
 	public int maximumPopulation2(int[][] logs) {
 		TreeMap<Integer, Integer> map = new TreeMap<>();
