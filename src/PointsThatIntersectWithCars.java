@@ -30,6 +30,7 @@ public class PointsThatIntersectWithCars {
 		return result;
 	}
 
-	// Time complexity is O(n+l).
-	// Space complexity is O(l).
+	// Time complexity is O(c*log(r) + r*log(r)), where c is the number of cars, and
+	// r is the range.
+	// Space complexity is O(r).
 }
