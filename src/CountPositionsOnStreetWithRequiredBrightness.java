@@ -29,7 +29,7 @@ public class CountPositionsOnStreetWithRequiredBrightness {
 		return result;
 	}
 
-	// Time complexity is O(l+n).
+	// Time complexity is O(l + n).
 	// Space complexity is O(n).
 
 	public int meetRequirement2(int n, int[][] lights, int[] requirement) {
