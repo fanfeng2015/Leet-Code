@@ -77,6 +77,6 @@ public class MyCalendar2 {
 	}
 
 	// Time complexity is O(n)
-	// Note that put() method takes O(log) time, but is only one operation.
+	// Note that put() method takes O(log(n)) time, but is only one operation.
 	// Space complexity is O(n).
 }
