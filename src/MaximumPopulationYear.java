@@ -46,9 +46,8 @@ public class MaximumPopulationYear {
 			map.put(birth, map.getOrDefault(birth, 0) + 1);
 			map.put(death, map.getOrDefault(death, 0) - 1);
 		}
-		int size = map.size(), population = 0, max = 0, year = -1;
-		for (int i = 0; i < size; i++) {
-			Map.Entry<Integer, Integer> entry = map.pollFirstEntry();
+		int population = 0, max = 0, year = -1;
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 			population += entry.getValue();
 			if (population > max) {
 				max = population;
@@ -58,8 +57,9 @@ public class MaximumPopulationYear {
 		return year;
 	}
 
-	// Time complexity is O(t*log(t)).
-	// Space complexity is O(t).
+	// Time complexity is O(l*log(r) + r), where l is the number of logs, and r is
+	// the range.
+	// Space complexity is O(r).
 }
 
 // { 1993: 1
