@@ -3,16 +3,16 @@ import java.util.TreeMap;
 
 // LeetCode #732 (My Calendar III).
 
-// Implement a MyCalendarThree class to store your events. A new event can always be added.
+// A k-booking happens when k events have some non-empty intersection (i.e., there is some time that is common to all k events.)
 
-// Your class will have one method, book(int start, int end). Formally, this represents a booking
-// on the half open interval [start, end), the range of real numbers x such that start <= x < end.
+// You are given some events [startTime, endTime), after each given event, return an integer k representing the maximum k-booking 
+// between all the previous events.
 
-// A K-booking happens when K events have some non-empty intersection (ie., there is some time that
-// is common to all K events.)
+// Implement the MyCalendarThree class:
 
-// For each call to the method MyCalendar.book, return an integer K representing the largest integer
-// such that there exists a K-booking in the calendar.
+// - MyCalendarThree() Initializes the object.
+// - int book(int startTime, int endTime) Returns an integer k representing the largest integer such that there exists a k-booking
+//   in the calendar.
 
 public class MyCalendar3 {
 
