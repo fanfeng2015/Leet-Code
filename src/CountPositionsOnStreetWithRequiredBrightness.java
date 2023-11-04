@@ -49,6 +49,7 @@ public class CountPositionsOnStreetWithRequiredBrightness {
 	}
 
 	//
-	// Time complexity is O(l*log(n) + n*log(n)).
+	// Time complexity is O(l*log(n) + n*log(n)), where l is the number of lights,
+	// and n is the range.
 	// Space complexity is O(n).
 }
