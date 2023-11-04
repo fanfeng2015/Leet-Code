@@ -149,6 +149,8 @@ public class MeetingRooms2 {
 
 	// -------------------- Sweep Line --------------------
 
+	// if range is unknow: use map
+	// if range is known (and not large): use int[]
 	public int minMeetingRooms4(int[][] intervals) {
 		int start = Integer.MAX_VALUE, end = Integer.MIN_VALUE;
 		Map<Integer, Integer> map = new HashMap<>();
@@ -167,8 +169,9 @@ public class MeetingRooms2 {
 		return result;
 	}
 
-	// Time complexity is O(n+t).
-	// Space complexity is O(t).
+	// Time complexity is O(n + r), where n is the number of intervals, and r is the
+	// range.
+	// Space complexity is O(r).
 
 	public int minMeetingRooms5(int[][] intervals) {
 		TreeMap<Integer, Integer> map = new TreeMap<>();
@@ -177,16 +180,16 @@ public class MeetingRooms2 {
 			map.put(left, map.getOrDefault(left, 0) + 1);
 			map.put(right, map.getOrDefault(right, 0) - 1);
 		}
-		int size = map.size(), rooms = 0, result = 0;
-		for (int i = 0; i < size; i++) {
-			Map.Entry<Integer, Integer> entry = map.pollFirstEntry();
+		int rooms = 0, result = 0;
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 			rooms += entry.getValue();
 			result = Math.max(result, rooms);
 		}
 		return result;
 	}
 
-	// Time complexity is O(t*log(t)).
+	// Time complexity is O(n*log(t) + t), where n is the number of intervals, and t
+	// is the number of unique timestamps.
 	// Space complexity is O(t).
 
 }
