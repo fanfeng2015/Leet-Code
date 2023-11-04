@@ -55,9 +55,9 @@ public class MaximumPopulationYear {
 		return year;
 	}
 
-	// Time complexity is O(l*log(r) + r), where l is the number of logs, and r is
-	// the range.
-	// Space complexity is O(r).
+	// Time complexity is O(l*log(t) + t), where l is the number of logs, and t is
+	// the number of unique timestamps.
+	// Space complexity is O(t).
 }
 
 // { 1993: 1
