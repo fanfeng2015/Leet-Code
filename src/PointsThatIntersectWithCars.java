@@ -31,6 +31,6 @@ public class PointsThatIntersectWithCars {
 	}
 
 	// Time complexity is O(c*log(r) + r*log(r)), where c is the number of cars, and
-	// r is the range.
+	// r is the range, which is an upperbound of the number of unique timestamps.
 	// Space complexity is O(r).
 }
