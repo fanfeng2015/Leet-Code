@@ -6,10 +6,12 @@ import java.util.List;
 
 // LeetCode #56 (Merge Intervals).
 
-// Given a collection of intervals, merge all overlapping intervals.
+// Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping
+// intervals that cover all the intervals in the input.
 
 public class MergeIntervals {
 
+	// ------------------------------ 2018 ------------------------------
 	public List<Interval> merge(List<Interval> intervals) {
 		List<Interval> result = new ArrayList<Interval>();
 		Collections.sort(intervals, (a, b) -> (a.start - b.start));
@@ -24,6 +26,7 @@ public class MergeIntervals {
 		return result;
 	}
 
+	// ------------------------------ 2023 ------------------------------
 	public int[][] merge(int[][] intervals) {
 		LinkedList<int[]> result = new LinkedList<>();
 		Arrays.sort(intervals, (i1, i2) -> (i1[0] - i2[0]));
