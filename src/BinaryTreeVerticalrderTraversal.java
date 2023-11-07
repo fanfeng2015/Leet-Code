@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import javafx.util.Pair;
 
 // LeetCode #314 (Binary Tree Vertical Order Traversal).
 
@@ -19,7 +22,7 @@ public class BinaryTreeVerticalrderTraversal {
 			return result;
 		}
 		int min = 0, max = 0;
-		Map<Integer, ArrayList<Integer>> map = new HashMap<>(); // { index: [] }
+		Map<Integer, ArrayList<Integer>> map = new HashMap<>(); // { col: [] }
 		LinkedList<Integer> indexQueue = new LinkedList<>();
 		LinkedList<TreeNode> nodeQueue = new LinkedList<>();
 		indexQueue.offerFirst(0);
@@ -47,5 +50,42 @@ public class BinaryTreeVerticalrderTraversal {
 	}
 
 	// Time complexity is O(n).
+	// Space complexity is O(n).
+
+	private int min = 0, max = 0;
+
+	// DFS
+	public List<List<Integer>> verticalOrder2(TreeNode root) {
+		List<List<Integer>> result = new ArrayList<>();
+		if (root == null) {
+			return result;
+		}
+		Map<Integer, ArrayList<Pair<Integer, Integer>>> map = new HashMap<>(); // { col: [(row, val)] }
+		dfs(root, 0, 0, map);
+		for (int i = min; i <= max; i++) {
+			ArrayList<Pair<Integer, Integer>> list = map.get(i);
+			Collections.sort(list, (a, b) -> (a.getKey() - b.getKey()));
+			ArrayList<Integer> cur = new ArrayList<>();
+			for (Pair<Integer, Integer> pair : list) {
+				cur.add(pair.getValue());
+			}
+			result.add(cur);
+		}
+		return result;
+	}
+
+	private void dfs(TreeNode root, int row, int col, Map<Integer, ArrayList<Pair<Integer, Integer>>> map) {
+		if (root == null) {
+			return;
+		}
+		min = Math.min(min, col);
+		max = Math.max(max, col);
+		map.putIfAbsent(col, new ArrayList<Pair<Integer, Integer>>());
+		map.get(col).add(new Pair<Integer, Integer>(row, root.val));
+		dfs(root.left, row + 1, col - 1, map);
+		dfs(root.right, row + 1, col + 1, map);
+	}
+
+	// Time complexity is O(n + c*r*log(r)).
 	// Space complexity is O(n).
 }
