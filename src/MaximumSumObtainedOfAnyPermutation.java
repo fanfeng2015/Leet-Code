@@ -38,7 +38,7 @@ public class MaximumSumObtainedOfAnyPermutation {
 	}
 
 	// Time complexity is O(r + n*log(n)).
-	// Space complexity is O(log(n)), because of quick sort for primitive types.
+	// Space complexity is O(n + log(n)), because of quick sort for primitive types.
 }
 
 // [1, 1, -1, 0, -1]
