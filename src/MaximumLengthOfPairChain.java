@@ -27,5 +27,5 @@ public class MaximumLengthOfPairChain {
 	}
 
 	// Time complexity is O(n*log(n)).
-	// Space complexity is O(log(n)), because of merge sort for non-primitive types.
+	// Space complexity is O(n), because of merge sort for non-primitive types.
 }
