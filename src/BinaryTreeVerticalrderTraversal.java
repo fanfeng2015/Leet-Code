@@ -6,8 +6,8 @@ import java.util.Map;
 
 // LeetCode #314 (Binary Tree Vertical Order Traversal).
 
-// Given a binary tree, return the vertical order traversal of its nodes' values. (ie, 
-// from top to bottom, column by column).
+// Given the root of a binary tree, return the vertical order traversal of its nodes' values. (i.e., from top to bottom, column by
+// column).
 
 // If two nodes are in the same row and column, the order should be from left to right.
 
@@ -19,27 +19,25 @@ public class BinaryTreeVerticalrderTraversal {
 			return result;
 		}
 		int min = 0, max = 0;
-		Map<Integer, List<Integer>> map = new HashMap<>();
-		LinkedList<TreeNode> nodeQueue = new LinkedList<>();
+		Map<Integer, ArrayList<Integer>> map = new HashMap<>(); // { index: [] }
 		LinkedList<Integer> indexQueue = new LinkedList<>();
-		nodeQueue.offerFirst(root);
+		LinkedList<TreeNode> nodeQueue = new LinkedList<>();
 		indexQueue.offerFirst(0);
-		while (!nodeQueue.isEmpty()) {
+		nodeQueue.offerFirst(root);
+		while (!indexQueue.isEmpty()) {
+			int index = indexQueue.pollLast();
 			TreeNode node = nodeQueue.pollLast();
-			Integer index = indexQueue.pollLast();
-			if (!map.containsKey(index)) {
-				map.put(index, new ArrayList<>());
-			}
+			map.putIfAbsent(index, new ArrayList<Integer>());
 			map.get(index).add(node.val);
 			if (node.left != null) {
-				nodeQueue.offerFirst(node.left);
-				indexQueue.offerFirst(index - 1);
 				min = Math.min(min, index - 1);
+				indexQueue.offerFirst(index - 1);
+				nodeQueue.offerFirst(node.left);
 			}
 			if (node.right != null) {
-				nodeQueue.offerFirst(node.right);
-				indexQueue.offerFirst(index + 1);
 				max = Math.max(max, index + 1);
+				indexQueue.offerFirst(index + 1);
+				nodeQueue.offerFirst(node.right);
 			}
 		}
 		for (int i = min; i <= max; i++) {
