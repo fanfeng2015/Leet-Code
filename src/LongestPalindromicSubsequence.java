@@ -1,10 +1,16 @@
 // LeetCode #516 (Longest Palindromic Subsequence).
 
-// Given a string s, find the longest palindromic subsequence's length in s. You may assume that the maximum length of s is 1000.
+// Given a string s, find the longest palindromic subsequence's length in s.
+
+// A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order
+// of the remaining elements.
 
 public class LongestPalindromicSubsequence {
 
 	// M[i][j]: length of the longest palindromic subsequence of s in [i, j]
+	//
+	// M[i][j] = 2 + M[i + 1][j - 1], if s[i] == s[j]
+	// M[i][j] = max(M[i + 1][j], M[i][j - 1]), otherwise
 	public int longestPalindromeSubseq(String s) {
 		int max = 0;
 		int[][] M = new int[s.length()][s.length()];
@@ -14,7 +20,7 @@ public class LongestPalindromicSubsequence {
 					M[i][j] = 1;
 				} else if (s.charAt(i) == s.charAt(j)) {
 					M[i][j] = M[i + 1][j - 1] + 2;
-				} else if (s.charAt(i) != s.charAt(j)) {
+				} else { // s.charAt(i) != s.charAt(j)
 					M[i][j] = Math.max(M[i + 1][j], M[i][j - 1]);
 				}
 				max = Math.max(max, M[i][j]);
