@@ -3,10 +3,10 @@ import java.util.Set;
 
 // LeetCode #409 (Longest Palindrome).
 
-// Given a string which consists of lower-case or upper-case letters, find the 
-// length of the longest palindromes that can be built with those letters.
+// Given a string s which consists of lowercase or uppercase letters, return the length of the longest palindrome that can be built
+// with those letters.
 
-// This is case sensitive, for example "Aa" is not considered a palindrome here.
+// Letters are case sensitive, for example, "Aa" is not considered a palindrome here.
 
 public class LongestPalindrome {
 
