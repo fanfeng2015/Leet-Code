@@ -3,11 +3,13 @@ import java.util.List;
 
 // LeetCode #339 (Nested List Weight Sum).
 
-// Given a nested list of integers, return the sum of all integers in the list weighted by
-// their depth.
+// You are given a nested list of integers nestedList. Each element is either an integer or a list whose elements may also be
+// integers or other lists.
 
-// Each element is either an integer, or a list -- whose elements may also be integers or 
-// other lists.
+// The depth of an integer is the number of lists that it is inside of. For example, the nested list [1,[2,2],[[3],2],1] has each
+// integer's value set to its depth.
+
+// Return the sum of each integer in nestedList multiplied by its depth.
 
 public class NestedListWeightSum {
 
@@ -50,6 +52,6 @@ public class NestedListWeightSum {
 		return sum;
 	}
 
-	// Time complexity is O(n), where n is the total number of nested integers.
+	// Time complexity is O(n), where n is the number of nested integers.
 	// Space complexity is O(n).
 }
