@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 // LeetCode #339 (Nested List Weight Sum).
@@ -10,21 +11,45 @@ import java.util.List;
 
 public class NestedListWeightSum {
 
+	// DFS
 	public int depthSum(List<NestedInteger> nestedList) {
-		return depthSum(nestedList, new Integer[] { 0 }, new Integer[] { 1 });
+		return depthSum(nestedList, 1);
 	}
 
-	public int depthSum(List<NestedInteger> nestedList, Integer[] sum, Integer[] depth) {
+	public int depthSum(List<NestedInteger> nestedList, int depth) {
+		int sum = 0;
 		for (NestedInteger ni : nestedList) {
 			if (ni.isInteger()) {
-				sum[0] += depth[0] * ni.getInteger();
+				sum += ni.getInteger() * depth;
 			} else {
-				depthSum(ni.getList(), sum, new Integer[] { depth[0] + 1 });
+				sum += depthSum(ni.getList(), depth + 1);
 			}
 		}
-		return sum[0];
+		return sum;
 	}
 
-	// Time complexity is O(n), where n is the total number of integers.
-	// Space complexity is O(n), because of call-stack.
+	// Time complexity is O(n), where n is the number of nested integers.
+	// Space complexity is O(d), where d is the largest depth.
+
+	// BFS
+	public int depthSum2(List<NestedInteger> nestedList) {
+		int sum = 0, depth = 1;
+		LinkedList<NestedInteger> queue = new LinkedList<>(nestedList);
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				NestedInteger ni = queue.removeFirst();
+				if (ni.isInteger()) {
+					sum += ni.getInteger() * depth;
+				} else {
+					queue.addAll(ni.getList());
+				}
+			}
+			depth++;
+		}
+		return sum;
+	}
+
+	// Time complexity is O(n), where n is the total number of nested integers.
+	// Space complexity is O(n).
 }
