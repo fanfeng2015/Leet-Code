@@ -44,7 +44,7 @@ public class RandomPickWithWeight {
 	}
 
 	// Time complexity is O(n) for constructor, and log(n) for pickIndex().
-	// Space complexity is O(n) for constructor, and O(1) for pickIndex();
+	// Space complexity is O(n) for constructor, and O(1) for pickIndex().
 }
 
 // [1, 2, 3]
