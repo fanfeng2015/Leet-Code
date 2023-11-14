@@ -5,13 +5,12 @@ import java.util.HashMap;
 
 // LeetCode #791 (Custom Sort String).
 
-// S and T are strings composed of lower-case letters. In S, no letter occurs more than once.
+// You are given two strings order and s. All the characters of order are unique and were sorted in some custom order previously.
 
-// S was sorted in some custom order previously. We want to permute the characters of T so 
-// that they match the order that S was sorted. More specifically, if x occurs before y in S,
-// then x should occur before y in the returned string.
+// Permute the characters of s so that they match the order that order was sorted. More specifically, if a character x occurs before
+// a character y in order, then x should occur before y in the permuted string.
 
-// Return any permutation of T (as a string) that satisfies this property.
+// Return any permutation of s that satisfies this property.
 
 public class CustomSortString {
 
@@ -45,10 +44,10 @@ public class CustomSortString {
 		return sb.toString();
 	}
 
-	// Time complexity is O(n*log(n)).
-	// Space complexity is O(n).
+	// Time complexity is O(s + t*log(t)).
+	// Space complexity is O(c + t), where c is the number of unique characters..
 
-	// Solution 2: Bucket sort
+	// Solution 2: Bucket Sort
 	public String customSortString2(String S, String T) {
 		int[] countMap = new int[26]; // char count of T
 		for (int i = 0; i < T.length(); i++) {
@@ -68,6 +67,6 @@ public class CustomSortString {
 		return sb.toString();
 	}
 
-	// Time complexity is O(m + n).
-	// Space complexity is O(1).
+	// Time complexity is O(s + t).
+	// Space complexity is O(c).
 }
