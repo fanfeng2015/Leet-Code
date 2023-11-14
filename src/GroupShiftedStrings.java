@@ -46,7 +46,7 @@ public class GroupShiftedStrings {
 	}
 
 	// Time complexity is O(n*l), where l is the average word length.
-	// Space complexity is O(n).
+	// Space complexity is O(n*l).
 
 	// ------------------------------ 2023 ------------------------------
 	public List<List<String>> groupStrings2(String[] strings) {
@@ -66,5 +66,5 @@ public class GroupShiftedStrings {
 	}
 
 	// Time complexity is O(n*l), where l is the average word length.
-	// Space complexity is O(n).
+	// Space complexity is O(n*l).
 }
