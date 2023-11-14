@@ -14,7 +14,7 @@ import javafx.util.Pair;
 
 // If two nodes are in the same row and column, the order should be from left to right.
 
-public class BinaryTreeVerticalrderTraversal {
+public class BinaryTreeVerticalOrderTraversal {
 
 	public List<List<Integer>> verticalOrder(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<>();
