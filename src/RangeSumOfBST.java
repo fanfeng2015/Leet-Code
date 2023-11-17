@@ -3,9 +3,7 @@
 // Given the root node of a binary search tree and two integers low and high, return the sum of values of all nodes with a value
 // in the inclusive range [low, high].
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 public class RangeSumOfBST {
 
