@@ -1,16 +1,14 @@
 // LeetCode #162 (Find Peak Element).
 
-// A peak element is an element that is greater than its neighbors.
+// A peak element is an element that is strictly greater than its neighbors.
 
-// Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
+// Given a 0-indexed integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return
+// the index to any of the peaks.
 
-// The array may contain multiple peaks, in that case return the index to any one of the 
-// peaks is fine.
+// You may imagine that nums[-1] = nums[n] = -∞. In other words, an element is always considered to be strictly greater than a 
+// neighbor that is outside the array.
 
-// You may imagine that num[-1] and num[n] equal negative infinity.
-
-// For example, in array [1, 2, 3, 1], 3 is a peak element and your function should return 
-// the index number 2.
+// You must write an algorithm that runs in O(log n) time.
 
 public class FindPeakElement {
 
@@ -18,13 +16,13 @@ public class FindPeakElement {
 		int left = 0, right = nums.length - 1;
 		while (left < right) {
 			int mid = left + (right - left) / 2;
-			if (nums[mid] > nums[mid + 1]) {
-				right = mid;
-			} else if (nums[mid] < nums[mid + 1]) {
+			if (nums[mid] <= nums[mid + 1]) {
 				left = mid + 1;
+			} else { // nums[mid] > nums[mid + 1]
+				right = mid;
 			}
 		}
-		return left;
+		return right;
 	}
 
 	// Time complexity is O(log(n)).
