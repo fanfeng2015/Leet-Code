@@ -2,13 +2,13 @@ import java.util.Arrays;
 
 // LeetCode #283 (Move Zeroes).
 
-// Given an array of integers, move all the 0s to the right end of the array.
+// Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
-// The relative order of the elements in the original array need to be maintained.
+// Note that you must do this in-place without making a copy of the array.
 
 public class MoveZeroes {
 
-	public int[] moveZero(int[] array) {
+	public int[] moveZeroes(int[] array) {
 		int left = 0;
 		for (int i = 0; i < array.length; i++) {
 			if (array[i] != 0) {
