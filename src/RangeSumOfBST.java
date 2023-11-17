@@ -46,4 +46,6 @@ public class RangeSumOfBST {
 		return sum;
 	}
 
+	// Time complexity is O(n).
+	// Space complexity is O(n), although consumption changes from stack to heap.
 }
