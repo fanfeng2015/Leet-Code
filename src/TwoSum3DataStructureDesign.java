@@ -5,11 +5,12 @@ import java.util.Set;
 
 // LeetCode #170 (Two Sum III - Data Structure Design).
 
-// Design and implement a TwoSum class. It should support the following operations: 
-// add and find.
+// Design a data structure that accepts a stream of integers and checks if it has a pair of integers that sum up to a particular value.
 
-// add - Add the number to an internal data structure.
-// find - Find if there exists any pair of numbers which sum is equal to the value.
+// Implement the TwoSum class:
+// - TwoSum() Initializes the TwoSum object, with an empty array initially.
+// - void add(int number) Adds number to the data structure.
+// - boolean find(int value) Returns true if there exists any pair of numbers whose sum is equal to value, otherwise, it returns false.
 
 public class TwoSum3DataStructureDesign {
 
@@ -17,7 +18,7 @@ public class TwoSum3DataStructureDesign {
 
 	}
 
-	// Fewer add, more find.
+	// if there are fewer add() and more find() operations
 	Set<Integer> nums = new HashSet<>();
 	Set<Integer> sums = new HashSet<>();
 
@@ -35,7 +36,7 @@ public class TwoSum3DataStructureDesign {
 	// Time complexity is O(n) for add, and O(1) for find.
 	// Space complexity is O(n^2).
 
-	// Fewer find, more add.
+	// if there are fewer find() and more add() operations
 	Map<Integer, Integer> map = new HashMap<>();
 
 	public void add2(int number) {
