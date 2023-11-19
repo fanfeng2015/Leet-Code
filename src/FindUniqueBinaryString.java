@@ -5,6 +5,7 @@
 
 public class FindUniqueBinaryString {
 
+	// the result string differs with each input by at least 1 character
 	public String findDifferentBinaryString(String[] nums) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < nums.length; i++) {
