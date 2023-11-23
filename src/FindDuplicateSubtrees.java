@@ -54,7 +54,7 @@ public class FindDuplicateSubtrees {
 		}
 		int left = dfs2(node.left, result);
 		int right = dfs2(node.right, result);
-		String str = left + "," + node.val + "," + right;
+		String str = left + "," + right + "," + node.val; // in-order would be okay here
 		strToId.putIfAbsent(str, ++global);
 		int id = strToId.get(str);
 		idToCount.put(id, idToCount.getOrDefault(id, 0) + 1);
