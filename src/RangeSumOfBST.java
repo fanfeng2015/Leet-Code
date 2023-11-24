@@ -40,7 +40,7 @@ public class RangeSumOfBST {
 				if (cur.val >= low && cur.val <= high) {
 					sum += cur.val;
 				}
-				cur = cur.right;
+				cur = cur.right; // in-order traversal using a stack
 			}
 		}
 		return sum;
