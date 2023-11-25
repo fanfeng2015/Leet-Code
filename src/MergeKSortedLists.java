@@ -39,7 +39,7 @@ public class MergeKSortedLists {
 
 	// Solution 2: Binary Reduction
 	// Time complexity is O(n*k*log(n)).
-	// Space complexity is O(n*k).
+	// Space complexity is O(1).
 
 	// When array sizes are big, solution 1 reads and writes each element once,
 	// while solution 2 reads and writes reach element log(k) times.
