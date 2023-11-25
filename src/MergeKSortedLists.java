@@ -2,8 +2,9 @@ import java.util.PriorityQueue;
 
 // LeetCode #23 (Merge k Sorted Lists).
 
-// Merge k sorted linked lists and return it as one sorted list. 
-// Analyze and describe its complexity.
+// You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+
+// Merge all the linked-lists into one sorted linked-list and return it.
 
 public class MergeKSortedLists {
 
