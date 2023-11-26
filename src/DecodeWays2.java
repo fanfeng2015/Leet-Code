@@ -26,7 +26,7 @@ public class DecodeWays2 {
 	private static final int NUM_DIGITS = 9;
 
 	// M[i]: number of ways to decode substring [0, i]
-	public int numDecodeWay(String s) {
+	public int numDecodings(String s) {
 		long[] array = new long[s.length()];
 		array[0] = s.charAt(0) == '0' ? 0 : 1;
 		array[0] = s.charAt(0) == '*' ? 9 : array[0];
