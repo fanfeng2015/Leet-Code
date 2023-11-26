@@ -22,7 +22,7 @@ public class DecodeWays {
 	// M[i]: number of ways to decode substring [0, i]
 	// M[i] = M[i - 2] + M[i - 1], if substring [i - 1, i] is in [1, 26]
 	// M[i] = M[i - 1], otherwise
-	public int numDecodeWay(String s) {
+	public int numDecodings(String s) {
 		int[] array = new int[s.length()];
 		array[0] = s.charAt(0) == '0' ? 0 : 1;
 		for (int i = 1; i < s.length(); i++) {
