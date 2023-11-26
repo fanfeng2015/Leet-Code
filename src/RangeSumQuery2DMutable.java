@@ -1,12 +1,16 @@
 // LeetCode #308 (Range Sum Query 2D - Mutable).
 
-// Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined
-// by its upper left corner (row1, col1) and lower right corner (row2, col2).
+// Given a 2D matrix matrix, handle multiple queries of the following types:
 
-// Notes:
-// 1. The matrix is only modifiable by the update function.
-// 2. You may assume the number of calls to update and sumRegion function is distributed evenly.
-// 3. You may assume that row1 ≤ row2 and col1 ≤ col2.
+// - Update the value of a cell in matrix.
+// - Calculate the sum of the elements of matrix inside the rectangle defined by its upper left corner (row1, col1) and lower 
+//   right corner (row2, col2).
+
+// Implement the NumMatrix class:
+// - NumMatrix(int[][] matrix) Initializes the object with the integer matrix matrix.
+// - void update(int row, int col, int val) Updates the value of matrix[row][col] to be val.
+// - int sumRegion(int row1, int col1, int row2, int col2) Returns the sum of the elements of matrix inside the rectangle 
+//   defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
 
 public class RangeSumQuery2DMutable {
 
