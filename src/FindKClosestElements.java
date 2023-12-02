@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 // in the array. The result should also be sorted in ascending order.
 
 // An integer a is closer to x than an integer b if:
-//   |a - x| < |b - x|, or
-//   |a - x| == |b - x| and a < b
+//  - |a - x| < |b - x|, or
+//  - |a - x| == |b - x| and a < b
 
 public class FindKClosestElements {
 
