@@ -7,10 +7,10 @@ import java.util.Set;
 
 // LeetCode #301 (Remove Invalid Parentheses).
 
-// Remove the minimum number of invalid parentheses in order to make the input string valid. 
-// Return all possible results.
+// Given a string s that contains parentheses and letters, remove the minimum number of invalid parentheses to make the input 
+// string valid.
 
-// Note: The input string may contain letters other than the parentheses ( and ).
+// Return a list of unique strings that are valid with the minimum number of removals. You may return the answer in any order.
 
 public class RemoveInvalidParentheses {
 
