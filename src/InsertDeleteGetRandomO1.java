@@ -6,17 +6,19 @@ import java.util.Random;
 
 // LeetCode #380 (Insert Delete Get Random O(1)).
 
-// Design a data structure that supports all following operations in average O(1) time:
+// Implement the RandomizedSet class:
+// - RandomizedSet() Initializes the RandomizedSet object.
+// - bool insert(int val) Inserts an item val into the set if not present. Returns true if the item was not present, false otherwise.
+// - bool remove(int val) Removes an item val from the set if present. Returns true if the item was present, false otherwise.
+// - int getRandom() Returns a random element from the current set of elements (it's guaranteed that at least one element exists when 
+//   this method is called). Each element must have the same probability of being returned.
 
-// insert(val): Inserts an item val to the set if not already present.
-// remove(val): Removes an item val from the set if present.
-// getRandom(): Returns a random element from current set of elements. Each element must
-//              have the same probability of being returned.
+// You must implement the functions of the class such that each function works in average O(1) time complexity.
 
 public class InsertDeleteGetRandomO1 {
 
 	List<Integer> list;
-	Map<Integer, Integer> map;
+	Map<Integer, Integer> map; // { val: index in list }
 
 	public InsertDeleteGetRandomO1() {
 		this.list = new ArrayList<>();
