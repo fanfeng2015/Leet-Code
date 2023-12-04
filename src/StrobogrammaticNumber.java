@@ -1,10 +1,8 @@
 // LeetCode #246 (Strobogrammatic Number).
 
-// A strobogrammatic number is a number that looks the same when rotated 180 degrees
-// (looked at upside down).
+// Given a string num which represents an integer, return true if num is a strobogrammatic number.
 
-// Write a function to determine if a number is strobogrammatic. The number is represented
-// as a string.
+// A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
 
 public class StrobogrammaticNumber {
 
@@ -31,4 +29,3 @@ public class StrobogrammaticNumber {
 	// Time complexity is O(n).
 	// Space complexity is O(1).
 }
-
