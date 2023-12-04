@@ -4,13 +4,13 @@ import java.util.List;
 
 // LeetCode #247 (Strobogrammatic Number II).
 
-// A strobogrammatic number is a number that looks the same when rotated 180 degrees
-// (looked at upside down).
+// Given an integer n, return all the strobogrammatic numbers that are of length n. You may return the answer in any order.
 
-// Find all strobogrammatic numbers that are of length = n.
+// A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down).
 
 public class StrobogrammaticNumber2 {
 
+	// recursive
 	public List<String> findStrobogrammatic(int n) {
 		return helper(n, n);
 	}
@@ -37,5 +37,32 @@ public class StrobogrammaticNumber2 {
 	}
 
 	// Time complexity is O(n^3).
+	// Space complexity is O(n^2).
+
+	// iterative
+	public List<String> findStrobogrammatic2(int n) {
+		List<String> prev = new ArrayList<>(), cur = new ArrayList<>(), next;
+		prev.add("");
+		cur.add("0");
+		cur.add("1");
+		cur.add("8");
+		for (int i = 2; i <= n; i++) {
+			next = new ArrayList<>();
+			for (String str : prev) {
+				if (i < n) {
+					next.add("0" + str + "0");
+				}
+				next.add("1" + str + "1");
+				next.add("8" + str + "8");
+				next.add("6" + str + "9");
+				next.add("9" + str + "6");
+			}
+			prev = cur;
+			cur = next;
+		}
+		return cur;
+	}
+
+	// Time complexity is O(n^3), due to string concatenation.
 	// Space complexity is O(n^2).
 }
