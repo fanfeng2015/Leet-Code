@@ -39,4 +39,37 @@ public class MaximumSwap {
 
 	// Time complexity is O(n).
 	// Space complexity is O(n).
+
+	public int maximumSwap2(int num) {
+		char[] array = String.valueOf(num).toCharArray();
+		int n = array.length, index = -1;
+		char max = '0';
+		for (int i = 0; i < n - 1; i++) { // find the first digit where the next digit is greater
+			if (array[i] < array[i + 1]) {
+				index = i;
+				max = array[i];
+				break;
+			}
+		}
+		if (index == -1) {
+			return num;
+		}
+		int left = index, right = index;
+		for (int i = index + 1; i < n; i++) { // to the right, find the max digit
+			if (array[i] >= max) {
+				max = array[i];
+				right = i;
+			}
+		}
+		for (; left > 0; left--) { // to the left, find the largest digit < max
+			if (array[left - 1] >= max) {
+				break;
+			}
+		}
+		swap(array, left, right);
+		return Integer.parseInt(String.valueOf(array));
+	}
+
+	// Time complexity is O(n).
+	// Space complexity is O(n), but O(1) if input is given as a char array.
 }
