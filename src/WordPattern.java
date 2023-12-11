@@ -3,13 +3,9 @@ import java.util.Map;
 
 // LeetCode #290 (Word Pattern).
 
-// Given a pattern and a string str, find if str follows the same pattern.
+// Given a pattern and a string s, find if s follows the same pattern.
 
-// Here follow means a full match, such that there is a bijection between a letter in pattern and a 
-// non-empty word in str.
-
-// Note: You may assume pattern contains only lowercase letters, and str contains lowercase letters'
-// separated by a single space.
+// Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.
 
 public class WordPattern {
 
