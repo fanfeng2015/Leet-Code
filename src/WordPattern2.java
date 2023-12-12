@@ -3,12 +3,11 @@ import java.util.Map;
 
 // LeetCode #291 (Word Pattern II).
 
-// Given a pattern and a string str, find if str follows the same pattern.
+// Given a pattern and a string s, return true if s matches the pattern.
 
-// Here follow means a full match, such that there is a bijection between a letter in pattern
-// and a non-empty substring in str.
-
-// Note: You may assume both pattern and str contains only lowercase letters.
+// A string s matches a pattern if there is some bijective mapping of single characters to non-empty strings such that if each 
+// character in pattern is replaced by the string it maps to, then the resulting string is s. A bijective mapping means that no
+// two characters map to the same string, and no character maps to two different strings.
 
 public class WordPattern2 {
 
@@ -18,6 +17,7 @@ public class WordPattern2 {
 		return DFS(pattern, str, charToStr, strToChar, 0, 0);
 	}
 
+	// m indicates index of "pattern", n indicates the starting index of "str".
 	private boolean DFS(String pattern, String str, Map<Character, String> charToStr, Map<String, Character> strToChar,
 			int m, int n) {
 		if (m == pattern.length() || n == str.length()) {
