@@ -53,3 +53,7 @@ public class ShortestPathInBinaryMatrix {
 	// Time complexity is O(m*n).
 	// Space complexity is O(m*n).
 }
+
+// Note: We can also use a boolean[][] visited to avoid modifying the input matrix:
+// 1. In case that multiple threads are reading/writing to the same input matrix.
+// 2. In case the input matrix needs to be reused.
