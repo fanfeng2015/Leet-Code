@@ -1,9 +1,8 @@
 // LeetCode #766 (Toeplitz Matrix).
 
-// A matrix is Toeplitz if every diagonal from top-left to bottom-right has the 
-// same element.
+// Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
 
-// Now given an M x N matrix, return True if and only if the matrix is Toeplitz.
+// A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
 
 public class ToeplitzMatrix {
 
