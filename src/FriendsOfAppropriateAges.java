@@ -1,21 +1,18 @@
 // LeetCode #825 (Friends of Appropriate Ages).
 
-// Some people will make friend requests. The list of their ages is given and ages[i] is
-// the age of the i-th person. 
+// There are n persons on a social media website. You are given an integer array ages where ages[i] is the age of the ith person.
 
-// Person A will NOT friend request person B (B != A) if any of the following conditions
-// are true:
+// A Person x will not send a friend request to a person y (x != y) if any of the following conditions is true:
+// - age[y] <= 0.5 * age[x] + 7
+// - age[y] > age[x]
+// - age[y] > 100 && age[x] < 100
 
-// age[B] <= 0.5 * age[A] + 7
-// age[B] > age[A]
-// age[B] > 100 && age[A] < 100
+// Otherwise, x will send a friend request to y.
 
-// Otherwise, A will friend request B.
+// Note that if x sends a request to y, y will not necessarily send a request to x. Also, a person will not send a friend request to
+// themself.
 
-// Note that if A requests B, B does not necessarily request A.  Also, people will not 
-// friend request themselves.
-
-// wHow many total friend requests are made?
+// Return the total number of friend requests made.
 
 public class FriendsOfAppropriateAges {
 
@@ -42,5 +39,5 @@ public class FriendsOfAppropriateAges {
 	}
 
 	// Time complexity is O(n).
-	// Space complexity is O(1).
+	// Space complexity is O(1), because MAX_AGE = 120.
 }
