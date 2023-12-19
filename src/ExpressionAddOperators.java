@@ -3,9 +3,10 @@ import java.util.List;
 
 // LeetCode 282 (Expression Add Operators).
 
-// Given a string that contains only digits 0-9 and a target value, return all possibilities
-// to add binary operators (not unary) +, -, or * between the digits so they evaluate to the
-// target value.
+// Given a string num that contains only digits and an integer target, return all possibilities to insert the binary operators '+',
+// '-', and/or '*' between the digits of num so that the resultant expression evaluates to the target value.
+
+// Note that operands in the returned expressions should not contain leading zeros.
 
 public class ExpressionAddOperators {
 
