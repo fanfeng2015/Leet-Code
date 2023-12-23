@@ -26,7 +26,7 @@ public class AlienDictionary {
 		Arrays.fill(incomingDegrees, -1); // -1 indicates not exist
 		List<Set<Character>> adjacencyList = new ArrayList<>();
 		int count = constructGraph(words, incomingDegrees, adjacencyList);
-		return topologicalSort(incomingDegrees, adjacencyList, count);
+		return count == -1 ? "" : topologicalSort(incomingDegrees, adjacencyList, count);
 	}
 
 	// returns the number of unique characters (need to check if graph is DAG)
@@ -46,6 +46,10 @@ public class AlienDictionary {
 			}
 			if (i > 0) {
 				String prev = words[i - 1];
+				// ["abc", "ab"] -> ""
+				if (prev.length() > cur.length() && prev.substring(0, cur.length()).equals(cur)) {
+					return -1;
+				}
 				int index = 0;
 				while (index < prev.length() && index < cur.length() && prev.charAt(index) == cur.charAt(index)) {
 					index++;
