@@ -80,6 +80,6 @@ public class AlienDictionary {
 		return sb.length() == count ? sb.toString() : "";
 	}
 
-	// Time complexity is O(n).
-	// Space complexity is O(n).
+	// Time complexity is O(n*l).
+	// Space complexity is O(1), because vocabulary size is fixed.
 }
