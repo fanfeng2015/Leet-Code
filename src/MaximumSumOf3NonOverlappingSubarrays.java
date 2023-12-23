@@ -1,18 +1,9 @@
 // LeetCode #689 (Maximum Sum of 3 Non-Overlapping Subarrays).
 
-// In a given array nums of positive integers, find three non-overlapping subarrays 
-// with maximum sum.
+// Given an integer array nums and an integer k, find three non-overlapping subarrays of length k with maximum sum and return them.
 
-// Each subarray will be of size k, and we want to maximize the sum of all 3*k entries.
-
-// Return the result as a list of indices representing the starting position of each 
-// interval (0-indexed). If there are multiple answers, return the lexicographically 
-// smallest one.
-
-// Notes:
-// 1. nums.length will be between 1 and 20000.
-// 2. nums[i] will be between 1 and 65535.
-// 3. k will be between 1 and floor(nums.length / 3).
+// Return the result as a list of indices representing the starting position of each interval (0-indexed). If there are multiple 
+// answers, return the lexicographically smallest one.
 
 public class MaximumSumOf3NonOverlappingSubarrays {
 
