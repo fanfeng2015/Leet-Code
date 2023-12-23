@@ -52,3 +52,8 @@ public class MaximumSumOf3NonOverlappingSubarrays {
 	// Time complexity is O(n - k).
 	// Space complexity is O(n).
 }
+
+// nums = [1,2,1,2,6,7,5,1], k = 2
+// sum = [0,1,3,4,6,12,19,24,25]
+// left = [0,0,0,0,3,4,4,4]
+// right = [4,4,4,4,4,5,6,0]
