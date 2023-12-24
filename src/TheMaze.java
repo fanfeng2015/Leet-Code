@@ -1,15 +1,13 @@
 // LeetCode #490 (The Maze).
 
-// There is a ball in a maze with empty spaces and walls. The ball can go through empty
-// spaces by rolling up, down, left or right, but it won't stop rolling until hitting a 
-// wall. When the ball stops, it could choose the next direction.
+// There is a ball in a maze with empty spaces (represented as 0) and walls (represented as 1). The ball can go through the empty 
+// spaces by rolling up, down, left or right, but it won't stop rolling until hitting a wall. When the ball stops, it could choose
+// the next direction.
 
-// Given the ball's start position, the destination and the maze, determine whether the 
-// ball could stop at the destination.
+//  Given the m x n maze, the ball's start position and the destination, where start = [startrow, startcol] and 
+// destination = [destinationrow, destinationcol], return true if the ball can stop at the destination, otherwise return false.
 
-// The maze is represented by a binary 2D array. 1 means the wall and 0 means the empty 
-// space. You may assume that the borders of the maze are all walls. The start and 
-// destination coordinates are represented by row and column indexes.
+// You may assume that the borders of the maze are all walls (see examples).
 
 public class TheMaze {
 
