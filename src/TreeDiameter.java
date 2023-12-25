@@ -54,6 +54,6 @@ public class TreeDiameter {
 		return new int[] { destination, level };
 	}
 
-	// Time complexity is O(m*n * log(m*n)).
-	// Space complexity is O(m*n).
+	// Time complexity is O(n).
+	// Space complexity is O(n).
 }
