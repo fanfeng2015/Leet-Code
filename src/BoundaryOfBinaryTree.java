@@ -4,18 +4,22 @@ import java.util.List;
 
 // LeetCode #545 (Boundary of Binary Tree).
 
-// Given a binary tree, return the values of its boundary in anti-clockwise direction starting from root. 
-// Boundary includes left boundary, leaves, and right boundary in order without duplicate nodes.
+// The boundary of a binary tree is the concatenation of the root, the left boundary, the leaves ordered from left-to-right, and 
+// the reverse order of the right boundary.
 
-// Left boundary is defined as the path from root to the left-most node. Right boundary is defined as the
-// path from root to the right-most node. If the root doesn't have left subtree or right subtree, then the
-// root itself is left boundary or right boundary. Note this definition only applies to the input binary tree,
-// and not applies to any subtrees.
+// The left boundary is the set of nodes defined by the following:
 
-// The left-most node is defined as a leaf node you could reach when you always firstly travel to the left 
-// subtree if exists. If not, travel to the right subtree. Repeat until you reach a leaf node.
+// - The root node's left child is in the left boundary. If the root does not have a left child, then the left boundary is empty.
+// - If a node in the left boundary and has a left child, then the left child is in the left boundary.
+// - If a node is in the left boundary, has no left child, but has a right child, then the right child is in the left boundary.
+// - The leftmost leaf is not in the left boundary.
 
-// The right-most node is also defined by the same way with left and right exchanged.
+// The right boundary is similar to the left boundary, except it is the right side of the root's right subtree. Again, the leaf is
+// not part of the right boundary, and the right boundary is empty if the root does not have a right child.
+
+// The leaves are nodes that do not have any children. For this problem, the root is not a leaf.
+
+// Given the root of a binary tree, return the values of its boundary.
 
 public class BoundaryOfBinaryTree {
 
@@ -37,7 +41,7 @@ public class BoundaryOfBinaryTree {
 			return;
 		}
 		result.add(root.val);
-		if (root.left != null) {
+		if (root.left != null) { // note that this is an else-if statement
 			addLeftBoundary(root.left, result);
 		} else {
 			addLeftBoundary(root.right, result);
@@ -62,7 +66,7 @@ public class BoundaryOfBinaryTree {
 			return;
 		}
 		// in reverse order
-		if (root.right != null) {
+		if (root.right != null) { // note that this is an else-if statement
 			addRightBoundary(root.right, result);
 		} else {
 			addRightBoundary(root.left, result);
