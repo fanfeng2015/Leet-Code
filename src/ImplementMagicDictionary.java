@@ -4,14 +4,14 @@ import java.util.Map;
 
 // LeetCode #676 (Implement Magic Dictionary).
 
-// Implement a magic directory with buildDict, and search methods.
+// Design a data structure that is initialized with a list of different words. Provided a string, you should determine if you can
+// change exactly one character in this string to match any word in the data structure.
 
-// For the method buildDict, you'll be given a list of non-repetitive
-// words to build a dictionary.
-
-// For the method search, you'll be given a word, and judge whether if
-// you modify exactly one character into another character in this word,
-// the modified word is in the dictionary you just built.
+// Implement the MagicDictionary class:
+// - MagicDictionary() Initializes the object.
+// - void buildDict(String[] dictionary) Sets the data structure with an array of distinct strings dictionary.
+// - bool search(String searchWord) Returns true if you can change exactly one character in searchWord to match any string in the
+//   data structure, otherwise returns false.
 
 public class ImplementMagicDictionary {
 
@@ -57,15 +57,10 @@ public class ImplementMagicDictionary {
 	// Time complexity is O(n) to build dictionary, O(n*l) to search word.
 	// Space complexity is O(n*k).
 
-/*
 	// Solution 2: Trie
-	TrieNode root;
+	TrieNode root = new TrieNode();
 
-	public ImplementMagicDictionary() {
-		root = new TrieNode();
-	}
-
-	public void buildDict(String[] dict) {
+	public void buildDict2(String[] dict) {
 		for (String word : dict) {
 			TrieNode cur = root;
 			for (int i = 0; i < word.length(); i++) {
@@ -78,17 +73,19 @@ public class ImplementMagicDictionary {
 		}
 	}
 
-	public boolean search(String word) {
+	public boolean search2(String word) {
 		TrieNode cur = root;
 		for (int i = 0; i < word.length(); i++) {
 			char ch = word.charAt(i);
-			for (int j = 0; j < 26; j++) {
-				// modify the i-th char to every possible char
-				if ((char) ('a' + j) != ch && cur.children[j] != null && search(word, i + 1, cur.children[j])) {
+			for (int j = 0; j < 26; j++) { // modify the i-th char to every possible char
+				if ((char) ('a' + j) != ch && cur.children[j] != null && search2(word, i + 1, cur.children[j])) {
 					return true;
 				}
 			}
-			// modification of the i-th char doesn't lead to an existing word in dict
+			// so far, modification of the i-th char doesn't lead to an existing word in
+			// the dict
+			// - if no other word starts with this prefix, then target can't be found
+			// - otherwise, we can keep the current character, and alter a future character
 			if (cur.children[ch - 'a'] == null) {
 				return false;
 			}
@@ -99,7 +96,7 @@ public class ImplementMagicDictionary {
 
 	// Modification has been made at (index - 1), an exact match for the rest of the
 	// word needs to be found.
-	private boolean search(String word, int index, TrieNode node) {
+	private boolean search2(String word, int index, TrieNode node) {
 		TrieNode cur = node;
 		for (int i = index; i < word.length(); i++) {
 			char ch = word.charAt(i);
@@ -110,9 +107,7 @@ public class ImplementMagicDictionary {
 		}
 		return cur.isWord;
 	}
-	
+
 	// Time complexity is O(n*k) to build dictionary, O(l) to search word.
 	// Space complexity is O(n*k).
-*/
-
 }
