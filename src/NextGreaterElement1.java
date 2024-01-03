@@ -38,3 +38,8 @@ public class NextGreaterElement1 {
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 }
+
+// [4, 1, 2], [1, 3, 4, 2]
+// stack: 4 2
+// map: {1: 3, 3: 4}
+// map: {1: 3, 3: 4, 4: -1, 2: -1}
