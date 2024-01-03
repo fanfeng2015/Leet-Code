@@ -51,12 +51,14 @@ public class KthLargestElementInAnArray {
 		while (low <= high) {
 			if (nums[low] < pivotValue) {
 				low++;
-			} else if (nums[high] >= pivotValue) {
+			} else if (nums[high] >= pivotValue) { // "=" can be placed in either if or else if
 				high--;
 			} else {
 				swap(nums, low++, high--);
 			}
 		}
+		// swap and return low -> equal values are all to the left of low
+		// swap and return high -> equal values are all to the right of high
 		swap(nums, low, right);
 		return low;
 	}
