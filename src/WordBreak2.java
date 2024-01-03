@@ -16,11 +16,10 @@ public class WordBreak2 {
 		if (!canBreak(s, wordDict)) {
 			return new ArrayList<String>();
 		}
+		Set<String> set = new HashSet<>(wordDict);
 		StringBuilder sb = new StringBuilder();
 		List<String> cur = new ArrayList<>();
 		List<String> result = new ArrayList<>();
-
-		Set<String> set = new HashSet<>(wordDict);
 		DFS(s, set, sb, cur, result);
 		return result;
 	}
