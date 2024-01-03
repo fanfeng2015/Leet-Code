@@ -21,6 +21,8 @@ public class NumberOfSubstringsContainingAllThreeCharacters {
 			}
 		}
 		int i = 0, j = 0, k = 0, result = 0;
+		// between [index, n-1], how many substrings contain ar least one occurrence of
+		// all these characters a, b and c?
 		for (int index = 0; index < n; index++) {
 			while (i < a.size() && a.get(i) < index) {
 				i++;
