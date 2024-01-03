@@ -21,7 +21,7 @@ public class NumberOfSubstringsContainingAllThreeCharacters {
 			}
 		}
 		int i = 0, j = 0, k = 0, result = 0;
-		// between [index, n-1], how many substrings contain ar least one occurrence of
+		// between [index, n-1], how many substrings contain at least one occurrence of
 		// all these characters a, b and c?
 		for (int index = 0; index < n; index++) {
 			while (i < a.size() && a.get(i) < index) {
@@ -53,6 +53,8 @@ public class NumberOfSubstringsContainingAllThreeCharacters {
 		int[] lastOccur = new int[] { -1, -1, -1 };
 		for (int i = 0; i < s.length(); i++) {
 			lastOccur[s.charAt(i) - 'a'] = i;
+			// between [0, min(...)], how many substrings contain at least one occurrence of
+			// all these characters a, b and c?
 			result += 1 + min(lastOccur[0], lastOccur[1], lastOccur[2]);
 		}
 		return result;
@@ -65,3 +67,8 @@ public class NumberOfSubstringsContainingAllThreeCharacters {
 	// Time complexity is O(n).
 	// Space complexity is O(1).
 }
+
+// abcabc
+// 0 -> +0, 1 -> +0
+// 2 -> [0, 1, 2] -> +(1+min) = +1
+// 3 -> [3, 1, 2] -> +(1+min) = +2
