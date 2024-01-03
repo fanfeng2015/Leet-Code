@@ -26,7 +26,7 @@ public class KthLargestElementInAnArray {
 	}
 
 	// Solution 3: quick select
-	// - average case: O(n)) time, O(log(n)) space
+	// - average case: O(n) time, O(log(n)) space
 	// - worst case: O(n^2) time, O(n) space
 	public int findKthLargest2(int[] nums, int k) {
 		int left = 0, right = nums.length - 1;
