@@ -37,7 +37,7 @@ public class WordBreak2 {
 			sb.append(str);
 			cur.add(str);
 			DFS(s, set, sb, cur, result);
-			sb.delete(len, sb.length()); // [start, end)
+			sb.delete(len, sb.length()); // [ start, end )
 			cur.remove(cur.size() - 1);
 		}
 	}
