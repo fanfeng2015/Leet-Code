@@ -37,3 +37,11 @@ public class NextGreaterElement2 {
 	// Time complexity is O(n).
 	// Space complexity is O(n).
 }
+
+// [1, 2, 3, 4, 3]
+// stack: [3, 4]
+// result: [2, 3, 4]
+// stack: [3]
+// result: [2, 3, 4, 0, 3]
+// stack: []
+// result: [2, 3, 4, -1, 3]
