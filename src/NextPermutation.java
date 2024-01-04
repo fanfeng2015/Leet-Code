@@ -62,3 +62,7 @@ public class NextPermutation {
 	// Time complexity is O(n).
 	// Space complexity is O(1).
 }
+
+// 2 6 4 3 2 1
+// 3 6 4 2 2 1
+// 3 1 2 2 4 6
