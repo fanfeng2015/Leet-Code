@@ -103,3 +103,6 @@ public class RemoveInvalidParentheses {
 	}
 
 }
+
+// "()())()", length = 7
+// ")())()", "(())()", "()))()", "()()()", "()()()", "()()))", "()())(", length = 6
